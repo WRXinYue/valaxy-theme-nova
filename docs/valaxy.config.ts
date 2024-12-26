@@ -102,6 +102,7 @@ export default defineConfig<ThemeConfig>({
 
     footer: {
       since: 2024,
+      powered: true,
       icp: '<a class="oceanus-text" href="https://icp.gov.moe/?keyword=20240132" target="_blank">萌ICP备20240132号</a>',
     },
   },
