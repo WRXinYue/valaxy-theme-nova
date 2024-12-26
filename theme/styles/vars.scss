@@ -1,0 +1,65 @@
+@use 'sass:map';
+
+$common: (
+  'nav-height': 55px,
+  'aside-width': 300px,
+  'aside-pt': 16px,
+  'list-link-buffer': 17px,
+  'font': 'Inter, sans-serif',
+  'z-backdrop': 10,
+) !default;
+$common: map.merge((), $common);
+
+$light: (
+  // --------------- Text ---------------
+  'c-text': #1d1d1f,
+  'c-text-muted': #9e9e9e,
+  'c-text-deep': #2e2f30,
+  'c-text-deeper': #000,
+  'c-link': var(--oceanus-c-brand),
+  // 'c-bg-design': #fbfbfd,
+  'c-bg-design': #fff,
+  'c-nav-bg': hsla(0, 0%, 100%, 0.7),
+  'c-sub-nav-bg': var(--oceanus-c-nav-bg),
+  'c-border': #d2d2d7,
+  // 'c-border-line': hsla(0, 0%, 71.4%, 0.5),
+  'c-border-line': rgba(0, 0, 0, 0.1),
+  'c-divider': rgba(0, 0, 0, 0.04),
+  'c-list-active-bg': #e8e8ed,
+  'c-list-hover-bg': var(--oceanus-c-list-active-bg),
+  'c-list-active-font': #000,
+  // --------------- Card ---------------
+  'c-card-bg': '#f6f6f6',
+  // --------------- Footer ---------------
+  'c-footer-bg': rgb(245, 245, 247),
+  'c-footer-border': rgba(0, 0, 0, 0.16)
+) !default;
+$light: map.merge((), $light);
+
+$dark: (
+  // --------------- Text ---------------
+  'c-text': #f5f5f7,
+  'c-text-muted': #a3a3a3,
+  'c-text-deep': rgba(255, 255, 245, 0.86),
+  'c-text-deeper': #fff,
+  'c-link': var(--oceanus-c-brand),
+  // 'c-bg-design': #101010,
+  'c-bg-design': #000,
+  'c-nav-bg': hsla(240, 2.33%, 8.43%, 0.72),
+  'c-sub-nav-bg': var(--oceanus-c-nav-bg),
+  'c-border': #262626,
+  'c-border-line': rgba(255, 255, 255, 0.24),
+  'c-divider': #2e2e32,
+  'c-list-active-bg': #333336,
+  'c-list-hover-bg': var(--oceanus-c-list-active-bg),
+  'c-list-active-font': #000,
+  // --------------- Card ---------------
+  'c-card-bg': '#141414',
+  // --------------- Footer ---------------
+  'c-footer-bg': rgb(29, 29, 31),
+  'c-footer-border': rgba(38, 38, 38, 0.7)
+) !default;
+$dark: map.merge((), $dark);
+
+$z-index: () !default;
+$z-index: map.merge((), $z-index);
