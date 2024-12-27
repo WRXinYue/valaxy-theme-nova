@@ -17,7 +17,7 @@ const isThisYear = computed(() => {
 
 <template>
   <footer class="oceanus-footer">
-    <div class="footer-content oceanus-home-container">
+    <div class="oceanus-home-container footer-content">
       <div class="footer-columns">
         <template v-for="(nav, index) in themeConfig.header.nav">
           <div v-if="nav.subNav?.length" :key="index" class="footer-column">

@@ -1,36 +1,15 @@
-<script setup lang="ts">
-import Select from 'primevue/select'
-import { useAppStore } from 'valaxy'
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-
-const { locale } = useI18n()
-const appStore = useAppStore()
-
-const cities = ([
-  { label: '简体中文', code: 'zh-CN' },
-  { label: 'English', code: 'en' },
-])
-
-const selectedLanguage = ref(cities.find(city => city.code === locale.value))
-
-if (appStore.isDark)
-  appStore.toggleDark()
-</script>
-
 <template>
   <div class="oceanus-nav-toolbar">
-    <div />
-    <div class="h-full flex items-center">
-      123
-    </div>
+    <div class="h-full flex items-center" />
   </div>
 </template>
 
 <style lang="scss">
 .oceanus-nav-toolbar {
+  position: fixed;
   padding: 0 60px;
   height: auto;
+  width: 100%;
   min-height: 24px;
   color: #fff;
   background-color: #000;

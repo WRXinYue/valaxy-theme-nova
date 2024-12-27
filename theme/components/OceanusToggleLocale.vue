@@ -11,5 +11,5 @@ const locales: DropdownItem[] = [
 </script>
 
 <template>
-  <OceanusDropdownItem icon="i-ri-translate-2" class="inherit text-icon oceanus-nav-toolbar-select-lang" :items="locales" />
+  <OceanusDropdownItem icon="i-ri-translate-2" class="text-icon oceanus-nav-toolbar-select-lang inherit" :items="locales" />
 </template>

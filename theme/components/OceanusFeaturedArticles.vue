@@ -5,7 +5,7 @@ const fm = useFrontmatter()
 </script>
 
 <template>
-  <section v-if="fm?.featuredArticles" p="y-60px" class="oceanus-featured-articles oceanus-section">
+  <section v-if="fm?.featuredArticles" p="y-60px" class="oceanus-section oceanus-featured-articles">
     <div class="oceanus-home-container">
       <h3 class="subtitle">
         {{ fm.featuredArticles?.subtitle }}
@@ -32,7 +32,7 @@ const fm = useFrontmatter()
               <h2 class="text-#fff dark:text-#1d1d1f" style="font: 500 44px / 1.2 var(--oceanus-font)">
                 {{ article?.title }}
               </h2>
-              <p m="t-150px b-20px" class="max-w-93% whitespace-pre-wrap text-[hsla(0,0%,100%,0.85)] dark:text-[hsla(0,0%,0%,0.85)]" style="font: 400 16px / 1.2 var(--oceanus-font);">{{ article?.excerpt }}</p w="max-93%">
+              <p m="t-150px b-20px" class="max-w-93% whitespace-pre-wrap text-[hsla(0,0%,100%,0.85)] dark:text-[hsla(0,0%,0%,0.85)]" style="font: 400 16px / 1.2 var(--oceanus-font);">{{ article?.excerpt }}</p>
               <ul v-if="article?.tags" p="t-20px" m="x--2px" class="border-t border-#fff dark:border-#000" flex="~ wrap">
                 <li v-for="(tag, i) in article.tags" :key="i" p="[2px_14.5px_3px]" class="rounded-40px bg-[hsla(0,0%,100%,0.4)] text-#fff dark:bg-[hsla(0,0%,0%,0.4)] dark:text-#1d1d1f" m="2px" style="font: 500 14px / 1.25 var(--oceanus-font);">
                   {{ tag }}

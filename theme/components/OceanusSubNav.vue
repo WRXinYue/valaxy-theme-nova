@@ -11,8 +11,8 @@ const [isOpen, toggle] = useToggle()
 </script>
 
 <template>
-  <nav class="oceanus-sub-nav oceanus-safe-padding" :class="[isOpen && 'screen-open']" w="full" role="navigation">
-    <div class="oceanus-sub-nav-content oceanus-safe-padding" flex="~ col" w="full">
+  <nav class="oceanus-safe-padding oceanus-sub-nav" :class="[isOpen && 'screen-open']" w="full" role="navigation">
+    <div class="oceanus-safe-padding oceanus-sub-nav-content" flex="~ col" w="full">
       <div class="oceanus-sub-nav-bg" />
 
       <div class="oceanus-sub-nav-content-header" flex="~ justify-between items-center" w="full">

@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import type { NavItem } from '../types'
-
-import { useWindowScroll } from '@vueuse/core'
 import { useAppStore } from 'valaxy'
 import { ref } from 'vue'
 
@@ -11,7 +9,6 @@ defineProps<{
   favicon?: string
 }>()
 const appStore = useAppStore()
-const { x, y } = useWindowScroll()
 
 const isOpen = ref(false)
 // const isMobile = useMobile()
@@ -32,13 +29,13 @@ function toggle() {
 <template>
   <nav class="oceanus-nav" w="full" role="navigation" :class="[isOpen && 'screen-open']">
     <div class="nav-content" flex="~ items-center">
-      <div class="nav-content-header oceanus-safe-padding" flex="~ center md:justify-between">
+      <div class="oceanus-safe-padding nav-content-header" flex="~ center md:justify-between">
         <OceanusNavMenu class="nav-menu left-2 z-50 absolute! md:hidden" h="full" :active="isOpen" @click="toggle" />
 
         <AppLink to="/" :aria-label="title">
           <div class="h-30px flex text-center text-xl">
             <img v-if="favicon" class="mr-2 object-cover" alt="logo" :src="favicon">
-            <span class="oceanus-nav-title oceanus-text md:inline">{{ title }}</span>
+            <span class="oceanus-text oceanus-nav-title md:inline">{{ title }}</span>
           </div>
         </AppLink>
 

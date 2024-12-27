@@ -1,24 +1,13 @@
 <script lang="ts" setup>
 import type { PageData, Post } from 'valaxy'
-import { useAppStore, useSiteConfig } from 'valaxy'
-import { computed, onMounted } from 'vue'
+import { useSiteConfig } from 'valaxy'
 
-const props = defineProps<{
+defineProps<{
   frontmatter: Post
   data?: PageData
 }>()
 
 const siteConfig = useSiteConfig()
-const appStore = useAppStore()
-
-const aside = computed(() => props.frontmatter.aside !== false)
-
-onMounted(() => {
-  if (props.frontmatter.mode === 'dark') {
-    if (!appStore.isDark)
-      appStore.toggleDark()
-  }
-})
 </script>
 
 <template>

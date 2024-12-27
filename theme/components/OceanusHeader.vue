@@ -30,7 +30,7 @@ const navFavicon = computed(() => {
 </script>
 
 <template>
-  <!-- <OceanusBanner /> -->
+  <!-- <OceanusNavBanner /> -->
   <!-- <OceanusNavToolbar /> -->
   <OceanusNav :nav="nav" :favicon="navFavicon" :title :class="!currentNavItem?.subNav && 'fixed'" />
   <div :style="{ marginTop: currentNavItem?.subNav ? 0 : 'var(--oceanus-nav-height)' }" class="nav-placeholder" />

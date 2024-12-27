@@ -1,10 +1,20 @@
 <script lang="ts" setup>
-import { useAddonAlgolia } from 'valaxy-addon-algolia'
+import { isEmptyAddon } from 'valaxy'
+import * as addonAlgolia from 'valaxy-addon-algolia'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const { loaded, load } = useAddonAlgolia()
+if (isEmptyAddon(addonAlgolia))
+  throw new Error('Algolia addon is not installed')
+
+const { loaded, load, dispatchEvent } = addonAlgolia.useAddonAlgolia()
+
+defineExpose({
+  loaded,
+  load,
+  dispatchEvent,
+})
 </script>
 
 <template>

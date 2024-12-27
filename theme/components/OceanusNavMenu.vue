@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <button
     flex="~ center"
-    class="mobile-btn oceanus-nav-menu" :class="active ? 'mobile-btn-open' : ''" aria-label="mobile navigation" :aria-expanded="active"
+    class="oceanus-nav-menu mobile-btn" :class="active ? 'mobile-btn-open' : ''" aria-label="mobile navigation" :aria-expanded="active"
   >
     <span class="nav-menu-bread nav-menu-bread-top">
       <span class="nav-menu-bread-crust nav-menu-bread-crust-top" :class="active ? 'bg-$oceanus-c-text-deeper' : 'bg-$oceanus-c-text-deeper'" />
