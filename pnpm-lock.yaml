@@ -47,9 +47,6 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.2.13
         version: 1.2.13
-      lenis:
-        specifier: ^1.1.18
-        version: 1.1.18(vue@3.5.13(typescript@5.7.2))
       markdown-it-github-alerts:
         specifier: ^0.3.0
         version: 0.3.0(markdown-it@14.1.0)
@@ -3498,17 +3495,6 @@ packages:
 
   leac@0.6.0:
     resolution: {integrity: sha512-y+SqErxb8h7nE/fiEX07jsbuhrpO9lL8eca7/Y1nuWV2moNlXhyd59iDGcRf6moVyDMbmTNzL40SUyrFU/yDpg==}
-
-  lenis@1.1.18:
-    resolution: {integrity: sha512-hBJVN0o7ZWt6DqyLoCkYKLffgCqywX0Gf/ZWhWC8Ths1zN/lZHoAMC3faFjaTxnOEKokeV0q1Mlyu1aUr18xFQ==}
-    peerDependencies:
-      react: '>=17.0.0'
-      vue: '>=3.0.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      vue:
-        optional: true
 
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -8753,10 +8739,6 @@ snapshots:
   layout-base@2.0.1: {}
 
   leac@0.6.0: {}
-
-  lenis@1.1.18(vue@3.5.13(typescript@5.7.2)):
-    optionalDependencies:
-      vue: 3.5.13(typescript@5.7.2)
 
   levn@0.4.1:
     dependencies:

@@ -7,7 +7,15 @@ const marker = ref()
 
 useActiveAnchor(container, marker)
 
-const { headers, handleClick } = useOutline()
+const { headers } = useOutline()
+
+function handleClick(event: Event) {
+  const el = event.target as HTMLAnchorElement
+  const id = el.href.split('#')[1]
+  const heading = document.getElementById(decodeURIComponent(id)) as HTMLElement
+
+  heading?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 </script>
 
 <template>
