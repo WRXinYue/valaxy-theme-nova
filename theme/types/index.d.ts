@@ -22,7 +22,10 @@ export interface ThemeConfig extends DefaultTheme.Config {
   hero: Partial<{
     title: string
     motto: string
-    img: string
+    img: string | {
+      light: string
+      dark: string
+    }
   }>
 
   sidebar: SidebarMulti

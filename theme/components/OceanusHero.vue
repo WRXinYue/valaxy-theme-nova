@@ -1,11 +1,25 @@
 <script setup lang="ts">
+import { useAppStore } from 'valaxy'
+import { computed } from 'vue'
 import { useThemeConfig } from '../composables'
 
+const appStore = useAppStore()
 const themeConfig = useThemeConfig()
+
+const heroImg = computed(() => {
+  const img = themeConfig.value.hero.img
+  if (typeof img === 'string')
+    return img
+  else if (typeof img === 'object')
+    return appStore.isDark ? img.dark : img.light
+
+  console.error('Invalid favicon type, check ThemeConfig.hero.img config')
+  return ''
+})
 </script>
 
 <template>
-  <div class="oceanus-hero" :style="{ backgroundImage: `url(${themeConfig.hero.img})` }">
+  <div class="oceanus-hero" :style="{ backgroundImage: `url(${heroImg})` }">
     <div class="hero-content">
       <p class="hero-title">
         <slot name="intro-text">
@@ -18,16 +32,6 @@ const themeConfig = useThemeConfig()
           {{ themeConfig.hero.motto }}
         </slot>
       </p>
-
-      <!-- CTA Buttons -->
-      <!-- <div class="hero-buttons">
-        <button class="cta-primary">
-          Get Started
-        </button>
-        <button class="cta-secondary">
-          Learn More
-        </button>
-      </div> -->
     </div>
   </div>
 </template>
@@ -88,36 +92,6 @@ const themeConfig = useThemeConfig()
     display: flex;
     justify-content: center;
     gap: 1rem;
-  }
-
-  .cta-primary,
-  .cta-secondary {
-    padding: 0.75rem 2rem;
-    border-radius: 24px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .cta-primary {
-    background-color: #0071e3;
-    color: white;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-
-    &:hover {
-      background-color: #005bb5;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-  }
-
-  .cta-secondary {
-    background-color: transparent;
-    border: 1px solid #ffffff;
-    color: white;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
   }
 
   @keyframes fade-in {

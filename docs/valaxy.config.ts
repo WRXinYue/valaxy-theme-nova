@@ -37,7 +37,7 @@ export default defineConfig<ThemeConfig>({
               link: '/guide/writing/asset-handling',
             },
             {
-              text: 'fFrontmatter',
+              text: 'Frontmatter',
               link: '/guide/writing/frontmatter',
             },
             {
@@ -85,7 +85,10 @@ export default defineConfig<ThemeConfig>({
       title: 'VALAXY THEME OCEANUS',
       // motto: '简约、高雅的 Valaxy 文档主题',
       motto: 'Sliding content with sticky tab nav',
-      img: 'https://w.wallhaven.cc/full/85/wallhaven-85yl61.png',
+      img: {
+        light: 'https://common.s3.bitiful.net/oceanus/wallhaven-2y7yz6.jpg',
+        dark: 'https://common.s3.bitiful.net/oceanus/wallhaven-2evj3y.jpg',
+      },
     },
 
     // sidebar: [

@@ -2,3 +2,7 @@
 @use './markdown' as *;
 
 @use 'valaxy/client/styles/common/index.scss' as *;
+
+@use 'markdown-it-github-alerts/styles/github-colors-light.css' as *;
+@use 'markdown-it-github-alerts/styles/github-colors-dark-media.css' as *;
+@use 'markdown-it-github-alerts/styles/github-base.css' as *;

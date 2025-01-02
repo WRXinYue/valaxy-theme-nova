@@ -30,7 +30,7 @@ const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.va
         <slot />
 
         <slot name="toc">
-          <div class="border-l-1px border-$oceanus-c-border-line">
+          <div class="toc border-l-1px border-$oceanus-c-border-line">
             <OceanusToc />
           </div>
         </slot>
@@ -49,11 +49,11 @@ const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.va
   display: flex;
 
   .article-container {
-    border-right: 1px solid rgba(0, 0, 0, 0.04);
+    border-right: 1px solid var(--oceanus-c-divider);
   }
 
   .article-left-aside {
-    border-left: 1px solid rgba(0, 0, 0, 0.04);
+    border-left: 1px solid var(--oceanus-c-divider);
     width: 0;
     visibility: hidden;
     // overflow: hidden;
