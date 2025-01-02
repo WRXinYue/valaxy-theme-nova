@@ -7,36 +7,20 @@ end: true
 top: 100
 ---
 
-::: zh-CN
-对于第一次尝试的valaxy的用户，可以在本篇文章会如何安装 `valaxy-theme-sakura` 主题。在此之前，建议先了解一下[valaxy](https://valaxy.site/)
-:::
-
-::: en
-For users trying Valaxy for the first time, this article will guide you on how to install the valaxy-theme-sakura theme. Before proceeding, it is recommended to familiarize yourself with [valaxy](https://valaxy.site/).
-:::
-
 ### 兼容性{lang="zh-CN"}
 
 ### compatibility{lang="en"}
 
 ::: zh-CN
-要使用valaxy，您的电脑必须安装 [Node.js](https://nodejs.org/)
-:::
-
-::: en
-To use Valaxy, your computer must have Node.js installed.
-:::
-
-::: zh-CN
 | 版本 | Node | valaxy |
 | --- | --- | --- |
-| <Version type="oceanus" /> + | Node >= 18.12 | valaxy >= <Version type="valaxy" /> |
+| <Version type="oceanus" /> + | Node >= 18.12 | Valaxy >= <Version type="valaxy" /> |
 :::
 
 ::: en
 | version | Node | valaxy |
 | --- | --- | --- |
-| <Version type="oceanus" /> + | Node >= 18.12 | valaxy >= <Version type="valaxy" /> |
+| <Version type="oceanus" /> + | Node >= 18.12 | Valaxy >= <Version type="valaxy" /> |
 :::
 
 ### 创建 Valaxy 博客项目{lang="zh-CN"}
@@ -102,15 +86,15 @@ Navigate to the folder where you just created the Valaxy project, open the termi
 ::: code-group
 
 ```bash [pnpm]
-pnpm add valaxy-theme-sakura
+pnpm add valaxy-theme-oceanus
 ```
 
 ```bash [npm]
-npm install valaxy-theme-sakura
+npm install valaxy-theme-oceanus
 ```
 
 ```bash [yarn]
-yarn add valaxy-theme-sakura
+yarn add valaxy-theme-oceanus
 ```
 
 :::
@@ -130,23 +114,23 @@ If you encounter difficulties during the creation process, it is highly recommen
 ### Enable theme{lang="en"}
 
 ::: zh-CN
-在安装主题之后并不会启用主题。首先在 `valaxy.config.ts` 文件中启用 `sakura` 主题，您需要按照以下步骤操作：
+在安装主题之后并不会启用主题。首先在 `valaxy.config.ts` 文件中启用 `oceanus` 主题，您需要按照以下步骤操作：
 
 打开 Valaxy 项目的根目录的 `valaxy.config.ts` 文件，修改如下标注的位置，以确保 TypeScript 的类型检查和自动完成功能能够正常使用
 :::
 
 ::: en
-The theme will not be activated after installation. First, enable the `sakura` theme in the `valaxy.config.ts` file. You need to follow these steps:
+The theme will not be activated after installation. First, enable the `oceanus` theme in the `valaxy.config.ts` file. You need to follow these steps:
 
 Open the `valaxy.config.ts` file in the root directory of the Valaxy project, and modify the positions indicated below to ensure that TypeScript's type checking and auto-completion features work correctly:
 :::
 
 ```ts {2-4}
-import type { ThemeUserConfig } from 'valaxy-theme-sakura'
+import type { ThemeUserConfig } from 'valaxy-theme-oceanus'
 import { defineValaxyConfig } from 'valaxy'
 
 export default defineValaxyConfig<ThemeUserConfig>({
-  theme: 'sakura'
+  theme: 'oceanus'
 })
 ```
 
@@ -166,24 +150,24 @@ In simple terms, TypeScript can automatically complete code suggestions while yo
 
 :::zh-CN
 
-> 主题名称自动根据 `valaxy-theme-xxx` 的格式获取，如本主题名为`valaxy-theme-sakura`，所以sakura就是这个主题的名称
+> 主题名称自动根据 `valaxy-theme-xxx` 的格式获取，如本主题名为`valaxy-theme-oceanus`，所以oceanus就是这个主题的名称
 
-在theme选项中填入 `sakura` 来实现主题切换
+在theme选项中填入 `oceanus` 来实现主题切换
 :::
 
 :::en
 
-> The theme name is automatically retrieved in the format `valaxy-theme-xxx`. For example, this theme is named `valaxy-theme-sakura`, so sakura is the name of this theme.
+> The theme name is automatically retrieved in the format `valaxy-theme-xxx`. For example, this theme is named `valaxy-theme-oceanus`, so oceanus is the name of this theme.
 
-Fill in `sakura` in the theme option to switch themes.
+Fill in `oceanus` in the theme option to switch themes.
 :::
 
 ```ts {5}
-import type { ThemeUserConfig } from 'valaxy-theme-sakura'
+import type { ThemeUserConfig } from 'valaxy-theme-oceanus'
 import { defineValaxyConfig } from 'valaxy'
 
 export default defineValaxyConfig<ThemeUserConfig>({
-  theme: 'sakura'
+  theme: 'oceanus'
 })
 ```
 
@@ -199,13 +183,13 @@ Please ensure that you have correctly imported all the necessary types. Incorrec
 
 :::zh-CN
 
-> 通过遵循上述步骤，您可以顺利地在您的项目中启用 sakura 主题，并利用 TypeScript 提供的类型安全和代码智能提示功能，享受到更加愉快的博客使用体验
+> 通过遵循上述步骤，您可以顺利地在您的项目中启用 oceanus 主题，并利用 TypeScript 提供的类型安全和代码智能提示功能，享受到更加愉快的博客使用体验
 
 如果创建 Valaxy 项目的时候没有安装依赖，那么我们就要手动安装依赖:
 :::
 
 :::en
-By following the steps above, you can successfully enable the sakura theme in your project and enjoy a more pleasant blogging experience with the type safety and code intelligence features provided by TypeScript.
+By following the steps above, you can successfully enable the oceanus theme in your project and enjoy a more pleasant blogging experience with the type safety and code intelligence features provided by TypeScript.
 
 If the dependencies were not installed when creating the Valaxy project, we need to install the dependencies manually:
 :::
@@ -248,16 +232,4 @@ npm run dev
 yarn dev
 ```
 
-:::
-
-### 部署{lang="zh-CN"}
-
-### deploy{lang="en"}
-
-:::zh-CN
-对于大多数用户来说，`hexo`和`hugo`的常见操作是构建生成网站内容后，再上传至仓库以部署网站。若需进行构建，直接运行`pnpm run build`命令即可，其操作步骤与之类似。然而，我并不推荐使用这种方法。想要了解更多部署方式，请参考[Valaxy部署文档](https://valaxy.site/guide/deploy)
-:::
-
-:::en
-For most users, common operations with `hexo` and `hugo` involve building the site content and then uploading it to a repository to deploy the site. If you need to build, simply run the `pnpm run build` command, which follows similar steps. However, I do not recommend using this method. For more deployment methods, please refer to the Valaxy [deployment documentation.](https://valaxy.site/guide/deploy)
 :::
