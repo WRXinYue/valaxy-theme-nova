@@ -51,13 +51,13 @@ const categories = computed(() => {
 
 <style lang="scss" scoped>
 .oceanus-aside {
-  position: sticky;
+  // position: sticky;
   top: var(--oceanus-nav-height);
   padding-bottom: 2rem;
   padding-top: var(--oceanus-aside-pt);
   width: 100%;
-  min-width: var(--oceanus-aside-width);
-  max-height: calc(100vh - var(--oceanus-nav-height));
+  min-width: calc(var(--oceanus-aside-width) / 3);
+  // max-height: calc(100vh - var(--oceanus-nav-height));
   transition:
     box-shadow var(--va-transition-duration),
     background-color var(--va-transition-duration),

@@ -18,9 +18,11 @@ const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.va
 <template>
   <div class="oceanus-article oceanus-safe-padding mx-auto">
     <aside class="article-left-aside" :class="[oceanusApp.isSideOpen && 'is-open', oceanusApp.isSideOpen && sidebar.length !== 0 && 'has-aside']">
-      <slot name="sidebar">
-        <OceanusSidebar :sidebar />
-      </slot>
+      <div class="overflow-clip">
+        <slot name="sidebar">
+          <OceanusSidebar :sidebar />
+        </slot>
+      </div>
     </aside>
 
     <article class="article-container" flex="~ col" w="full" min-w-0 min-h="[calc(100vh-var(--oceanus-nav-height))]">
@@ -43,9 +45,6 @@ const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.va
 @use 'valaxy/client/styles/mixins/index.scss' as *;
 
 .oceanus-article {
-  // grid-template-columns: 0 1fr;
-  // display: grid;
-  // grid-template-rows: 1fr;
   display: flex;
 
   .article-container {
@@ -53,21 +52,25 @@ const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.va
   }
 
   .article-left-aside {
+    position: sticky;
+    top: var(--oceanus-nav-height);
+    overflow-y: auto;
+    max-height: calc(100vh - var(--oceanus-nav-height));
     border-left: 1px solid var(--oceanus-c-divider);
     width: 0;
+    min-width: 0;
     visibility: hidden;
-    // overflow: hidden;
-    // contain: paint;
-    overflow: clip;
     transition:
       width 0.56s cubic-bezier(0.52, 0.16, 0.24, 1),
       visibility 0s linear 1s;
 
     &.is-open {
       width: var(--oceanus-aside-width);
+      min-width: var(--oceanus-aside-width);
       visibility: visible;
       transition:
         width 0.56s cubic-bezier(0.52, 0.16, 0.24, 1),
+        min-width 0.56s cubic-bezier(0.52, 0.16, 0.24, 1),
         visibility 0s linear 0s;
     }
 
