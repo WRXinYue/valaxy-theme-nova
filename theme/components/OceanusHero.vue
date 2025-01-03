@@ -19,7 +19,7 @@ const heroImg = computed(() => {
 </script>
 
 <template>
-  <div class="oceanus-hero" :style="{ backgroundImage: `url(${heroImg})` }">
+  <div class="oceanus-hero" :class="heroImg && 'has-img'" :style="{ backgroundImage: `url(${heroImg})` }">
     <div class="hero-content">
       <p class="hero-title">
         <slot name="intro-text">
@@ -62,8 +62,12 @@ const heroImg = computed(() => {
     // max-width: 800px;
     padding: 2rem 1rem;
     text-align: center;
-    color: #fff;
+    color: var(--oceanus-c-text-deeper);
     animation: fade-in 1.5s ease-in-out;
+  }
+
+  &.has-img .hero-content {
+    color: #fff;
   }
 
   .hero-title {
