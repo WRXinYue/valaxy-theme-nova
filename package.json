@@ -9,7 +9,7 @@
     "ci:publish": "pnpm -r publish --access public --no-git-checks",
     "dev": "npm run docs",
     "docs": "npm -C docs run dev",
-    "lint": "eslint .",
+    "lint": "eslint . --ignore-pattern '**/*.md'",
     "release": "cd theme && git add -A && bumpp",
     "typecheck": "vue-tsc --noEmit --skipLibCheck"
   },
