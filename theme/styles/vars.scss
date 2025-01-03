@@ -25,11 +25,12 @@ $light: (
   // 'c-border-line': hsla(0, 0%, 71.4%, 0.5),
   'c-border-line': rgba(0, 0, 0, 0.1),
   'c-divider': rgba(0, 0, 0, 0.04),
+  'c-active-bg': #e8e8ed,
   'c-list-active-bg': #e8e8ed,
   'c-list-hover-bg': var(--oceanus-c-list-active-bg),
   'c-list-active-font': #000,
   // --------------- Card ---------------
-  'c-card-bg': '#f6f6f6',
+  'c-card-bg': '#fcf8ff',
   // --------------- Footer ---------------
   'c-footer-bg': rgb(245, 245, 247),
   'c-footer-border': rgba(0, 0, 0, 0.16)
@@ -50,6 +51,7 @@ $dark: (
   'c-border': #262626,
   'c-border-line': rgba(255, 255, 255, 0.24),
   'c-divider': #2e2e32,
+  'c-active-bg': #322744,
   'c-list-active-bg': #333336,
   'c-list-hover-bg': var(--oceanus-c-list-active-bg),
   'c-list-active-font': #000,

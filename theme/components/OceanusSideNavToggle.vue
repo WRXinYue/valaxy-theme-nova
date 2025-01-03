@@ -27,7 +27,7 @@ const active = computed(() => oceanusApp.isSideOpen)
   }
 
   &:hover {
-    background: #fcf8ff;
+    background: var(--oceanus-c-active-bg);
   }
 }
 </style>
