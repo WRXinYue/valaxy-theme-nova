@@ -2,12 +2,15 @@
 import type { NavItem } from '../types'
 import { useAppStore } from 'valaxy'
 import { ref } from 'vue'
+import { useThemeConfig } from '../composables'
 
 defineProps<{
   nav: NavItem[]
   title: string
   favicon?: string
 }>()
+
+const themeConfig = useThemeConfig()
 const appStore = useAppStore()
 
 const isOpen = ref(false)
@@ -64,16 +67,13 @@ function toggle() {
             </div>
           </div>
 
-          <div class="text-b" flex="~ center">
-            <div class="oceanus-nav-toolbar-text text-icon">
+          <div v-if="themeConfig.header?.github" class="text-b" flex="~ center">
+            <AppLink class="oceanus-nav-toolbar-text text-icon" :to="themeConfig.header.github">
               <div i-ri-github-fill />
-            <!-- <a href="/" class="lang">
-          <div i-ri-github-fill />
-        </a> -->
-            </div>
+            </AppLink>
           </div>
 
-          <div class="text-b" flex="~ center">
+          <div class="text-b cursor-not-allowed" flex="~ center">
             <div class="text-icon">
               <div i-tabler-search items-center />
             </div>

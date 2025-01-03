@@ -17,6 +17,8 @@ export interface ThemeConfig extends DefaultTheme.Config {
     }
     title: string
     nav: NavItem[]
+
+    github: string
   }>
 
   hero: Partial<{

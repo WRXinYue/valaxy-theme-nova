@@ -79,6 +79,8 @@ export default defineConfig<ThemeConfig>({
           link: '/about',
         },
       ],
+
+      github: pkg.repository.url,
     },
 
     hero: {
