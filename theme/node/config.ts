@@ -1,4 +1,5 @@
 import type { ThemeConfig } from '../types'
+import pkg from '../package.json'
 
 export const defaultThemeConfig: ThemeConfig = {
   valaxyDarkOptions: {
@@ -12,9 +13,14 @@ export const defaultThemeConfig: ThemeConfig = {
     powered: true,
   },
 
-  header: {
-    nav: [],
-  },
+  logo: '',
+
+  nav: [],
+  navTitle: pkg.name,
+  navTools: [
+    ['togglTheme', 'toggleLocale'],
+    ['search'],
+  ],
 
   hero: {},
 
@@ -25,8 +31,15 @@ export const defaultThemeConfig: ThemeConfig = {
  * generateSafelist by config
  * @param themeConfig
  */
-export function generateSafelist(_themeConfig: ThemeConfig) {
+export function generateSafelist(themeConfig: ThemeConfig) {
+  const { navTools } = themeConfig
+
   const safelist: string[] = []
+
+  navTools?.flat().forEach((tool) => {
+    if (typeof tool === 'object' && tool?.icon)
+      safelist.push(tool.icon)
+  })
 
   return safelist
 }

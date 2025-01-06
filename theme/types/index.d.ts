@@ -10,16 +10,14 @@ export interface ThemeConfig extends DefaultTheme.Config {
     primary: string
   }>
 
-  header: Partial<{
-    favicon: string | boolean | {
-      light: string
-      dark: string
-    }
-    title: string
-    nav: NavItem[]
-
-    github: string
-  }>
+  logo: Logo
+  nav: NavItem[]
+  navTitle: string | boolean
+  /**
+   * @zh 导航栏的工具按钮
+   * @en Tool buttons to include in the navbar, like search or settings
+   */
+  navTools: NavTools
 
   hero: Partial<{
     title: string
@@ -33,6 +31,13 @@ export interface ThemeConfig extends DefaultTheme.Config {
   sidebar: SidebarMulti
 
   footer: Partial<Footer>
+}
+
+export type NavTools = ('toggleLocale' | 'togglTheme' | 'search' | { icon: string, link?: string })[][]
+
+export type Logo = string | boolean | {
+  light: string
+  dark: string
 }
 
 export interface BaseNavItem {

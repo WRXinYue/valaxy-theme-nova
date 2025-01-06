@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { NavItem } from '../types'
-import { useAppStore } from 'valaxy'
-import { ref } from 'vue'
+import { useToggle } from '@vueuse/core'
 import { useThemeConfig } from '../composables'
 
 defineProps<{
@@ -11,35 +10,19 @@ defineProps<{
 }>()
 
 const themeConfig = useThemeConfig()
-const appStore = useAppStore()
 
-const isOpen = ref(false)
-// const isMobile = useMobile()
-
-function open() {
-  isOpen.value = true
-}
-
-function close() {
-  isOpen.value = false
-}
-
-function toggle() {
-  isOpen.value ? close() : open()
-}
+const [isOpen, toggle] = useToggle(false)
 </script>
 
 <template>
   <nav class="oceanus-nav" w="full" role="navigation" :class="[isOpen && 'screen-open']">
     <div class="nav-content" flex="~ items-center">
       <div class="oceanus-safe-padding nav-content-header" flex="~ center md:justify-between">
-        <OceanusNavMenu class="nav-menu left-2 z-50 absolute! md:hidden" h="full" :active="isOpen" @click="toggle" />
+        <OceanusNavMenu class="nav-menu left-2 z-50 absolute! md:hidden" h="full" :active="isOpen" @click="toggle()" />
 
-        <AppLink to="/" :aria-label="title">
-          <div class="h-30px flex text-center text-xl">
-            <img v-if="favicon" class="mr-2 object-cover" alt="logo" :src="favicon">
-            <span class="oceanus-text oceanus-nav-title md:inline">{{ title }}</span>
-          </div>
+        <AppLink to="/" :aria-label="title" class="flex text-center">
+          <img v-if="favicon" class="oceanus-nav-icon mr-2 object-cover text-xl" alt="logo" :src="favicon">
+          <span class="oceanus-text oceanus-nav-title text-xl md:inline">{{ title }}</span>
         </AppLink>
 
         <div class="items-center leading-5 <md:hidden">
@@ -55,30 +38,11 @@ function toggle() {
           </template>
         </div>
 
-        <div flex="~ center" class="<md:hidden">
-          <div flex="~ center">
-            <OceanusToggleLocale />
-
-            <div class="oceanus-nav-toolbar-text text-icon" flex="~ center">
-              <button type="button" aria-label="Toggle Dark Mode" @click="appStore.toggleDarkWithTransition">
-                <div v-if="!appStore.isDark" i-tabler-sun />
-                <div v-else i-tabler-moon />
-              </button>
-            </div>
+        <slot name="toolbar">
+          <div flex="~ center" class="oceanus-nav-toolbar <md:hidden">
+            <OceanusNavTools :nav-tools="themeConfig.navTools" />
           </div>
-
-          <div v-if="themeConfig.header?.github" class="text-b" flex="~ center">
-            <AppLink class="oceanus-nav-toolbar-text text-icon" :to="themeConfig.header.github">
-              <div i-ri-github-fill />
-            </AppLink>
-          </div>
-
-          <div class="text-b cursor-not-allowed" flex="~ center">
-            <div class="text-icon">
-              <div i-tabler-search items-center />
-            </div>
-          </div>
-        </div>
+        </slot>
       </div>
 
       <div class="search-placeholder-container absolute" w="full">
@@ -356,24 +320,5 @@ function toggle() {
       transform: translate3d(0, 0, 0);
     }
   }
-}
-
-.text-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  color: var(--vp-c-text-2);
-  transition: color 0.5s;
-}
-
-.text-b::before {
-  margin-right: 8px;
-  margin-left: 8px;
-  width: 1px;
-  height: 24px;
-  background-color: var(--oceanus-c-divider);
-  content: '';
 }
 </style>

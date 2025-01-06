@@ -36,7 +36,7 @@ export function useSplitPathSegments(path: MaybeRefOrGetter<string>) {
  */
 export function useMatchingNavItems(path: MaybeRefOrGetter<string>) {
   const themeConfig = useThemeConfig()
-  const navItems = themeConfig.value.header.nav!
+  const navItems = themeConfig.value.nav!
 
   return computed(() => {
     const matchingNavItems: {

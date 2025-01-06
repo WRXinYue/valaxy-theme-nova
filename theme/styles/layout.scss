@@ -18,6 +18,25 @@ body {
   }
 }
 
+.text-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--vp-c-text-2);
+  transition: color 0.5s;
+}
+
+.text-b::before {
+  margin-right: 8px;
+  margin-left: 8px;
+  width: 1px;
+  height: 24px;
+  background-color: var(--oceanus-c-divider);
+  content: '';
+}
+
 .oceanus-main {
   height: 100%;
 }

@@ -7,6 +7,14 @@ import { defaultThemeConfig, generateSafelist, themePlugin } from './node'
 
 export default defineTheme<ThemeConfig>((options) => {
   const { theme, config } = options
+  const { themeConfig, siteConfig } = config
+
+  if (!themeConfig?.navTitle && siteConfig?.title)
+    defaultThemeConfig.navTitle = siteConfig.title
+
+  if (themeConfig?.navTools)
+    defaultThemeConfig.navTools = []
+
   return {
     themeConfig: {
       ...defaultThemeConfig,
