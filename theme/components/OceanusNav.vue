@@ -22,7 +22,7 @@ const [isOpen, toggle] = useToggle(false)
 
         <AppLink to="/" :aria-label="title" class="h-36px text-center" flex="~ items-center">
           <img v-if="favicon" class="oceanus-nav-icon mr-2 h-full object-cover text-xl" alt="logo" :src="favicon">
-          <span class="oceanus-text oceanus-nav-title text-xl md:inline" flex="~ center">{{ title }}</span>
+          <span v-if="title" class="oceanus-text oceanus-nav-title text-xl md:inline" flex="~ center">{{ title }}</span>
         </AppLink>
 
         <div class="items-center leading-5 <md:hidden">
