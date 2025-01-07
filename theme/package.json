@@ -1,9 +1,10 @@
 {
   "name": "valaxy-theme-oceanus",
-  "version": "0.0.3",
+  "version": "0.0.3-alpha.2",
   "packageManager": "pnpm@9.15.1",
   "author": "WRXinYue<https://github.com/wrxinyue>",
   "license": "MIT",
+  "homepage": "https://oceanus.wrxinyue.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/WRXinYue/valaxy-theme-oceanus"

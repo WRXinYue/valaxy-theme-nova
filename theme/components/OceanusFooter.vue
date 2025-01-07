@@ -50,7 +50,7 @@ const isThisYear = computed(() => {
         <span v-if="themeConfig.footer.powered" class="powered">
           Powered by
           <span>
-            <a class="oceanus-text" :href="pkg.repository.url" target="_blank" rel="noopener"> Valaxy </a> v{{ pkg.version }}
+            <a class="oceanus-text" :href="pkg.repository.url" target="_blank" rel="noopener"> valaxy </a> v{{ pkg.version }}
           </span> | Theme
           <span>
             <a class="oceanus-text" :href="themeConfig.pkg.homepage" target="_blank" rel="noopener"> {{ config.theme }}</a> v{{ themeConfig.pkg.version }}
