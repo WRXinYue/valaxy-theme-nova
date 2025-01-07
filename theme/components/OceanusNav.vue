@@ -5,7 +5,7 @@ import { useThemeConfig } from '../composables'
 
 defineProps<{
   nav: NavItem[]
-  title: string
+  title: string | boolean
   favicon?: string
 }>()
 
