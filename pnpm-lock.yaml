@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@rollup/plugin-virtual':
-        specifier: ^3.0.2
-        version: 3.0.2(rollup@4.29.1)
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.12.1
@@ -51,6 +47,9 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.2.13
         version: 1.2.13
+      '@rollup/plugin-virtual':
+        specifier: ^3.0.2
+        version: 3.0.2(rollup@4.29.1)
       markdown-it-github-alerts:
         specifier: ^0.3.0
         version: 0.3.0(markdown-it@14.1.0)
