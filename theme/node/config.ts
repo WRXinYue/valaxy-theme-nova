@@ -25,6 +25,8 @@ export const defaultThemeConfig: ThemeConfig = {
   hero: {},
 
   sidebar: [],
+
+  gitLog: false,
 }
 
 /**

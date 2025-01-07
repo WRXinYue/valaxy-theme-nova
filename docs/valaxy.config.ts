@@ -1,6 +1,5 @@
 import type { ThemeConfig } from 'valaxy-theme-oceanus'
 import { defineConfig } from 'valaxy'
-import { addonGitLog } from 'valaxy-addon-git-log'
 import pkg from 'valaxy-theme-oceanus/package.json'
 
 export default defineConfig<ThemeConfig>({
@@ -115,14 +114,12 @@ export default defineConfig<ThemeConfig>({
       powered: true,
       icp: '<a class="oceanus-text" href="https://icp.gov.moe/?keyword=20240132" target="_blank">萌ICP备20240132号</a>',
     },
-  },
 
-  addons: [
-    addonGitLog({
+    gitLog: {
       contributor: {
         mode: 'git',
       },
       repositoryUrl: 'https://github.com/WRXinYue/valaxy-theme-oceanus.git',
-    }),
-  ],
+    },
+  },
 })

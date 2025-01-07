@@ -1,4 +1,5 @@
 import type { DefaultTheme } from 'valaxy'
+import type { GitLogOptions } from 'valaxy-addon-git-log'
 
 export namespace StarterTheme {
   export type Config = ThemeConfig
@@ -31,6 +32,8 @@ export interface ThemeConfig extends DefaultTheme.Config {
   sidebar: SidebarMulti
 
   footer: Partial<Footer>
+
+  gitLog: GitLogOptions | boolean
 }
 
 export type NavTools = ('toggleLocale' | 'togglTheme' | 'search' | { icon: string, link?: string })[][]
