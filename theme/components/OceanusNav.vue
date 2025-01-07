@@ -20,9 +20,9 @@ const [isOpen, toggle] = useToggle(false)
       <div class="oceanus-safe-padding nav-content-header" flex="~ center md:justify-between">
         <OceanusNavMenu class="nav-menu left-2 z-50 absolute! md:hidden" h="full" :active="isOpen" @click="toggle()" />
 
-        <AppLink to="/" :aria-label="title" class="flex text-center">
-          <img v-if="favicon" class="oceanus-nav-icon mr-2 object-cover text-xl" alt="logo" :src="favicon">
-          <span class="oceanus-text oceanus-nav-title text-xl md:inline">{{ title }}</span>
+        <AppLink to="/" :aria-label="title" class="h-36px text-center" flex="~ items-center">
+          <img v-if="favicon" class="oceanus-nav-icon mr-2 h-full object-cover text-xl" alt="logo" :src="favicon">
+          <span class="oceanus-text oceanus-nav-title text-xl md:inline" flex="~ center">{{ title }}</span>
         </AppLink>
 
         <div class="items-center leading-5 <md:hidden">
