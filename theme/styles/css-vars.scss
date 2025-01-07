@@ -12,10 +12,14 @@
 }
 
 :root {
+  color-scheme: light;
+
   @include set-css-var-from-map($light);
 }
 
 html.dark {
+  color-scheme: dark;
+
   @include set-css-var-from-map($dark);
 }
 
