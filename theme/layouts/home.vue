@@ -5,6 +5,5 @@
     <OceanusFeatures />
     <OceanusContribution />
     <OceanusGetStarted />
-    <RouterView />
   </Layout>
 </template>
