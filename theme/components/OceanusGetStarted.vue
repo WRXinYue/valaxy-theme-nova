@@ -1,14 +1,26 @@
 <script setup lang="ts">
 import { useFrontmatter } from 'valaxy'
 
-const fm = useFrontmatter()
+const fm = useFrontmatter<{ getStarted: GetStarted }>()
+
+export type GetStarted = Partial<{
+  title: string
+  text: string
+  button: string
+
+  cards: {
+    img: string
+    alt: string
+    color?: string
+  }[]
+}>
 </script>
 
 <template>
   <section v-if="fm?.getStarted" class="get-started-section relative overflow-hidden" p="t-260px b-220px" flex="~ col center">
     <div class="framework-row">
       <div v-for="(card, i) in fm.getStarted?.cards" :key="i" class="framework-card" :style="card?.color && `--glow-color: ${card?.color}`">
-        <img :src="card?.img" :alt="card?.alt" class="chip-logo">
+        <img :src="card?.img" :alt="card?.alt || ''" class="chip-logo">
       </div>
     </div>
 

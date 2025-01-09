@@ -8,7 +8,13 @@ if (isEmptyAddon(addonGitLogVirtual))
   console.warn('valaxy-addon-git-log is not installed. For more details, see: https://github.com/valaxyjs/valaxy-addon-git-log')
 
 // const contributors = addonGitLogVirtual.useAddonGitLogAllContributor()
-const fm = useFrontmatter()
+const fm = useFrontmatter<{contributors: Contributors}>()
+
+export type Contributors = Partial<{
+  title: string
+  subtitle: string
+  text: string
+}>
 </script>
 
 <template>

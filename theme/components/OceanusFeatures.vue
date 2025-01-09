@@ -1,7 +1,20 @@
 <script setup lang="ts">
 import { useFrontmatter } from 'valaxy'
 
-const fm = useFrontmatter()
+const fm = useFrontmatter<{features: Features}>()
+
+export type Features = Partial<{
+  title: string
+  subtitle: string
+  text: string
+
+  cards: Partial<{
+    num: string
+    title: string
+    icon: string
+    details: string
+  }[]>
+}>
 </script>
 
 <template>
