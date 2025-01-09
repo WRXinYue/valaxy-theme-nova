@@ -3,4 +3,7 @@ category:
   writing: 写作
   components: 组件 Components
   reference: 参考
+  theme: 主题
   themeConfig: 主题配置
+  siteConfig: 站点配置
+  frontmatter-config: Frontmatter

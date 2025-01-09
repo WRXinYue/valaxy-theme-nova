@@ -1,6 +1,45 @@
 ---
-title: 主页
+title: HomePage
+title_zh-CN: 主页
+categories:
+  - frontmatter-config
+end: true
+---
 
+主题提供了一个首页布局，也可以在[此站点首页](http://oceanus.wrxinyue.org/)看到。可以通过 frontmatter 指定 `layout: home` 在任何页面上使用它
+
+```md
+---
+layout: home
+---
+```
+
+## Hero 部分
+
+通过 `themeConfig.hero` 进行配置，详情见 [主题配置-主页-hero](/reference/theme-config/home-page)
+
+## FeaturedArticles 部分
+
+```ts
+export type FeaturedArticles = Partial<{
+  title: string
+  subtitle: string
+  description: string
+  text: string
+
+  articles: Partial<{
+    title: string
+    cover: string
+    tags: string
+    excerpt: string
+  }[]>
+}>
+```
+
+## Features
+
+```md
+---
 features:
   cards:
     - title: 简单
@@ -15,17 +54,42 @@ features:
       details: 用户可以根据需求定制组件，并进行自由配置，满足个性化使用场景
     - title: 微动画
       details: 使用 subtle 的悬停动画和交互反馈，动画过渡流畅而不分散注意力
+---
+```
 
-contributors:
-  subtitle: 贡献者
-  text: 已获得 MIT 许可，并且将始终免费且开源。感谢 GitHub上的所有贡献者！
+```ts
+export type Features = Partial<{
+  title: string
+  subtitle: string
+  text: string
 
+  cards: Partial<{
+    num: string
+    title: string
+    icon: string
+    details: string
+  }[]>
+}>
+```
+
+## Contribution
+
+```ts
+export type Contributors = Partial<{
+  title: string
+  subtitle: string
+  text: string
+}>
+```
+
+## GetStarted
+
+```md
+---
 getStarted:
   title: Start building with Vite
   text: Prepare for a development environment that can finally keep pace with the speed of your mind.
-  actions:
-    - text: Become a Client
-      link: /guide/getting-started/installation
+  button: Become a Client
   cards:
     - img: https://vite.dev/logo.svg
       alt: Vite Logo
@@ -37,3 +101,22 @@ getStarted:
       alt: Valaxy Logo
       color: '#9333EA'
 ---
+```
+
+```ts
+export type GetStarted = Partial<{
+  title: string
+  text: string
+  actions: {
+    theme?: 'brand'
+    text?: string
+    link?: string
+  }[]
+
+  cards: {
+    img: string
+    alt: string
+    color?: string
+  }[]
+}>
+```

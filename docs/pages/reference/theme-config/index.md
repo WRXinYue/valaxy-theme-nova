@@ -4,7 +4,7 @@ title_zh-CN: 概览
 categories:
   - themeConfig
 end: true
-top: 0
+top: 1000
 ---
 
 | Name                 | Type                  | Default | Description                           |

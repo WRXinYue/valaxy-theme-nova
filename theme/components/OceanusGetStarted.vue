@@ -6,7 +6,11 @@ const fm = useFrontmatter<{ getStarted: GetStarted }>()
 export type GetStarted = Partial<{
   title: string
   text: string
-  button: string
+  actions: {
+    theme?: 'brand'
+    text?: string
+    link?: string
+  }[]
 
   cards: {
     img: string
@@ -31,8 +35,10 @@ export type GetStarted = Partial<{
       <h3 max-w="80%" class="text-$oceanus-c-text-muted <2xl:font-size-18px <md:font-size-15px <xl:font-size-16px" m="t-32px" style="font: 400 22px / 1.335 var(--oceanus-font);">
         {{ fm.getStarted?.text }}
       </h3>
-      <div v-if="fm.getStarted?.button" class="mt-40px">
-        <OceanusButton :text="fm.getStarted.button" />
+      <div v-if="fm.getStarted?.actions" class="actions mt-40px" flex="~">
+        <AppLink v-for="(action, i) in fm.getStarted?.actions" :key="i" :to="action?.link" class="action" m="2">
+          <OceanusButton :text="action.text" />
+        </AppLink>
       </div>
     </div>
   </section>

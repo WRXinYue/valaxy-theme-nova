@@ -56,10 +56,12 @@ export default defineConfig<ThemeConfig>({
           {
             text: '站点配置',
             link: '/reference/site-config',
+            sidebar: ['siteConfig'],
           },
           {
             text: 'frontmatter 配置',
             link: '/reference/frontmatter-config',
+            sidebar: ['frontmatter-config'],
           },
           {
             text: '主题配置',

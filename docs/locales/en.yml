@@ -3,4 +3,7 @@ category:
   writing: Writing
   components: Components
   reference: Reference
+  theme: Theme
   themeConfig: ThemeConfig
+  siteConfig: SiteConfig
+  frontmatter-config: Frontmatter

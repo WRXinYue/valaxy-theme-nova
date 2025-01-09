@@ -1,7 +1,7 @@
 ---
-title: SiteConfig
-title_zh-CN: 站点配置
+title: Overview
+title_zh-CN: 概览
 categories:
-  - reference
+  - siteConfig
 end: true
 ---

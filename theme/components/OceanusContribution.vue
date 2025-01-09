@@ -8,7 +8,7 @@ if (isEmptyAddon(addonGitLogVirtual))
   console.warn('valaxy-addon-git-log is not installed. For more details, see: https://github.com/valaxyjs/valaxy-addon-git-log')
 
 // const contributors = addonGitLogVirtual.useAddonGitLogAllContributor()
-const fm = useFrontmatter<{contributors: Contributors}>()
+const fm = useFrontmatter<{ contributors: Contributors }>()
 
 export type Contributors = Partial<{
   title: string
@@ -33,19 +33,13 @@ export type Contributors = Partial<{
           <div class="text">
             <p>
               {{ fm.contributors?.text }}
-              Free & open source
-              Vite is MIT Licensed and will always be free and open source. This is made possible by our contributors and these companies:
-              Brought to you by
-
-              上面这是一个免费软件之类，在挂上主要贡献者信息
-              Vite 已获得 MIT 许可，并且将始终免费且开源。这是我们的贡献者和这些公司使之成为可能的。感谢 GitHub上的所有贡献者！
             </p>
           </div>
         </div>
         <div class="trusted-logos <lg:mt-5">
           <div class="grid grid-cols-6 gap-4 lg:grid-cols-5 md:grid-cols-10 sm:grid-cols-5 lg:gap-8 sm:gap-5">
             <div v-for="(contributor, i) in contributors" :key="i" class="relative flex pt-[100%]">
-              <a class="absolute inset-0 flex transition-all">
+              <a class="absolute inset-0 flex transition-all" :title="contributor.email" :href="contributor?.github!" :class="contributor?.github ? 'cursor-pointer' : 'cursor-default'">
                 <div class="relative w-full inline-flex" style="transition-delay: 0ms;">
                   <img width="80" height="80" class="h-full w-full rounded-xl transition lg:hover:scale-125" :src="contributor.avatar">
                 </div>

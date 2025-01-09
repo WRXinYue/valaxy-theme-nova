@@ -10,12 +10,12 @@ Valaxy 支持在所有 Markdown 文件中使用 YAML frontmatter，并使用 [gr
 
 ```md
 ---
-title: Docs with VitePress
+title: Docs with Valaxy
 editLink: true
 ---
 ```
 
-许多站点或默认主题配置选项在 frontmatter 中都有相应的选项。可以使用 frontmatter 来覆盖当前页面的特定行为。详细信息请参见 [frontmatter 配置参考](https://valaxy.site/guide/post#frontmatter)。
+许多站点或默认主题配置选项在 frontmatter 中都有相应的选项。可以使用 frontmatter 来覆盖当前页面的特定行为。详细信息请参见 [frontmatter 配置](/reference/frontmatter-config)。
 
 还可以定义自己的 frontmatter 数据，以在页面上的动态 Vue 表达式中使用。
 
@@ -38,7 +38,7 @@ Guide content
 
 ## 其他 frontmatter 格式 {#alternative-frontmatter-formats}
 
-VitePress 也支持 JSON 格式的 frontmatter，以花括号开始和结束：
+Valaxy 也支持 JSON 格式的 frontmatter，以花括号开始和结束：
 
 ```json
 ---
