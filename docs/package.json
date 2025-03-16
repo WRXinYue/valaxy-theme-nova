@@ -9,7 +9,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "valaxy": "^0.22.5",
+    "@iconify-json/carbon": "^1.2.8",
+    "valaxy": "^0.22.16",
     "valaxy-theme-oceanus": "workspace:*"
   },
   "devDependencies": {

@@ -91,25 +91,24 @@ body {
 
 .oceanus-home-container {
   width: 100%;
-  padding-inline: 40px;
   margin-inline: auto;
-  max-width: 1688px;
+  box-sizing: border-box;
+  max-width: 980px;
+  padding-inline: 22px;
 
-  @media (max-width: 1180px) {
-    padding: 0 25px;
+  @media (min-width: 1068px) {
+    max-width: 1024px;
+    padding-inline: 30px;
   }
 
-  @media (max-width: 991px) {
-    padding: 0 15px;
+  @media (min-width: 1440px) {
+    max-width: 1280px;
+    padding-inline: 40px;
   }
-}
 
-.oceanus-frame {
-  display: block;
-  width: 100%;
-  height: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: none;
+  @media (max-width: 734px) {
+    padding-inline: 16px;
+  }
 }
 
 .oceanus-section {

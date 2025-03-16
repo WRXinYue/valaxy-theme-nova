@@ -91,8 +91,7 @@ export default defineConfig<ThemeConfig>({
 
     hero: {
       title: 'VALAXY THEME OCEANUS',
-      // motto: '简约、高雅的 Valaxy 文档主题',
-      motto: 'Sliding content with sticky tab nav',
+      motto: '简约、高雅的 Valaxy 文档主题',
       img: {
         light: 'https://common.s3.bitiful.net/oceanus/wallhaven-2y7yz6.jpg',
         dark: 'https://common.s3.bitiful.net/oceanus/wallhaven-2evj3y.jpg',

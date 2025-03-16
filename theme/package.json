@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/gravatar": "^1.8.6",
     "@types/md5": "^2.3.5",
-    "valaxy": "^0.22.5",
+    "valaxy": "^0.22.16",
     "valaxy-addon-algolia": "^0.1.0"
   }
 }

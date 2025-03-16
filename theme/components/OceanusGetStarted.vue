@@ -29,10 +29,10 @@ export type GetStarted = Partial<{
     </div>
 
     <div class="text-center" flex="~ col center">
-      <h2 class="text-center <2xl:font-size-36px <md:font-size-24px <xl:font-size-30px" m="t-75px <2xl:t-60px" max-w="26.8em" style="font: 500 44px / 1.3 var(--oceanus-font);">
+      <h2 class="heading text-center <2xl:font-size-36px <md:font-size-24px <xl:font-size-30px" m="t-75px <2xl:t-60px" max-w="26.8em">
         {{ fm.getStarted?.title }}
       </h2>
-      <h3 max-w="80%" class="text-$oceanus-c-text-muted <2xl:font-size-18px <md:font-size-15px <xl:font-size-16px" m="t-32px" style="font: 400 22px / 1.335 var(--oceanus-font);">
+      <h3 class="subheading text-$oceanus-c-text-muted <2xl:font-size-18px <md:font-size-15px <xl:font-size-16px" m="t-32px" max-w="80%">
         {{ fm.getStarted?.text }}
       </h3>
       <div v-if="fm.getStarted?.actions" class="actions mt-40px" flex="~">
@@ -46,64 +46,55 @@ export type GetStarted = Partial<{
 
 <style lang="scss" scoped>
 .get-started-section {
+  .heading {
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--oceanus-c-text-deep);
+  }
+
+  .subheading {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
   .vite-chip {
-    filter: drop-shadow(0px 18px 33px rgba(0, 0, 0, 0.5));
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   bottom: -30px;
-    //   left: -20px;
-    //   width: 80px;
-    //   height: 80px;
-    //   background: linear-gradient(180deg, #61d9ff, #0000);
-    //   z-index: -1;
-    //   filter: blur(30px);
-    // }
-
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    //   top: -20px;
-    //   right: -20px;
-    //   width: 80px;
-    //   height: 80px;
-    //   background: linear-gradient(270deg, #7a23a1, #715ebde6 60%, #715ebde6, #bd34fe00);
-    //   z-index: -1;
-    //   filter: blur(30px);
-    // }
+    filter: drop-shadow(0px 16px 30px rgba(0, 0, 0, 0.4));
 
     .chip-logo {
-      opacity: 0.8;
-      filter: drop-shadow(0 0 0.6rem color-mix(in srgb, #ffffad 50%, transparent));
+      opacity: 0.85;
+      filter: drop-shadow(0 0 0.5rem color-mix(in srgb, #ffffad 45%, transparent));
     }
   }
 
   .framework-card {
     width: 96px;
     height: 96px;
-    border-radius: 12px;
+    border-radius: 16px;
     background: #fbfbfd;
-    border: 1px solid rgba(217, 217, 217, 0.7);
+    border: 1px solid rgba(217, 217, 217, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 24px;
     --glow-color: rgba(0, 0, 0, 0);
-    // --glow-color: #40b782;
-    // opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     -webkit-user-select: none;
     user-select: none;
+    backdrop-filter: blur(5px);
 
     @at-root html.dark & {
-      border: 1px solid rgba(38, 38, 38, 0.7);
-      background: #181818;
+      border: 1px solid rgba(38, 38, 38, 0.6);
+      background: rgba(24, 24, 24, 0.95);
     }
 
     img {
       user-select: none;
-      filter: drop-shadow(0 0 0.8rem color-mix(in srgb, var(--glow-color) 40%, transparent));
+      filter: drop-shadow(0 0 0.7rem color-mix(in srgb, var(--glow-color) 35%, transparent));
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     &.active {
@@ -116,8 +107,8 @@ export type GetStarted = Partial<{
 
       img {
         transition:
-          transform 1200ms cubic-bezier(0.25, 0.8, 0.25, 1),
-          filter 3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          transform 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+          filter 2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       &::before {
@@ -128,22 +119,25 @@ export type GetStarted = Partial<{
         right: 10%;
         bottom: 10%;
         background-color: var(--glow-color);
-        filter: blur(18px);
+        filter: blur(16px);
         z-index: -1;
         opacity: 0;
-        transition: opacity 3s ease;
+        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         will-change: opacity;
       }
 
       &:hover {
+        transform: translateY(-2px);
+        border-color: rgba(var(--oceanus-c-brand-rgb, 74, 123, 255), 0.2);
+
         img {
-          transform: scale(1.12);
-          filter: brightness(1.25);
+          transform: scale(1.08);
+          filter: brightness(1.2);
         }
 
         &::before {
-          opacity: 1;
-          transition: opacity 0.2s ease;
+          opacity: 0.8;
+          transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
       }
     }
@@ -152,12 +146,22 @@ export type GetStarted = Partial<{
   .framework-row {
     display: grid;
     grid-auto-columns: 96px;
-    grid-gap: 24px;
+    grid-gap: 28px;
     justify-content: flex-start;
     margin-bottom: 24px;
     position: relative;
     white-space: nowrap;
     grid-auto-flow: column;
+  }
+
+  .actions {
+    .action {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
   }
 }
 </style>

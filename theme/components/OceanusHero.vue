@@ -54,56 +54,61 @@ const heroImg = computed(() => {
     content: '';
     position: absolute;
     inset: 0;
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.5s ease;
+  }
+
+  &:hover::before {
+    backdrop-filter: blur(2px);
   }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    // max-width: 800px;
+    max-width: 1000px;
     padding: 2rem 1rem;
     text-align: center;
     color: var(--oceanus-c-text-deeper);
-    animation: fade-in 1.5s ease-in-out;
+    animation: fade-in 1.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &.has-img .hero-content {
     color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   }
 
   .hero-title {
-    font-size: 3rem;
-    letter-spacing: 1rem;
-    // font-size: clamp(2.5rem, 5vw, 4rem);
-    // font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    letter-spacing: -0.02em;
     font-weight: 600;
-    // letter-spacing: -0.02em;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
   }
 
   .hero-motto {
-    // font-size: clamp(1rem, 2.5vw, 1.5rem);
-    // font-size: clamp(0.9rem, 2vw, 1.2rem);
-    font-size: 1rem;
-    // font-weight: 400;
-    font-weight: 300;
-    letter-spacing: 0.3rem;
-    opacity: 0.6;
-    margin-bottom: 2rem;
-    // color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    opacity: 0.85;
+    margin-bottom: 2.5rem;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
   }
 
   .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
   }
 
   @keyframes fade-in {
-    from {
+    0% {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(20px);
     }
-    to {
+    100% {
       opacity: 1;
       transform: translateY(0);
     }

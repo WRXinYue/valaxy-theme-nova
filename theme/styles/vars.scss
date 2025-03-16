@@ -5,7 +5,7 @@ $common: (
   'aside-width': 300px,
   'aside-pt': 16px,
   'list-link-buffer': 17px,
-  'font': 'Inter, sans-serif',
+  'font': 'Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif',
   'z-backdrop': 10,
 ) !default;
 $common: map.merge((), $common);
@@ -13,7 +13,7 @@ $common: map.merge((), $common);
 $light: (
   // --------------- Text ---------------
   'c-text': #1d1d1f,
-  'c-text-muted': #9e9e9e,
+  'c-text-muted': #86868b,
   'c-text-deep': #2e2f30,
   'c-text-deeper': #000,
   'c-link': var(--oceanus-c-brand),
@@ -32,15 +32,15 @@ $light: (
   // --------------- Card ---------------
   'c-card-bg': '#fcf8ff',
   // --------------- Footer ---------------
-  'c-footer-bg': rgb(245, 245, 247),
-  'c-footer-border': rgba(0, 0, 0, 0.16)
+  'c-footer-bg': #f5f5f7,
+  'c-footer-border': rgba(0, 0, 0, 0.08)
 ) !default;
 $light: map.merge((), $light);
 
 $dark: (
   // --------------- Text ---------------
   'c-text': #f5f5f7,
-  'c-text-muted': #a3a3a3,
+  'c-text-muted': #a1a1a6,
   'c-text-deep': rgba(255, 255, 245, 0.86),
   'c-text-deeper': #fff,
   'c-link': var(--oceanus-c-brand),
@@ -58,8 +58,8 @@ $dark: (
   // --------------- Card ---------------
   'c-card-bg': '#141414',
   // --------------- Footer ---------------
-  'c-footer-bg': rgb(29, 29, 31),
-  'c-footer-border': rgba(38, 38, 38, 0.7)
+  'c-footer-bg': #1d1d1f,
+  'c-footer-border': rgba(255, 255, 255, 0.1)
 ) !default;
 $dark: map.merge((), $dark);
 
