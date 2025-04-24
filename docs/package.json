@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@iconify-json/carbon": "^1.2.8",
-    "valaxy": "^0.22.16",
+    "valaxy": "^0.23.0",
     "valaxy-theme-oceanus": "workspace:*"
   },
   "devDependencies": {

@@ -1,0 +1,346 @@
+{
+  "docs/pages/about.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/about.md"
+  },
+  "docs/pages/index.md": {
+    "contributors": [
+      {
+        "count": 3,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/index.md"
+  },
+  "docs/pages/guide/index.md": {
+    "contributors": [
+      {
+        "count": 3,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/index.md"
+  },
+  "docs/pages/guide/config/index.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/config/index.md"
+  },
+  "docs/pages/guide/getting-started/deploy.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/getting-started/deploy.md"
+  },
+  "docs/pages/guide/getting-started/installation.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/getting-started/installation.md"
+  },
+  "docs/pages/guide/getting-started/update.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/getting-started/update.md"
+  },
+  "docs/pages/guide/writing/asset-handling.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/writing/asset-handling.md"
+  },
+  "docs/pages/guide/writing/frontmatter.md": {
+    "contributors": [
+      {
+        "count": 3,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/writing/frontmatter.md"
+  },
+  "docs/pages/guide/writing/i18n.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/writing/i18n.md"
+  },
+  "docs/pages/guide/writing/markdown.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/guide/writing/markdown.md"
+  },
+  "docs/pages/notes/index.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/notes/index.md"
+  },
+  "docs/pages/reference/index.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/index.md"
+  },
+  "docs/pages/reference/site-config.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/site-config.md"
+  },
+  "docs/pages/reference/frontmatter-config/features.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/frontmatter-config/features.md"
+  },
+  "docs/pages/reference/frontmatter-config/home-page.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/frontmatter-config/home-page.md"
+  },
+  "docs/pages/reference/frontmatter-config/index.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/frontmatter-config/index.md"
+  },
+  "docs/pages/reference/theme-config/footer.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/theme-config/footer.md"
+  },
+  "docs/pages/reference/theme-config/home-page.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/theme-config/home-page.md"
+  },
+  "docs/pages/reference/theme-config/index.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      },
+      {
+        "count": 1,
+        "name": "Naiko",
+        "email": "89906826+Naeko-sauce@users.noreply.github.com",
+        "avatar": "//www.gravatar.com/avatar/935f3051fc9b6662126dad9cb7cdd09b",
+        "github": "https://github.com/Naeko-sauce",
+        "hash": "0bec52e66c90a8885e0a01187e4239b6"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/theme-config/index.md"
+  },
+  "docs/pages/reference/theme-config/layout.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/theme-config/layout.md"
+  },
+  "docs/pages/reference/theme-config/nav.md": {
+    "contributors": [
+      {
+        "count": 2,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/theme-config/nav.md"
+  },
+  "docs/pages/reference/theme-config/sidebar.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/reference/theme-config/sidebar.md"
+  },
+  "docs/pages/tags/index.md": {
+    "contributors": [
+      {
+        "count": 1,
+        "name": "WRXinYue",
+        "email": "wrxinyue@proton.me",
+        "avatar": "//www.gravatar.com/avatar/1df46fde9bfaa7bdd0bdd227e1ff5037",
+        "github": null,
+        "hash": "1df46fde9bfaa7bdd0bdd227e1ff5037"
+      }
+    ],
+    "changeLog": [],
+    "path": "docs/pages/tags/index.md"
+  }
+}

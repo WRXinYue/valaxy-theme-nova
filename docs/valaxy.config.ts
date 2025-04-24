@@ -118,7 +118,7 @@ export default defineConfig<ThemeConfig>({
 
     gitLog: {
       contributor: {
-        mode: 'git',
+        source: 'prebuilt',
       },
       repositoryUrl: 'https://github.com/WRXinYue/valaxy-theme-oceanus.git',
     },
