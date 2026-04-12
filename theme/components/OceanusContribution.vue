@@ -3,12 +3,16 @@ import { isEmptyAddon, useFrontmatter } from 'valaxy'
 import * as addonGitLogVirtual from 'valaxy-addon-git-log'
 // import { useAddonGitLog } from 'valaxy-addon-git-log'
 import contributors from 'virtual:git-log/contributors'
+import { ref } from 'vue'
+import { useHomeSectionReveal } from '../composables'
 
 if (isEmptyAddon(addonGitLogVirtual))
   console.warn('valaxy-addon-git-log is not installed. For more details, see: https://github.com/valaxyjs/valaxy-addon-git-log')
 
 // const contributors = addonGitLogVirtual.useAddonGitLogAllContributor()
 const fm = useFrontmatter<{ contributors: Contributors }>()
+const sectionRef = ref<HTMLElement | null>(null)
+const { isRevealed } = useHomeSectionReveal(sectionRef)
 
 export type Contributors = Partial<{
   title: string
@@ -18,15 +22,25 @@ export type Contributors = Partial<{
 </script>
 
 <template>
-  <section v-if="fm?.contributors" class="oceanus-contribution oceanus-section">
+  <section
+    v-if="fm?.contributors"
+    ref="sectionRef"
+    class="oceanus-contribution oceanus-section oceanus-home-below-hero"
+    :class="{ 'oceanus-home-below-hero--in-view': isRevealed }"
+    style="--oceanus-home-section-i: 2"
+  >
     <div class="oceanus-home-container">
-      <div class="contribution-container items-start justify-between rd-24px bg-$oceanus-c-card-bg lg:items-center" flex="~ col lg:row" p="x-50px y-60px">
+      <div
+        class="contribution-container oceanus-home-card-surface oceanus-home-below-hero__block items-start justify-between rd-24px lg:items-center"
+        flex="~ col lg:row"
+        p="x-50px y-60px"
+      >
         <div class="contribution-content flex-shrink-0">
           <h3 class="subtitle">
             {{ fm.contributors?.subtitle }}
           </h3>
           <h2 class="title">
-            {{ fm.contributors?.title }}
+            <span>{{ fm.contributors?.title }}</span>
           </h2>
           <div class="text">
             <p>
@@ -70,18 +84,13 @@ export type Contributors = Partial<{
   }
 
   .contribution-container {
-    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.04);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.35s ease,
+      background-color 0.35s ease;
     position: relative;
     z-index: 1;
-    backdrop-filter: blur(8px);
-    border: 1px solid hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 0.08);
     border-radius: 24px;
-
-    &:hover {
-      box-shadow: 0 16px 32px hsla(0, 0%, 0%, 0.06);
-      transform: translateY(-3px);
-    }
 
     @media screen and (max-width: 768px) {
       padding: 40px 30px;
@@ -90,7 +99,6 @@ export type Contributors = Partial<{
 
   .contribution-content {
     max-width: 550px;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover .title {
       color: var(--va-c-primary);

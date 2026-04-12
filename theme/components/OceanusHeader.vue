@@ -16,6 +16,8 @@ const matchingNavItems = useMatchingNavItems(routePath)
 const { logo, nav, navTitle } = themeConfig.value
 const currentNavItem = computed(() => matchingNavItems.value.firstNavItems)
 
+const showNavPlaceholder = computed(() => themeConfig.value.navPlaceholder !== false)
+
 const navLogo = computed(() => {
   if (typeof logo === 'boolean')
     return logo === true ? siteConfig.value.favicon : ''
@@ -33,6 +35,10 @@ const navLogo = computed(() => {
   <!-- <OceanusNavBanner /> -->
   <!-- <OceanusNavToolbar /> -->
   <OceanusNav :nav="nav" :favicon="navLogo" :title="navTitle" :class="!currentNavItem?.subNav && 'fixed'" />
-  <div :style="{ marginTop: currentNavItem?.subNav ? 0 : 'var(--oceanus-nav-height)' }" class="nav-placeholder" />
+  <div
+    v-if="showNavPlaceholder"
+    :style="{ marginTop: currentNavItem?.subNav ? 0 : 'var(--oceanus-nav-height)' }"
+    class="nav-placeholder"
+  />
   <OceanusSubNav v-if="currentNavItem?.subNav" :title="currentNavItem?.text" :sub-nav="currentNavItem?.subNav" :class="currentNavItem?.subNav && 'sticky'" />
 </template>

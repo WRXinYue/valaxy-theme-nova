@@ -65,13 +65,43 @@ const isThisYear = computed(() => {
 
 <style lang="scss">
 .oceanus-footer {
+  position: relative;
   background-color: var(--oceanus-c-footer-bg);
   color: var(--oceanus-c-text);
   padding: 3rem 0 2rem;
   font-family: var(--oceanus-font);
 
+  html:not(.dark) & {
+    box-shadow:
+      0 -1px 0 hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 0.06),
+      0 -8px 24px hsla(0, 0%, 0%, 0.03);
+  }
+
+  html.dark & {
+    border-top: 1px solid var(--oceanus-c-divider);
+    box-shadow: 0 -4px 24px hsla(0, 0%, 0%, 0.12);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 120px;
+      max-height: 100%;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--va-c-primary) 6%, transparent) 0%,
+        transparent 100%
+      );
+      opacity: 0.45;
+    }
+  }
+
   .footer-content {
-    /* Using oceanus-home-container styles */
+    position: relative;
+    z-index: 1;
   }
 
   .footer-columns {
@@ -176,5 +206,3 @@ const isThisYear = computed(() => {
   }
 }
 </style>
-
-    }

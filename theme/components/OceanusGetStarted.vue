@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useFrontmatter } from 'valaxy'
+import { useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ getStarted: GetStarted }>()
+const sectionRef = ref<HTMLElement | null>(null)
+const { isRevealed } = useHomeSectionReveal(sectionRef)
 
 function onGlassCtaMove(e: MouseEvent) {
   const el = e.currentTarget as HTMLElement
@@ -30,7 +34,15 @@ export type GetStarted = Partial<{
 </script>
 
 <template>
-  <section v-if="fm?.getStarted" class="get-started-section relative overflow-hidden" p="t-260px b-220px" flex="~ col center">
+  <section
+    v-if="fm?.getStarted"
+    ref="sectionRef"
+    class="get-started-section oceanus-home-below-hero relative overflow-hidden"
+    p="t-260px b-220px"
+    flex="~ col center"
+    :class="{ 'oceanus-home-below-hero--in-view': isRevealed }"
+    style="--oceanus-home-section-i: 3"
+  >
     <div class="framework-row">
       <div
         v-for="(card, i) in fm.getStarted?.cards"
@@ -39,7 +51,7 @@ export type GetStarted = Partial<{
         style="--oceanus-home-card-br: 16px"
       >
         <div
-          class="framework-card oceanus-home-card-hover"
+          class="framework-card oceanus-home-card-hover oceanus-home-card-surface"
           :style="card?.color && `--glow-color: ${card?.color}`"
         >
           <img :src="card?.img" :alt="card?.alt || ''" class="chip-logo">
@@ -49,10 +61,10 @@ export type GetStarted = Partial<{
 
     <div class="text-center" flex="~ col center">
       <h2 class="heading text-center <2xl:font-size-36px <md:font-size-24px <xl:font-size-30px" m="t-75px <2xl:t-60px" max-w="26.8em">
-        {{ fm.getStarted?.title }}
+        <span>{{ fm.getStarted?.title }}</span>
       </h2>
       <h3 class="subheading text-$oceanus-c-text-muted <2xl:font-size-18px <md:font-size-15px <xl:font-size-16px" m="t-32px" max-w="80%">
-        {{ fm.getStarted?.text }}
+        <span>{{ fm.getStarted?.text }}</span>
       </h3>
       <div v-if="fm.getStarted?.actions" class="actions mt-40px" flex="~ wrap justify-center gap-24px">
         <AppLink
@@ -105,8 +117,6 @@ export type GetStarted = Partial<{
     width: 96px;
     height: 96px;
     border-radius: 16px;
-    background: hsla(240, 33%, 99%, 1);
-    border: 1px solid hsla(0, 0%, 85%, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,12 +125,6 @@ export type GetStarted = Partial<{
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     -webkit-user-select: none;
     user-select: none;
-    backdrop-filter: blur(5px);
-
-    @at-root html.dark & {
-      border: 1px solid hsla(0, 0%, 15%, 0.6);
-      background: hsla(0, 0%, 9%, 0.95);
-    }
 
     img {
       user-select: none;

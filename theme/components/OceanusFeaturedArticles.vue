@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { useFrontmatter } from 'valaxy'
+import { ref } from 'vue'
+import { useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ featuredArticles: FeaturedArticles }>()
+const sectionRef = ref<HTMLElement | null>(null)
+const { isRevealed } = useHomeSectionReveal(sectionRef)
 
 export type FeaturedArticles = Partial<{
   title: string
@@ -20,7 +24,14 @@ export type FeaturedArticles = Partial<{
 </script>
 
 <template>
-  <section v-if="fm?.featuredArticles" p="y-80px" class="oceanus-section oceanus-featured-articles">
+  <section
+    v-if="fm?.featuredArticles"
+    ref="sectionRef"
+    p="y-80px"
+    class="oceanus-section oceanus-featured-articles oceanus-home-below-hero"
+    :class="{ 'oceanus-home-below-hero--in-view': isRevealed }"
+    style="--oceanus-home-section-i: 0"
+  >
     <div class="oceanus-home-container">
       <h3 class="subtitle">
         {{ fm.featuredArticles?.subtitle }}
@@ -36,30 +47,51 @@ export type FeaturedArticles = Partial<{
         </p>
       </div>
 
-      <ul m="t-64px <lg:mt-56px" class="featured-articles-grid">
+      <ul m="t-64px <lg:mt-56px" class="featured-articles-grid oceanus-home-below-hero__block">
         <li
           v-for="(article, index) in fm.featuredArticles?.articles" :key="index"
-          p="1.5px" h="auto" class="featured-article-item oceanus-home-card-conic-shell relative"
+          p="1.5px"
+          h="full min-h-0"
+          class="featured-article-item oceanus-home-card-conic-shell relative"
           style="--oceanus-home-card-br: 20px"
         >
           <AppLink
             :to="article?.path"
-            class="section-list-item-card oceanus-home-card-hover relative block overflow-hidden rounded-20px transition-all-400 hover:shadow-xl"
-            :class="[{ 'no-cover': !article?.cover }]"
-            h="full"
+            class="section-list-item-card oceanus-home-card-hover relative block overflow-hidden rounded-20px transition-all-400"
+            h="full min-h-0"
             w="full"
+            flex="~ col"
+            :class="[
+              {
+                'no-cover': !article?.cover,
+                'oceanus-home-card-surface': !article?.cover,
+                'hover:shadow-xl': article?.cover,
+                'min-h-280px <lg:min-h-240px': article?.cover,
+              },
+            ]"
           >
             <div v-if="article?.cover" class="card-image-container">
               <img h="full" w="full" class="card-image absolute inset-0 object-cover object-center-bottom" :src="article.cover">
             </div>
-            <div h="full" z="3" p="32px <lg:24px" class="card-content relative" flex="~ col justify-between">
-              <h2 class="card-title" :class="[{ 'text-[hsla(0,0%,100%,1)] dark:text-[hsla(240,2%,12%,1)]': article?.cover, 'text-[hsla(240,2%,12%,1)] dark:text-[hsla(0,0%,100%,1)]': !article?.cover }]">
+            <div
+              z="3"
+              p="32px <lg:24px"
+              class="card-content relative min-h-0"
+              flex="~ col flex-1 gap-4"
+            >
+              <h2 class="card-title shrink-0" :class="[{ 'text-[hsla(0,0%,100%,1)] dark:text-[hsla(240,2%,12%,1)]': article?.cover, 'text-[hsla(240,2%,12%,1)] dark:text-[hsla(0,0%,100%,1)]': !article?.cover }]">
                 {{ article?.title }}
               </h2>
-              <p m="t-150px b-28px" class="card-excerpt max-w-93% whitespace-pre-wrap" :class="[{ 'text-[hsla(0,0%,100%,0.92)] dark:text-[hsla(0,0%,0%,0.92)]': article?.cover, 'text-[hsla(0,0%,0%,0.92)] dark:text-[hsla(0,0%,100%,0.92)]': !article?.cover }]">
+              <p
+                m="b-28px"
+                class="card-excerpt max-w-93% min-h-0 flex-1 whitespace-pre-wrap"
+                :class="[
+                  { 'text-[hsla(0,0%,100%,0.92)] dark:text-[hsla(0,0%,0%,0.92)]': article?.cover, 'text-[hsla(0,0%,0%,0.92)] dark:text-[hsla(0,0%,100%,0.92)]': !article?.cover },
+                ]"
+              >
                 {{ article?.excerpt }}
               </p>
-              <ul v-if="article?.tags" p="t-20px" m="x--2px" class="card-tags border-t" :class="[{ 'border-[hsla(0,0%,100%,0.15)] dark:border-[hsla(0,0%,0%,0.15)]': article?.cover, 'border-[hsla(0,0%,0%,0.08)] dark:border-[hsla(0,0%,100%,0.08)]': !article?.cover }]" flex="~ wrap">
+              <ul v-if="article?.tags" p="t-20px" m="x--2px mt-auto" class="card-tags shrink-0 border-t" :class="[{ 'border-[hsla(0,0%,100%,0.15)] dark:border-[hsla(0,0%,0%,0.15)]': article?.cover, 'border-[hsla(0,0%,0%,0.08)] dark:border-[hsla(0,0%,100%,0.08)]': !article?.cover }]" flex="~ wrap">
                 <li v-for="(tag, i) in article.tags" :key="i" p="[3px_16px_4px]" class="rounded-full" :class="[{ 'bg-[hsla(0,0%,100%,0.2)] text-[hsla(0,0%,100%,1)] dark:bg-[hsla(0,0%,0%,0.2)] dark:text-[hsla(240,4%,96%,1)]': article?.cover, 'bg-[hsla(0,0%,0%,0.05)] text-[hsla(240,2%,12%,1)] dark:bg-[hsla(0,0%,100%,0.1)] dark:text-[hsla(240,4%,96%,1)]': !article?.cover }]" m="2px">
                   {{ tag }}
                 </li>
@@ -120,51 +152,18 @@ export type FeaturedArticles = Partial<{
 
   .featured-article-item {
     width: 100%;
+    min-height: 0;
   }
 
   .section-list-item-card {
     box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.06);
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 
-    &.no-cover {
-      background-color: var(--oceanus-c-bg-soft);
-      border: 1px solid var(--oceanus-c-divider);
-      position: relative;
-      overflow: hidden;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          to bottom right,
-          color-mix(in srgb, var(--va-c-primary) 2%, transparent),
-          color-mix(in srgb, var(--va-c-primary) 5%, transparent),
-          color-mix(in srgb, var(--va-c-primary) 2%, transparent)
-        );
-        transform: rotate(30deg);
-        z-index: 1;
-      }
-
-      .card-content {
-        z-index: 2;
-        background: transparent;
-      }
-    }
-
     &:hover {
       box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.08);
 
       .card-image {
         transform: scale(1.03);
-      }
-
-      &.no-cover {
-        background-color: var(--oceanus-c-bg-soft);
-        border-color: var(--va-c-primary-light);
       }
     }
   }

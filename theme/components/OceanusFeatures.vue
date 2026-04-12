@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useFrontmatter } from 'valaxy'
+import { useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ features: Features }>()
+const sectionRef = ref<HTMLElement | null>(null)
+const { isRevealed } = useHomeSectionReveal(sectionRef)
 
 export type Features = Partial<{
   title: string
@@ -17,7 +21,14 @@ export type Features = Partial<{
 </script>
 
 <template>
-  <section v-if="fm?.features" class="oceanus-section oceanus-features" p="b-120px">
+  <section
+    v-if="fm?.features"
+    ref="sectionRef"
+    class="oceanus-section oceanus-features oceanus-home-below-hero"
+    p="b-120px"
+    :class="{ 'oceanus-home-below-hero--in-view': isRevealed }"
+    style="--oceanus-home-section-i: 1"
+  >
     <div class="oceanus-home-container">
       <header class="features-header" p="t-60px">
         <h3 class="subtitle">
@@ -33,16 +44,14 @@ export type Features = Partial<{
         </div>
       </header>
 
-      <div class="features-grid-wrap">
+      <div class="features-grid-wrap oceanus-home-below-hero__block">
         <ul class="features-grid">
           <li v-for="(card, i) in fm.features?.cards" :key="i" class="feature-item">
             <div class="feature-item-inner">
               <div class="feature-card-wrapper oceanus-home-card-conic-shell" style="--oceanus-home-card-br: 22px">
-                <div class="feature-card oceanus-home-card-hover">
+                <div class="feature-card oceanus-home-card-hover oceanus-home-card-surface">
                   <div v-if="card?.icon || card?.title" class="feature-card-top">
-                    <span v-if="card?.icon" class="feature-icon-well">
-                      <span class="feature-icon" :class="card.icon" />
-                    </span>
+                    <span v-if="card?.icon" class="feature-icon" :class="card.icon" />
                     <h3 v-if="card?.title" class="feature-title">
                       {{ card.title }}
                     </h3>
@@ -147,22 +156,6 @@ export type Features = Partial<{
     padding: clamp(1.5rem, 3.5vw, 2.25rem);
     margin: 0;
     border-radius: 22px;
-    background-color: var(--oceanus-c-card-bg);
-    box-shadow:
-      0 1px 0 hsla(0, 0%, 0%, 0.04),
-      0 8px 24px hsla(0, 0%, 0%, 0.04);
-    transition:
-      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-      border-color 0.35s ease;
-    backdrop-filter: blur(8px);
-    border: 1px solid hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 0.06);
-
-    &:hover {
-      box-shadow:
-        0 1px 0 hsla(0, 0%, 0%, 0.05),
-        0 14px 40px hsla(0, 0%, 0%, 0.07);
-      border-color: color-mix(in srgb, var(--va-c-primary) 18%, transparent);
-    }
   }
 
   .feature-card-top {
@@ -174,29 +167,18 @@ export type Features = Partial<{
     min-width: 0;
   }
 
-  .feature-icon-well {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.25rem;
-    height: 3.25rem;
+  .feature-icon {
+    display: block;
+    width: 1.75rem;
+    height: 1.75rem;
     flex-shrink: 0;
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--va-c-primary) 10%, transparent);
     color: var(--va-c-primary);
+    opacity: 0.95;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
     .feature-card:hover & {
       transform: scale(1.04);
     }
-  }
-
-  .feature-icon {
-    display: block;
-    width: 1.5rem;
-    height: 1.5rem;
-    flex-shrink: 0;
-    opacity: 0.95;
   }
 
   .feature-title {

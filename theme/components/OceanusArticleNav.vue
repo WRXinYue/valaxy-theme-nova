@@ -64,6 +64,7 @@ function getTitle(post: Partial<PostFrontMatter>) {
 }
 
 .pager-link {
+  color: var(--oceanus-c-text);
   display: block;
   border: 1px solid var(--oceanus-c-divider);
   border-radius: 8px;
@@ -82,7 +83,6 @@ function getTitle(post: Partial<PostFrontMatter>) {
   line-height: 20px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--vp-c-text-2);
 }
 
 .title {
@@ -90,7 +90,6 @@ function getTitle(post: Partial<PostFrontMatter>) {
   line-height: 20px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--va-c-primary);
   transition: color 0.25s;
 }
 

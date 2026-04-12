@@ -198,6 +198,145 @@ body {
   overflow: hidden;
 }
 
+/*
+ * Homepage card surface (Features light card / Featured Articles dark transparent).
+ * Dark mode sheen uses ::after so components may keep ::before for other effects.
+ */
+.oceanus-home-card-surface {
+  transition:
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+html:not(.dark) .oceanus-home-card-surface {
+  background-color: var(--oceanus-c-card-bg);
+  border: 1px solid var(--oceanus-c-card-outline);
+  box-shadow:
+    0 1px 0 hsla(0, 0%, 0%, 0.04),
+    0 8px 24px hsla(0, 0%, 0%, 0.04);
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    box-shadow:
+      0 1px 0 hsla(0, 0%, 0%, 0.05),
+      0 14px 40px hsla(0, 0%, 0%, 0.07);
+    border-color: color-mix(in srgb, var(--va-c-primary) 18%, transparent);
+  }
+}
+
+html.dark .oceanus-home-card-surface {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border: 1px solid var(--oceanus-c-card-outline);
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.18);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      color-mix(in srgb, var(--va-c-primary) 2%, transparent),
+      color-mix(in srgb, var(--va-c-primary) 5%, transparent),
+      color-mix(in srgb, var(--va-c-primary) 2%, transparent)
+    );
+    transform: rotate(30deg);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover {
+    background-color: transparent;
+    border-color: var(--va-c-primary-light);
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.22);
+  }
+}
+
+.oceanus-home-below-hero {
+  --oceanus-home-section-i: 0;
+}
+
+/* Initial hide only (opacity). Transforms are GSAP-only to avoid fighting inline transforms. */
+.oceanus-home-below-hero:not(.oceanus-home-below-hero--in-view) {
+  .subtitle {
+    opacity: 0;
+  }
+
+  .title {
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      opacity: 0;
+      transform-origin: 0 100%;
+    }
+  }
+
+  .description p,
+  .text p {
+    opacity: 0;
+  }
+
+  .oceanus-home-below-hero__block {
+    opacity: 0;
+  }
+
+  &.get-started-section .framework-row {
+    opacity: 0;
+  }
+
+  &.get-started-section .heading {
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      opacity: 0;
+      transform-origin: 0 100%;
+    }
+  }
+
+  &.get-started-section .subheading {
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      opacity: 0;
+    }
+  }
+
+  &.get-started-section .actions {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oceanus-home-below-hero {
+    .subtitle,
+    .title span,
+    .description p,
+    .text p,
+    .oceanus-home-below-hero__block,
+    &.get-started-section .framework-row,
+    &.get-started-section .heading span,
+    &.get-started-section .subheading span,
+    &.get-started-section .actions {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
+
 /* Home: conic animated border on hover (homepage cards) */
 @property --oceanus-home-card-gradient-angle {
   syntax: '<angle>';

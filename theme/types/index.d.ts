@@ -14,6 +14,8 @@ export interface ThemeConfig extends DefaultTheme.Config {
   logo: Logo
   nav: NavItem[]
   navTitle: string | boolean
+  /** Reserve space under fixed nav (`nav-placeholder`). Default `true`. Set `false` to disable. */
+  navPlaceholder?: boolean
   navTools: NavTools
 
   hero: Partial<{
