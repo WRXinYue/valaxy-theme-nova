@@ -37,8 +37,8 @@ export type Features = Partial<{
         <ul class="features-grid">
           <li v-for="(card, i) in fm.features?.cards" :key="i" class="feature-item">
             <div class="feature-item-inner">
-              <div class="feature-card-wrapper">
-                <div class="feature-card">
+              <div class="feature-card-wrapper oceanus-home-card-conic-shell" style="--oceanus-home-card-br: 22px">
+                <div class="feature-card oceanus-home-card-hover">
                   <div v-if="card?.icon || card?.title" class="feature-card-top">
                     <span v-if="card?.icon" class="feature-icon-well">
                       <span class="feature-icon" :class="card.icon" />
@@ -69,7 +69,7 @@ export type Features = Partial<{
       font-size: 1.125rem;
       font-weight: 500;
       letter-spacing: -0.01em;
-      color: var(--oceanus-c-brand);
+      color: var(--va-c-primary);
       margin-bottom: 0.75rem;
     }
 
@@ -153,7 +153,6 @@ export type Features = Partial<{
       0 8px 24px hsla(0, 0%, 0%, 0.04);
     transition:
       box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
       border-color 0.35s ease;
     backdrop-filter: blur(8px);
     border: 1px solid hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 0.06);
@@ -162,8 +161,7 @@ export type Features = Partial<{
       box-shadow:
         0 1px 0 hsla(0, 0%, 0%, 0.05),
         0 14px 40px hsla(0, 0%, 0%, 0.07);
-      transform: translateY(-4px);
-      border-color: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.18);
+      border-color: color-mix(in srgb, var(--va-c-primary) 18%, transparent);
     }
   }
 
@@ -184,8 +182,8 @@ export type Features = Partial<{
     height: 3.25rem;
     flex-shrink: 0;
     border-radius: 14px;
-    background: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.1);
-    color: var(--oceanus-c-brand);
+    background: color-mix(in srgb, var(--va-c-primary) 10%, transparent);
+    color: var(--va-c-primary);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
     .feature-card:hover & {

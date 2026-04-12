@@ -116,8 +116,8 @@ function getTitle(post: Partial<PostFrontMatter>) {
   &:not(.has-cover) {
     &::before {
       background: linear-gradient(
-        hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.45),
-        hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0)
+        color-mix(in srgb, var(--va-c-primary) 45%, transparent),
+        color-mix(in srgb, var(--va-c-primary) 0%, transparent)
       );
 
       content: '';

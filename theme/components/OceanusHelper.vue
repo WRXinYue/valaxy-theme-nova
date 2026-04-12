@@ -89,11 +89,11 @@ const strokeOffset = computed(() => {
   }
 
   &:hover {
-    background-color: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.08);
+    background-color: color-mix(in srgb, var(--va-c-primary) 8%, transparent);
   }
 
   &:active {
-    background-color: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.16);
+    background-color: color-mix(in srgb, var(--va-c-primary) 16%, transparent);
   }
 }
 </style>

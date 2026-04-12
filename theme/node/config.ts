@@ -1,12 +1,16 @@
 import type { ThemeConfig } from '../types'
 import pkg from '../package.json'
 
+export const DEFAULT_PRIMARY = '#4f3bd4'
+
 export const defaultThemeConfig: ThemeConfig = {
   valaxyDarkOptions: {
     circleTransition: true,
   },
 
-  ui: {},
+  colors: {
+    primary: DEFAULT_PRIMARY,
+  },
 
   footer: {
     since: 2024,
@@ -29,10 +33,6 @@ export const defaultThemeConfig: ThemeConfig = {
   gitLog: false,
 }
 
-/**
- * generateSafelist by config
- * @param themeConfig
- */
 export function generateSafelist(themeConfig: ThemeConfig) {
   const { navTools } = themeConfig
 

@@ -93,14 +93,14 @@ export type Contributors = Partial<{
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover .title {
-      color: var(--oceanus-c-brand);
-      text-shadow: 0 0 1px hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.15);
+      color: var(--va-c-primary);
+      text-shadow: 0 0 1px color-mix(in srgb, var(--va-c-primary) 15%, transparent);
     }
   }
 
   .subtitle {
     font-weight: 500;
-    color: var(--oceanus-c-brand);
+    color: var(--va-c-primary);
     font-size: 1.125rem;
     letter-spacing: -0.01em;
 
@@ -170,7 +170,7 @@ export type Contributors = Partial<{
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
-      transform: translateY(-3px) scale(1.01);
+      transform: scale(1.01);
       z-index: 2;
     }
   }
@@ -187,7 +187,7 @@ export type Contributors = Partial<{
 
       &:hover {
         box-shadow: 0 8px 20px hsla(0, 0%, 0%, 0.12);
-        border-color: var(--oceanus-c-brand, hsla(221, 100%, 65%, 1));
+        border-color: var(--va-c-primary);
       }
     }
   }

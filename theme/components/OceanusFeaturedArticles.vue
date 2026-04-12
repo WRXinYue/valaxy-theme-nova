@@ -39,11 +39,12 @@ export type FeaturedArticles = Partial<{
       <ul m="t-64px <lg:mt-56px" class="featured-articles-grid">
         <li
           v-for="(article, index) in fm.featuredArticles?.articles" :key="index"
-          p="1.5px" h="auto" class="featured-article-item"
+          p="1.5px" h="auto" class="featured-article-item oceanus-home-card-conic-shell relative"
+          style="--oceanus-home-card-br: 20px"
         >
           <AppLink
             :to="article?.path"
-            class="section-list-item-card relative block overflow-hidden rounded-20px transition-all-400 hover:translate-y--2 hover:shadow-xl"
+            class="section-list-item-card oceanus-home-card-hover relative block overflow-hidden rounded-20px transition-all-400 hover:shadow-xl"
             :class="[{ 'no-cover': !article?.cover }]"
             h="full"
             w="full"
@@ -77,7 +78,7 @@ export type FeaturedArticles = Partial<{
     font-size: 1.125rem;
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: var(--oceanus-c-brand);
+    color: var(--va-c-primary);
     margin-bottom: 0.75rem;
   }
 
@@ -140,9 +141,9 @@ export type FeaturedArticles = Partial<{
         height: 200%;
         background: linear-gradient(
           to bottom right,
-          hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.02),
-          hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.05),
-          hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.02)
+          color-mix(in srgb, var(--va-c-primary) 2%, transparent),
+          color-mix(in srgb, var(--va-c-primary) 5%, transparent),
+          color-mix(in srgb, var(--va-c-primary) 2%, transparent)
         );
         transform: rotate(30deg);
         z-index: 1;
@@ -163,7 +164,7 @@ export type FeaturedArticles = Partial<{
 
       &.no-cover {
         background-color: var(--oceanus-c-bg-soft);
-        border-color: var(--oceanus-c-brand-light);
+        border-color: var(--va-c-primary-light);
       }
     }
   }

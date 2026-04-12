@@ -5,7 +5,7 @@ body.oceanus-preload-active {
 }
 
 .link {
-  color: var(--oceanus-c-brand);
+  color: var(--va-c-primary);
 }
 
 html {
@@ -196,4 +196,82 @@ body {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   overflow: hidden;
+}
+
+/* Home: conic animated border on hover (homepage cards) */
+@property --oceanus-home-card-gradient-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes oceanus-home-card-gradient-spin {
+  0% {
+    --oceanus-home-card-gradient-angle: 0deg;
+  }
+
+  100% {
+    --oceanus-home-card-gradient-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oceanus-home-card-conic-shell::after {
+    transition-duration: 0.22s;
+    transform: none;
+  }
+
+  .oceanus-home-card-conic-shell:has(.oceanus-home-card-hover:hover)::after {
+    animation: none;
+    --oceanus-home-card-gradient-angle: 120deg;
+  }
+}
+
+.oceanus-home-card-conic-shell {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: 5;
+    box-sizing: border-box;
+    border-radius: calc(var(--oceanus-home-card-br, 22px) + 2px);
+    padding: 2px;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.985);
+    transition:
+      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    background: conic-gradient(
+      from var(--oceanus-home-card-gradient-angle),
+      hsla(0, 0%, 100%, 0.1) 0deg,
+      hsla(0, 0%, 100%, 0.1) 60deg,
+      hsla(0, 0%, 100%, 0.9) 120deg,
+      hsla(0, 0%, 100%, 0.1) 180deg,
+      hsla(0, 0%, 100%, 0.1) 240deg,
+      hsla(0, 0%, 100%, 0.9) 300deg,
+      hsla(0, 0%, 100%, 0.1) 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  &:has(.oceanus-home-card-hover:hover)::after {
+    opacity: 1;
+    transform: scale(1);
+    animation: oceanus-home-card-gradient-spin 4s linear 0.22s infinite;
+  }
+
+  & > .oceanus-home-card-hover {
+    position: relative;
+    z-index: 1;
+  }
 }

@@ -20,7 +20,7 @@ const [isOpen, toggle] = useToggle(false)
       <div class="oceanus-safe-padding nav-content-header" flex="~ center md:justify-between">
         <OceanusNavMenu class="nav-menu left-2 z-50 absolute! md:hidden" h="full" :active="isOpen" @click="toggle()" />
 
-        <AppLink to="/" :aria-label="title" class="h-36px text-center" flex="~ items-center">
+        <AppLink to="/" :aria-label="title" class="oceanus-nav-brand h-36px text-center" flex="~ items-center">
           <img v-if="favicon" class="oceanus-nav-icon mr-2 h-full object-cover text-xl" alt="logo" :src="favicon">
           <span v-if="title" class="oceanus-text oceanus-nav-title text-xl md:inline" flex="~ center">{{ title }}</span>
         </AppLink>
@@ -124,6 +124,23 @@ const [isOpen, toggle] = useToggle(false)
     max-width: 100%;
 
     height: 100%;
+    transition:
+      opacity 0.22s ease,
+      filter 0.28s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .nav-content-header :deep(a.oceanus-nav-brand:hover) &-title,
+  .nav-content-header :deep(a.oceanus-nav-brand:focus-visible) &-title {
+    color: transparent;
+    background: linear-gradient(180deg, var(--va-c-primary-light) 0%, var(--va-c-primary) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px color-mix(in srgb, var(--va-c-primary) 42%, transparent));
   }
 
   .oceanus-link-text {

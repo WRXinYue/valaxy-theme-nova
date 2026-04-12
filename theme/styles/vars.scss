@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use 'sass:string';
 
 $common: (
   'nav-height': 55px,
@@ -11,36 +10,30 @@ $common: (
 ) !default;
 $common: map.merge((), $common);
 
-// Card / brand HSL channels (use with hsla(var(--oceanus-c-*-h), var(--oceanus-c-*-s), var(--oceanus-c-*-l), α) in components)
 $light: (
-  // --------------- Text ---------------
   'c-text': hsla(240, 2%, 12%, 1),
   'c-text-muted': hsla(216, 1%, 54%, 1),
   'c-text-deep': hsla(200, 3%, 18%, 1),
   'c-text-deeper': hsla(0, 0%, 0%, 1),
-  'c-brand-h': '221',
-  'c-brand-s': '100%',
-  'c-brand-l': '65%',
-  'c-brand': string.unquote('hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 1)'),
-  'c-link': var(--oceanus-c-brand),
+  'c-brand': var(--va-c-primary),
+  'c-brand-light': var(--va-c-primary-light),
+  'c-link': var(--va-c-link),
   'c-bg-design': hsla(0, 0%, 100%, 1),
   'c-nav-bg': hsla(0, 0%, 100%, 0.7),
   'c-sub-nav-bg': var(--oceanus-c-nav-bg),
   'c-border': hsla(240, 4%, 83%, 1),
   'c-border-line': hsla(0, 0%, 0%, 0.1),
   'c-divider': hsla(0, 0%, 0%, 0.04),
-  'c-active-bg': hsla(240, 7%, 92%, 1),
-  'c-list-active-bg': hsla(240, 7%, 92%, 1),
+  'c-active-bg': hsla(240, 14%, 94%, 1),
+  'c-list-active-bg': hsla(240, 12%, 93%, 1),
   'c-list-hover-bg': var(--oceanus-c-list-active-bg),
   'c-list-active-font': hsla(0, 0%, 0%, 1),
-  // --------------- Card (HSL + solid bg) ---------------
-  'c-card-bg-h': '275',
-  'c-card-bg-s': '100%',
+  'c-card-bg-h': '0',
+  'c-card-bg-s': '0%',
   'c-card-bg-l': '99%',
-  'c-card-bg': string.unquote('hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 1)'),
-  // --------------- Footer ---------------
+  'c-card-bg': hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 1),
   'c-footer-bg': hsla(240, 5%, 96%, 1),
-  'c-footer-border': hsla(0, 0%, 0%, 0.08),
+  'c-footer-border': hsla(0, 0%, 0%, 0.08)
 ) !default;
 $light: map.merge((), $light);
 
@@ -49,25 +42,23 @@ $dark: (
   'c-text-muted': hsla(240, 2%, 65%, 1),
   'c-text-deep': hsla(60, 100%, 98%, 0.86),
   'c-text-deeper': hsla(0, 0%, 100%, 1),
-  'c-brand-h': '221',
-  'c-brand-s': '100%',
-  'c-brand-l': '65%',
-  'c-brand': string.unquote('hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 1)'),
-  'c-link': var(--oceanus-c-brand),
+  'c-brand': var(--va-c-primary),
+  'c-brand-light': var(--va-c-primary-light),
+  'c-link': var(--va-c-link),
   'c-bg-design': hsla(0, 0%, 0%, 1),
   'c-nav-bg': hsla(240, 2%, 8%, 0.72),
   'c-sub-nav-bg': var(--oceanus-c-nav-bg),
   'c-border': hsla(0, 0%, 15%, 1),
   'c-border-line': hsla(0, 0%, 100%, 0.24),
   'c-divider': hsla(240, 4%, 18%, 1),
-  'c-active-bg': hsla(262, 16%, 19%, 1),
-  'c-list-active-bg': hsla(240, 2%, 20%, 1),
+  'c-active-bg': hsla(240, 10%, 18%, 1),
+  'c-list-active-bg': hsla(240, 8%, 20%, 1),
   'c-list-hover-bg': var(--oceanus-c-list-active-bg),
   'c-list-active-font': hsla(0, 0%, 0%, 1),
   'c-card-bg-h': '0',
   'c-card-bg-s': '0%',
   'c-card-bg-l': '8%',
-  'c-card-bg': string.unquote('hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 1)'),
+  'c-card-bg': hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 1),
   'c-footer-bg': hsla(240, 2%, 12%, 1),
   'c-footer-border': hsla(0, 0%, 100%, 0.1),
 ) !default;

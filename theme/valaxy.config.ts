@@ -31,7 +31,10 @@ export default defineTheme<ThemeConfig>((options) => {
     ],
     vite: {
       plugins: [
-        themePlugin(config.themeConfig),
+        themePlugin({
+          ...defaultThemeConfig,
+          ...config.themeConfig,
+        }),
         ...(!themeConfig.gitLog
           ? [virtual({ 'virtual:git-log/contributors': 'export default [];' })]
           : []),

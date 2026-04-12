@@ -49,6 +49,9 @@ build/
 # JetBrains IDEs
 .idea/
 
+# Cursor
+.cursor/
+
 # Optional npm cache directory
 .npm
 
