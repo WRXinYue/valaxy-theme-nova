@@ -1,9 +1,9 @@
 <template>
   <Layout>
-    <OceanusHero />
-    <OceanusFeaturedArticles />
-    <OceanusFeatures />
-    <OceanusContribution />
-    <OceanusGetStarted />
+    <NovaHero />
+    <NovaFeaturedArticles />
+    <NovaFeatures />
+    <NovaContribution />
+    <NovaGetStarted />
   </Layout>
 </template>

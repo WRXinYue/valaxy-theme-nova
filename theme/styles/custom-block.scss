@@ -1,5 +1,5 @@
 /**
- * Oceanus theme — custom blocks (info / tip / warning / danger / details)
+ * Nova theme — custom blocks (info / tip / warning / danger / details)
  * Overrides Valaxy `components/custom-block.scss` tokens + layout inside `.markdown-body`.
  */
 
@@ -7,25 +7,25 @@
   --va-custom-block-font-size: 14px;
   --va-custom-block-code-font-size: 13px;
 
-  --va-custom-block-info-border: color-mix(in srgb, var(--oceanus-c-border-line) 95%, var(--va-c-text-3));
-  --va-custom-block-info-text: var(--oceanus-c-text-deep);
-  --va-custom-block-info-bg: color-mix(in srgb, var(--oceanus-c-text-muted) 9%, var(--oceanus-c-bg-design));
-  --va-custom-block-info-code-bg: color-mix(in srgb, var(--oceanus-c-text-muted) 13%, var(--oceanus-c-bg-design));
+  --va-custom-block-info-border: color-mix(in srgb, var(--nova-c-border-line) 95%, var(--va-c-text-3));
+  --va-custom-block-info-text: var(--nova-c-text-deep);
+  --va-custom-block-info-bg: color-mix(in srgb, var(--nova-c-text-muted) 9%, var(--nova-c-bg-design));
+  --va-custom-block-info-code-bg: color-mix(in srgb, var(--nova-c-text-muted) 13%, var(--nova-c-bg-design));
 
   --va-custom-block-tip-border: color-mix(in srgb, var(--va-c-primary) 42%, transparent);
-  --va-custom-block-tip-text: var(--oceanus-c-text-deep);
-  --va-custom-block-tip-bg: color-mix(in srgb, var(--va-c-primary) 10%, var(--oceanus-c-bg-design));
-  --va-custom-block-tip-code-bg: color-mix(in srgb, var(--va-c-primary) 14%, var(--oceanus-c-bg-design));
+  --va-custom-block-tip-text: var(--nova-c-text-deep);
+  --va-custom-block-tip-bg: color-mix(in srgb, var(--va-c-primary) 10%, var(--nova-c-bg-design));
+  --va-custom-block-tip-code-bg: color-mix(in srgb, var(--va-c-primary) 14%, var(--nova-c-bg-design));
 
   --va-custom-block-warning-border: color-mix(in srgb, var(--va-c-warning-1) 45%, transparent);
-  --va-custom-block-warning-text: var(--oceanus-c-text-deep);
-  --va-custom-block-warning-bg: color-mix(in srgb, var(--va-c-warning-1) 11%, var(--oceanus-c-bg-design));
-  --va-custom-block-warning-code-bg: color-mix(in srgb, var(--va-c-warning-1) 15%, var(--oceanus-c-bg-design));
+  --va-custom-block-warning-text: var(--nova-c-text-deep);
+  --va-custom-block-warning-bg: color-mix(in srgb, var(--va-c-warning-1) 11%, var(--nova-c-bg-design));
+  --va-custom-block-warning-code-bg: color-mix(in srgb, var(--va-c-warning-1) 15%, var(--nova-c-bg-design));
 
   --va-custom-block-danger-border: color-mix(in srgb, var(--va-c-danger-1) 42%, transparent);
-  --va-custom-block-danger-text: var(--oceanus-c-text-deep);
-  --va-custom-block-danger-bg: color-mix(in srgb, var(--va-c-danger-1) 10%, var(--oceanus-c-bg-design));
-  --va-custom-block-danger-code-bg: color-mix(in srgb, var(--va-c-danger-1) 14%, var(--oceanus-c-bg-design));
+  --va-custom-block-danger-text: var(--nova-c-text-deep);
+  --va-custom-block-danger-bg: color-mix(in srgb, var(--va-c-danger-1) 10%, var(--nova-c-bg-design));
+  --va-custom-block-danger-code-bg: color-mix(in srgb, var(--va-c-danger-1) 14%, var(--nova-c-bg-design));
 
   --va-custom-block-details-border: var(--va-custom-block-info-border);
   --va-custom-block-details-text: var(--va-custom-block-info-text);
@@ -34,17 +34,17 @@
 }
 
 html.dark {
-  --va-custom-block-info-bg: color-mix(in srgb, var(--oceanus-c-text-muted) 12%, var(--oceanus-c-bg-design));
-  --va-custom-block-info-code-bg: color-mix(in srgb, var(--oceanus-c-text-muted) 16%, var(--oceanus-c-bg-design));
+  --va-custom-block-info-bg: color-mix(in srgb, var(--nova-c-text-muted) 12%, var(--nova-c-bg-design));
+  --va-custom-block-info-code-bg: color-mix(in srgb, var(--nova-c-text-muted) 16%, var(--nova-c-bg-design));
 
-  --va-custom-block-tip-bg: color-mix(in srgb, var(--va-c-primary) 13%, var(--oceanus-c-bg-design));
-  --va-custom-block-tip-code-bg: color-mix(in srgb, var(--va-c-primary) 17%, var(--oceanus-c-bg-design));
+  --va-custom-block-tip-bg: color-mix(in srgb, var(--va-c-primary) 13%, var(--nova-c-bg-design));
+  --va-custom-block-tip-code-bg: color-mix(in srgb, var(--va-c-primary) 17%, var(--nova-c-bg-design));
 
-  --va-custom-block-warning-bg: color-mix(in srgb, var(--va-c-warning-1) 13%, var(--oceanus-c-bg-design));
-  --va-custom-block-warning-code-bg: color-mix(in srgb, var(--va-c-warning-1) 17%, var(--oceanus-c-bg-design));
+  --va-custom-block-warning-bg: color-mix(in srgb, var(--va-c-warning-1) 13%, var(--nova-c-bg-design));
+  --va-custom-block-warning-code-bg: color-mix(in srgb, var(--va-c-warning-1) 17%, var(--nova-c-bg-design));
 
-  --va-custom-block-danger-bg: color-mix(in srgb, var(--va-c-danger-1) 12%, var(--oceanus-c-bg-design));
-  --va-custom-block-danger-code-bg: color-mix(in srgb, var(--va-c-danger-1) 16%, var(--oceanus-c-bg-design));
+  --va-custom-block-danger-bg: color-mix(in srgb, var(--va-c-danger-1) 12%, var(--nova-c-bg-design));
+  --va-custom-block-danger-code-bg: color-mix(in srgb, var(--va-c-danger-1) 16%, var(--nova-c-bg-design));
 }
 
 .markdown-body .prose .custom-block {
@@ -53,18 +53,18 @@ html.dark {
   line-height: 1.65;
   border-left-width: 3px;
   box-shadow:
-    0 1px 0 color-mix(in srgb, var(--oceanus-c-text-deeper) 5%, transparent),
-    0 10px 28px color-mix(in srgb, var(--oceanus-c-text-deeper) 5%, transparent);
+    0 1px 0 color-mix(in srgb, var(--nova-c-text-deeper) 5%, transparent),
+    0 10px 28px color-mix(in srgb, var(--nova-c-text-deeper) 5%, transparent);
 }
 
 .markdown-body .prose .custom-block-title {
   margin-bottom: 0.5rem !important;
   letter-spacing: 0.02em;
-  color: var(--oceanus-c-text-deeper);
+  color: var(--nova-c-text-deeper);
 }
 
 .markdown-body .prose .custom-block p {
-  color: var(--oceanus-c-text-deep);
+  color: var(--nova-c-text-deep);
 }
 
 .markdown-body .prose .custom-block code {
@@ -73,5 +73,5 @@ html.dark {
 }
 
 .markdown-body .prose .custom-block.details summary {
-  color: var(--oceanus-c-text-deeper);
+  color: var(--nova-c-text-deeper);
 }

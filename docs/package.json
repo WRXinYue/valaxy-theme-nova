@@ -11,7 +11,7 @@
   "dependencies": {
     "@iconify-json/carbon": "catalog:",
     "valaxy": "catalog:",
-    "valaxy-theme-oceanus": "workspace:*"
+    "valaxy-theme-nova": "workspace:*"
   },
   "devDependencies": {
     "nodemon": "catalog:"

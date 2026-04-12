@@ -1,9 +1,9 @@
-import type { ThemeConfig } from 'valaxy-theme-oceanus'
+import type { ThemeConfig } from 'valaxy-theme-nova'
 import { defineConfig } from 'valaxy'
-import pkg from 'valaxy-theme-oceanus/package.json'
+import pkg from 'valaxy-theme-nova/package.json'
 
 export default defineConfig<ThemeConfig>({
-  theme: 'oceanus',
+  theme: 'nova',
 
   devtools: true,
 
@@ -72,7 +72,7 @@ export default defineConfig<ThemeConfig>({
       },
       {
         text: pkg.version,
-        link: 'https://github.com/WRXinYue/valaxy-theme-oceanus/releases',
+        link: 'https://github.com/WRXinYue/valaxy-theme-nova/releases',
       },
       {
         text: '关于',
@@ -90,7 +90,7 @@ export default defineConfig<ThemeConfig>({
     ],
 
     hero: {
-      title: 'VALAXY THEME OCEANUS',
+      title: 'VALAXY THEME NOVA',
       motto: '简约、高雅的 Valaxy 文档主题',
     },
 
@@ -109,14 +109,14 @@ export default defineConfig<ThemeConfig>({
     footer: {
       since: 2024,
       powered: true,
-      icp: '<a class="oceanus-text" href="https://icp.gov.moe/?keyword=20240132" target="_blank">萌ICP备20240132号</a>',
+      icp: '<a class="nova-text" href="https://icp.gov.moe/?keyword=20240132" target="_blank">萌ICP备20240132号</a>',
     },
 
     gitLog: {
       contributor: {
         strategy: 'prebuilt',
       },
-      repositoryUrl: 'https://github.com/WRXinYue/valaxy-theme-oceanus.git',
+      repositoryUrl: 'https://github.com/WRXinYue/valaxy-theme-nova.git',
     },
   },
 })

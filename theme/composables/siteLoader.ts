@@ -1,6 +1,6 @@
 import { useAppStore } from 'valaxy'
 
-export const SITE_LOADER_SEEN_KEY = 'oceanus-site-loader-seen'
+export const SITE_LOADER_SEEN_KEY = 'nova-site-loader-seen'
 
 /**
  * Clears the “already seen” flag and shows the full site splash again.

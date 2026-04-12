@@ -11,9 +11,9 @@ const siteConfig = useSiteConfig()
 </script>
 
 <template>
-  <main class="oceanus-main" w="full" min-w-0 p="b-16 xl:b-20">
+  <main class="nova-main" w="full" min-w-0 p="b-16 xl:b-20">
     <slot name="main">
-      <div class="oceanus-container" w="full">
+      <div class="nova-container" w="full">
         <div class="content" flex="~ col" w="full">
           <slot name="main-header" />
           <slot name="main-header-after" />

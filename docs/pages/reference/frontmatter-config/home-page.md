@@ -6,7 +6,7 @@ categories:
 end: true
 ---
 
-主题提供了一个首页布局，也可以在[此站点首页](http://oceanus.wrxinyue.org/)看到。可以通过 frontmatter 指定 `layout: home` 在任何页面上使用它
+主题提供了一个首页布局，也可以在[此站点首页](http://nova.wrxinyue.org/)看到。可以通过 frontmatter 指定 `layout: home` 在任何页面上使用它
 
 ```md
 ---
@@ -28,21 +28,21 @@ layout: home
 featuredArticles:
   subtitle: 精选文章
   title: 探索我们的热门内容
-  description: 这些精选文章展示了 Oceanus 主题的强大功能和灵活性，帮助您快速了解如何充分利用这个主题。
+  description: 这些精选文章展示了 Nova 主题的强大功能和灵活性，帮助您快速了解如何充分利用这个主题。
 
   articles:
     - title: 快速开始
       cover: /images/featured-1.jpg
       tags: ["指南", "入门"]
-      excerpt: 了解如何快速设置和配置 Oceanus 主题，开始构建您的文档或博客网站。
+      excerpt: 了解如何快速设置和配置 Nova 主题，开始构建您的文档或博客网站。
     - title: 主题定制
       cover: /images/featured-2.jpg
       tags: ["定制", "样式"]
-      excerpt: 探索 Oceanus 主题的定制选项，包括颜色、字体、布局等，打造独特的网站风格。
+      excerpt: 探索 Nova 主题的定制选项，包括颜色、字体、布局等，打造独特的网站风格。
     - title: 高级功能
       cover: /images/featured-3.jpg
       tags: ["高级", "功能"]
-      excerpt: 深入了解 Oceanus 主题的高级功能，如多语言支持、搜索优化、性能调优等。
+      excerpt: 深入了解 Nova 主题的高级功能，如多语言支持、搜索优化、性能调优等。
 ---
 
 ```
@@ -74,7 +74,7 @@ Features 部分用于展示主题或产品的主要特性和功能。通过 `fea
 features:
   subtitle: 特性
   title: 强大的功能
-  text: Oceanus 主题提供了丰富的功能，满足各种文档和博客需求
+  text: Nova 主题提供了丰富的功能，满足各种文档和博客需求
 
   cards:
     - title: 简单
@@ -142,7 +142,7 @@ GetStarted 部分用于引导用户开始使用产品或主题。通过 `getStar
 ```md
 ---
 getStarted:
-  title: 开始使用 Oceanus 主题
+  title: 开始使用 Nova 主题
   text: 准备好体验一个能够跟上您思维速度的开发环境，打造美观、高效的文档和博客网站。
   actions:
     - text: 开始使用
@@ -195,7 +195,7 @@ layout: home
 features:
   subtitle: 特性
   title: 强大的功能
-  text: Oceanus 主题提供了丰富的功能，满足各种文档和博客需求
+  text: Nova 主题提供了丰富的功能，满足各种文档和博客需求
 
   cards:
     - title: 简单
@@ -206,13 +206,13 @@ features:
 featuredArticles:
   subtitle: 精选文章
   title: 探索我们的热门内容
-  description: 这些精选文章展示了 Oceanus 主题的强大功能和灵活性。
+  description: 这些精选文章展示了 Nova 主题的强大功能和灵活性。
 
   articles:
     - title: 快速开始
       cover: /images/featured-1.jpg
       tags: ["指南", "入门"]
-      excerpt: 了解如何快速设置和配置 Oceanus 主题。
+      excerpt: 了解如何快速设置和配置 Nova 主题。
     # 更多文章...
 
 contributors:
@@ -221,7 +221,7 @@ contributors:
   text: 已获得 MIT 许可，并且将始终免费且开源。
 
 getStarted:
-  title: 开始使用 Oceanus 主题
+  title: 开始使用 Nova 主题
   text: 准备好体验一个能够跟上您思维速度的开发环境。
   actions:
     - text: 开始使用

@@ -2,7 +2,7 @@
 import { useHead } from '@unhead/vue'
 import { useAppStore } from 'valaxy'
 import { useLocale } from './composables'
-import OceanusSiteLoader from './components/OceanusSiteLoader.vue'
+import NovaSiteLoader from './components/NovaSiteLoader.vue'
 
 const { lang } = useLocale()
 const appStore = useAppStore()
@@ -23,20 +23,20 @@ useHead({
 
 <template>
   <ClientOnly>
-    <Transition name="oceanus-site-loader-fade">
-      <OceanusSiteLoader v-if="appStore.showLoading" />
+    <Transition name="nova-site-loader-fade">
+      <NovaSiteLoader v-if="appStore.showLoading" />
     </Transition>
   </ClientOnly>
 </template>
 
 <style scoped>
-.oceanus-site-loader-fade-enter-active,
-.oceanus-site-loader-fade-leave-active {
+.nova-site-loader-fade-enter-active,
+.nova-site-loader-fade-leave-active {
   transition: opacity 0.35s ease;
 }
 
-.oceanus-site-loader-fade-enter-from,
-.oceanus-site-loader-fade-leave-to {
+.nova-site-loader-fade-enter-from,
+.nova-site-loader-fade-leave-to {
   opacity: 0;
 }
 </style>

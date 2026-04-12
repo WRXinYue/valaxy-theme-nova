@@ -14,13 +14,13 @@ top: 100
 ::: zh-CN
 | 版本 | Node | valaxy |
 | --- | --- | --- |
-| <Version type="oceanus" /> + | Node >= 18.12 | Valaxy >= <Version type="valaxy" /> |
+| <Version type="nova" /> + | Node >= 18.12 | Valaxy >= <Version type="valaxy" /> |
 :::
 
 ::: en
 | version | Node | valaxy |
 | --- | --- | --- |
-| <Version type="oceanus" /> + | Node >= 18.12 | Valaxy >= <Version type="valaxy" /> |
+| <Version type="nova" /> + | Node >= 18.12 | Valaxy >= <Version type="valaxy" /> |
 :::
 
 ### 创建 Valaxy 博客项目{lang="zh-CN"}
@@ -86,15 +86,15 @@ Navigate to the folder where you just created the Valaxy project, open the termi
 ::: code-group
 
 ```bash [pnpm]
-pnpm add valaxy-theme-oceanus
+pnpm add valaxy-theme-nova
 ```
 
 ```bash [npm]
-npm install valaxy-theme-oceanus
+npm install valaxy-theme-nova
 ```
 
 ```bash [yarn]
-yarn add valaxy-theme-oceanus
+yarn add valaxy-theme-nova
 ```
 
 :::
@@ -114,23 +114,23 @@ If you encounter difficulties during the creation process, it is highly recommen
 ### Enable theme{lang="en"}
 
 ::: zh-CN
-在安装主题之后并不会启用主题。首先在 `valaxy.config.ts` 文件中启用 `oceanus` 主题，您需要按照以下步骤操作：
+在安装主题之后并不会启用主题。首先在 `valaxy.config.ts` 文件中启用 `Nova` 主题，您需要按照以下步骤操作：
 
 打开 Valaxy 项目的根目录的 `valaxy.config.ts` 文件，修改如下标注的位置，以确保 TypeScript 的类型检查和自动完成功能能够正常使用
 :::
 
 ::: en
-The theme will not be activated after installation. First, enable the `oceanus` theme in the `valaxy.config.ts` file. You need to follow these steps:
+The theme will not be activated after installation. First, enable the `Nova` theme in the `valaxy.config.ts` file. You need to follow these steps:
 
 Open the `valaxy.config.ts` file in the root directory of the Valaxy project, and modify the positions indicated below to ensure that TypeScript's type checking and auto-completion features work correctly:
 :::
 
 ```ts {2-4}
-import type { ThemeUserConfig } from 'valaxy-theme-oceanus'
+import type { ThemeUserConfig } from 'valaxy-theme-nova'
 import { defineValaxyConfig } from 'valaxy'
 
 export default defineValaxyConfig<ThemeUserConfig>({
-  theme: 'oceanus'
+  theme: 'nova'
 })
 ```
 
@@ -150,24 +150,24 @@ In simple terms, TypeScript can automatically complete code suggestions while yo
 
 :::zh-CN
 
-> 主题名称自动根据 `valaxy-theme-xxx` 的格式获取，如本主题名为`valaxy-theme-oceanus`，所以oceanus就是这个主题的名称
+> 主题名称自动根据 `valaxy-theme-xxx` 的格式获取，如本主题名为`valaxy-theme-nova`，所以Nova就是这个主题的名称
 
-在theme选项中填入 `oceanus` 来实现主题切换
+在theme选项中填入 `Nova` 来实现主题切换
 :::
 
 :::en
 
-> The theme name is automatically retrieved in the format `valaxy-theme-xxx`. For example, this theme is named `valaxy-theme-oceanus`, so oceanus is the name of this theme.
+> The theme name is automatically retrieved in the format `valaxy-theme-xxx`. For example, this theme is named `valaxy-theme-nova`, so Nova is the name of this theme.
 
-Fill in `oceanus` in the theme option to switch themes.
+Fill in `Nova` in the theme option to switch themes.
 :::
 
 ```ts {5}
-import type { ThemeUserConfig } from 'valaxy-theme-oceanus'
+import type { ThemeUserConfig } from 'valaxy-theme-nova'
 import { defineValaxyConfig } from 'valaxy'
 
 export default defineValaxyConfig<ThemeUserConfig>({
-  theme: 'oceanus'
+  theme: 'nova'
 })
 ```
 
@@ -183,13 +183,13 @@ Please ensure that you have correctly imported all the necessary types. Incorrec
 
 :::zh-CN
 
-> 通过遵循上述步骤，您可以顺利地在您的项目中启用 oceanus 主题，并利用 TypeScript 提供的类型安全和代码智能提示功能，享受到更加愉快的博客使用体验
+> 通过遵循上述步骤，您可以顺利地在您的项目中启用 Nova 主题，并利用 TypeScript 提供的类型安全和代码智能提示功能，享受到更加愉快的博客使用体验
 
 如果创建 Valaxy 项目的时候没有安装依赖，那么我们就要手动安装依赖:
 :::
 
 :::en
-By following the steps above, you can successfully enable the oceanus theme in your project and enjoy a more pleasant blogging experience with the type safety and code intelligence features provided by TypeScript.
+By following the steps above, you can successfully enable the Nova theme in your project and enjoy a more pleasant blogging experience with the type safety and code intelligence features provided by TypeScript.
 
 If the dependencies were not installed when creating the Valaxy project, we need to install the dependencies manually:
 :::

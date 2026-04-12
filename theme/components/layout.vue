@@ -1,8 +1,8 @@
 <template>
   <div class="antialiased">
-    <OceanusHeader />
+    <NovaHeader />
 
-    <main class="oceanus-main">
+    <main class="nova-main">
       <slot>
         <RouterView v-slot="{ Component }">
           <component :is="Component">
@@ -39,10 +39,10 @@
       </slot>
     </main>
 
-    <!-- <OceanusHelper /> -->
+    <!-- <NovaHelper /> -->
 
-    <OceanusFooter>
+    <NovaFooter>
       <slot name="footer" />
-    </OceanusFooter>
+    </NovaFooter>
   </div>
 </template>

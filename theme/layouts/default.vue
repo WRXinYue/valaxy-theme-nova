@@ -1,13 +1,13 @@
 <template>
   <Layout>
-    <OceanusArticle>
+    <NovaArticle>
       <RouterView v-slot="{ Component }">
         <component :is="Component">
           <template #main-nav>
-            <OceanusArticleNav />
+            <NovaArticleNav />
           </template>
         </component>
       </RouterView>
-    </OceanusArticle>
+    </NovaArticle>
   </Layout>
 </template>

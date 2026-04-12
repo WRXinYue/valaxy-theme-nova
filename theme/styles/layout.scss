@@ -1,6 +1,6 @@
 @use 'valaxy/client/styles/mixins/index.scss' as *;
 
-body.oceanus-preload-active {
+body.nova-preload-active {
   overflow: hidden !important;
 }
 
@@ -9,7 +9,7 @@ body.oceanus-preload-active {
 }
 
 html {
-  color: var(--oceanus-c-text);
+  color: var(--nova-c-text);
   /* Avoid width jump when overflow toggles (e.g. preloader unlocks body scroll). */
   scrollbar-gutter: stable;
 }
@@ -39,19 +39,19 @@ body {
   margin-left: 8px;
   width: 1px;
   height: 24px;
-  background-color: var(--oceanus-c-divider);
+  background-color: var(--nova-c-divider);
   content: '';
 }
 
-.oceanus-main {
+.nova-main {
   height: 100%;
 }
 
-.oceanus-text {
-  color: var(--oceanus-c-text);
+.nova-text {
+  color: var(--nova-c-text);
 }
 
-.oceanus-safe-padding {
+.nova-safe-padding {
   padding-left: max(0.9411764706rem, env(safe-area-inset-left));
   padding-right: max(0.9411764706rem, env(safe-area-inset-right));
   transition: padding 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
@@ -72,7 +72,7 @@ body {
   }
 }
 
-.oceanus-container:not(.minimized-container) {
+.nova-container:not(.minimized-container) {
   width: 100%;
   min-width: 320px;
   max-width: 820px;
@@ -95,7 +95,7 @@ body {
   min-width: 320px;
 }
 
-.oceanus-home-container {
+.nova-home-container {
   width: 100%;
   margin-inline: auto;
   box-sizing: border-box;
@@ -117,17 +117,17 @@ body {
   }
 }
 
-.oceanus-section {
+.nova-section {
   .subtitle {
-    font: 500 18px / 1.05 var(--oceanus-font);
-    color: var(--oceanus-c-text-muted);
+    font: 500 18px / 1.05 var(--nova-font);
+    color: var(--nova-c-text-muted);
   }
 
   .title {
     margin-top: 50px;
     // margin-top: 30px;
-    font: 400 80px / 1.1125 var(--oceanus-font);
-    color: var(--oceanus-c-text-deep);
+    font: 400 80px / 1.1125 var(--nova-font);
+    color: var(--nova-c-text-deep);
 
     @media screen and (max-width: 1536px) {
       font-size: 70px;
@@ -144,8 +144,8 @@ body {
   }
 
   .text {
-    font: 400 48px / 1.15 var(--oceanus-font);
-    color: var(--oceanus-c-text-muted);
+    font: 400 48px / 1.15 var(--nova-font);
+    color: var(--nova-c-text-muted);
     position: relative;
     margin-top: 60px;
     // margin-top: 55px;
@@ -179,8 +179,8 @@ body {
   .description {
     margin-top: 23px;
     max-width: 25.5em;
-    font: 400 48px / 1.15 var(--oceanus-font);
-    color: var(--oceanus-c-text-muted);
+    font: 400 48px / 1.15 var(--nova-font);
+    color: var(--nova-c-text-muted);
 
     @media screen and (max-width: 991px) {
       font-size: 30px;
@@ -188,7 +188,7 @@ body {
   }
 }
 
-.oceanus-visually-hidden {
+.nova-visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -202,16 +202,16 @@ body {
  * Homepage card surface (Features light card / Featured Articles dark transparent).
  * Dark mode sheen uses ::after so components may keep ::before for other effects.
  */
-.oceanus-home-card-surface {
+.nova-home-card-surface {
   transition:
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.35s ease,
     background-color 0.35s ease;
 }
 
-html:not(.dark) .oceanus-home-card-surface {
-  background-color: var(--oceanus-c-card-bg);
-  border: 1px solid var(--oceanus-c-card-outline);
+html:not(.dark) .nova-home-card-surface {
+  background-color: var(--nova-c-card-bg);
+  border: 1px solid var(--nova-c-card-outline);
   box-shadow:
     0 1px 0 hsla(0, 0%, 0%, 0.04),
     0 8px 24px hsla(0, 0%, 0%, 0.04);
@@ -225,11 +225,11 @@ html:not(.dark) .oceanus-home-card-surface {
   }
 }
 
-html.dark .oceanus-home-card-surface {
+html.dark .nova-home-card-surface {
   position: relative;
   overflow: hidden;
   background-color: transparent;
-  border: 1px solid var(--oceanus-c-card-outline);
+  border: 1px solid var(--nova-c-card-outline);
   box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.18);
 
   &::after {
@@ -262,12 +262,12 @@ html.dark .oceanus-home-card-surface {
   }
 }
 
-.oceanus-home-below-hero {
-  --oceanus-home-section-i: 0;
+.nova-home-below-hero {
+  --nova-home-section-i: 0;
 }
 
 /* Initial hide only (opacity). Transforms are GSAP-only to avoid fighting inline transforms. */
-.oceanus-home-below-hero:not(.oceanus-home-below-hero--in-view) {
+.nova-home-below-hero:not(.nova-home-below-hero--in-view) {
   .subtitle {
     opacity: 0;
   }
@@ -287,7 +287,7 @@ html.dark .oceanus-home-card-surface {
     opacity: 0;
   }
 
-  .oceanus-home-below-hero__block {
+  .nova-home-below-hero__block {
     opacity: 0;
   }
 
@@ -320,12 +320,12 @@ html.dark .oceanus-home-card-surface {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .oceanus-home-below-hero {
+  .nova-home-below-hero {
     .subtitle,
     .title span,
     .description p,
     .text p,
-    .oceanus-home-below-hero__block,
+    .nova-home-below-hero__block,
     &.get-started-section .framework-row,
     &.get-started-section .heading span,
     &.get-started-section .subheading span,
@@ -338,35 +338,35 @@ html.dark .oceanus-home-card-surface {
 }
 
 /* Home: conic animated border on hover (homepage cards) */
-@property --oceanus-home-card-gradient-angle {
+@property --nova-home-card-gradient-angle {
   syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;
 }
 
-@keyframes oceanus-home-card-gradient-spin {
+@keyframes nova-home-card-gradient-spin {
   0% {
-    --oceanus-home-card-gradient-angle: 0deg;
+    --nova-home-card-gradient-angle: 0deg;
   }
 
   100% {
-    --oceanus-home-card-gradient-angle: 360deg;
+    --nova-home-card-gradient-angle: 360deg;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .oceanus-home-card-conic-shell::after {
+  .nova-home-card-conic-shell::after {
     transition-duration: 0.22s;
     transform: none;
   }
 
-  .oceanus-home-card-conic-shell:has(.oceanus-home-card-hover:hover)::after {
+  .nova-home-card-conic-shell:has(.nova-home-card-hover:hover)::after {
     animation: none;
-    --oceanus-home-card-gradient-angle: 120deg;
+    --nova-home-card-gradient-angle: 120deg;
   }
 }
 
-.oceanus-home-card-conic-shell {
+.nova-home-card-conic-shell {
   position: relative;
 
   &::after {
@@ -375,7 +375,7 @@ html.dark .oceanus-home-card-surface {
     inset: -2px;
     z-index: 5;
     box-sizing: border-box;
-    border-radius: calc(var(--oceanus-home-card-br, 22px) + 2px);
+    border-radius: calc(var(--nova-home-card-br, 22px) + 2px);
     padding: 2px;
     pointer-events: none;
     opacity: 0;
@@ -384,7 +384,7 @@ html.dark .oceanus-home-card-surface {
       opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     background: conic-gradient(
-      from var(--oceanus-home-card-gradient-angle),
+      from var(--nova-home-card-gradient-angle),
       hsla(0, 0%, 100%, 0.1) 0deg,
       hsla(0, 0%, 100%, 0.1) 60deg,
       hsla(0, 0%, 100%, 0.9) 120deg,
@@ -403,13 +403,13 @@ html.dark .oceanus-home-card-surface {
     mask-composite: exclude;
   }
 
-  &:has(.oceanus-home-card-hover:hover)::after {
+  &:has(.nova-home-card-hover:hover)::after {
     opacity: 1;
     transform: scale(1);
-    animation: oceanus-home-card-gradient-spin 4s linear 0.22s infinite;
+    animation: nova-home-card-gradient-spin 4s linear 0.22s infinite;
   }
 
-  & > .oceanus-home-card-hover {
+  & > .nova-home-card-hover {
     position: relative;
     z-index: 1;
   }

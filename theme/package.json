@@ -1,13 +1,13 @@
 {
-  "name": "valaxy-theme-oceanus",
+  "name": "valaxy-theme-nova",
   "version": "0.1.0",
   "packageManager": "pnpm@9.15.1",
   "author": "WRXinYue<https://github.com/wrxinyue>",
   "license": "MIT",
-  "homepage": "https://oceanus.wrxinyue.org",
+  "homepage": "https://nova.wrxinyue.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/WRXinYue/valaxy-theme-oceanus"
+    "url": "https://github.com/WRXinYue/valaxy-theme-nova"
   },
   "keywords": [
     "valaxy",

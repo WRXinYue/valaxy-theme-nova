@@ -21,7 +21,7 @@
     "eslint-plugin-format": "catalog:",
     "taze": "catalog:",
     "typescript": "catalog:",
-    "valaxy-theme-oceanus": "workspace:*",
+    "valaxy-theme-nova": "workspace:*",
     "vitest": "catalog:",
     "vue-tsc": "catalog:"
   }

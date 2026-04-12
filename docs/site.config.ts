@@ -2,7 +2,7 @@ import { defineSiteConfig } from 'valaxy'
 
 export default defineSiteConfig({
   lang: 'zh-CN',
-  title: 'valaxy-theme-oceanus',
+  title: 'valaxy-theme-nova',
   url: 'https://starter.valaxy.site/',
   mode: 'light',
   author: {

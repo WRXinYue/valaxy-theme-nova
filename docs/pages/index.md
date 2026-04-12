@@ -4,7 +4,7 @@ title: 主页
 features:
   subtitle: 特性
   title: 强大的功能
-  text: Oceanus 主题提供了丰富的功能，满足各种文档和博客需求
+  text: Nova 主题提供了丰富的功能，满足各种文档和博客需求
 
   cards:
     - title: 简单
@@ -29,13 +29,13 @@ features:
 featuredArticles:
   subtitle: 精选文章
   title: 探索我们的热门内容
-  description: 这些精选文章展示了 Oceanus 主题的强大功能和灵活性，帮助您快速了解如何充分利用这个主题。
+  description: 这些精选文章展示了 Nova 主题的强大功能和灵活性，帮助您快速了解如何充分利用这个主题。
 
   articles:
     - title: 快速开始
       tags: ["指南", "入门"]
       path: /guide/getting-started/installation
-      excerpt: 了解如何快速设置和配置 Oceanus 主题，开始构建您的文档或博客网站。
+      excerpt: 了解如何快速设置和配置 Nova 主题，开始构建您的文档或博客网站。
     - title: Markdown 写作
       tags: ["写作", "语法"]
       path: /guide/writing/markdown
@@ -51,7 +51,7 @@ contributors:
   text: 已获得 MIT 许可，并且将始终免费且开源。感谢 GitHub上的所有贡献者！
 
 getStarted:
-  title: 开始使用 Oceanus 主题
+  title: 开始使用 Nova 主题
   text: 准备好体验一个能够跟上您思维速度的开发环境，打造美观、高效的文档和博客网站。
   actions:
     - text: 开始使用

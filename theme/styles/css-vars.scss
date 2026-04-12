@@ -1,11 +1,11 @@
 @use './vars' as *;
 @use 'valaxy/client/styles/mixins/index.scss' as * with (
-  $namespace: 'oceanus'
+  $namespace: 'nova'
 );
 
 :root {
-  --un-prose-links: var(--oceanus-c-link);
-  --va-c-bg: var(--oceanus-c-bg-design) !important;
+  --un-prose-links: var(--nova-c-link);
+  --va-c-bg: var(--nova-c-bg-design) !important;
 
   @include set-css-var-from-map($common);
   @include set-css-var-from-map($z-index, 'z');

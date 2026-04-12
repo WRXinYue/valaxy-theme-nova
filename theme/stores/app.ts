@@ -2,7 +2,7 @@ import { refDebounced, useLocalStorage, useToggle, useWindowSize } from '@vueuse
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { watch } from 'vue'
 
-export const useOceanusAppStore = defineStore('oceanus-app', () => {
+export const useNovaAppStore = defineStore('nova-app', () => {
   const isSideOpenStorage = useLocalStorage('stored-is-side-open', true)
   const [isSideOpen, toggleSide] = useToggle(isSideOpenStorage.value)
 
@@ -27,4 +27,4 @@ export const useOceanusAppStore = defineStore('oceanus-app', () => {
 })
 
 if (import.meta.hot)
-  import.meta.hot.accept(acceptHMRUpdate(useOceanusAppStore, import.meta.hot))
+  import.meta.hot.accept(acceptHMRUpdate(useNovaAppStore, import.meta.hot))

@@ -237,9 +237,9 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 0.5rem;
-    border: 1px solid var(--oceanus-c-border-line);
+    border: 1px solid var(--nova-c-border-line);
     background: var(--va-c-bg);
-    box-shadow: 0 1px 2px color-mix(in srgb, var(--oceanus-c-text-deeper) 4%, transparent);
+    box-shadow: 0 1px 2px color-mix(in srgb, var(--nova-c-text-deeper) 4%, transparent);
 
     table {
       width: 100%;
@@ -287,7 +287,7 @@
   }
 }
 
-@keyframes oceanus-fade-up {
+@keyframes nova-fade-up {
   from {
     opacity: 0;
     transform: translate3d(0, 12px, 0);
@@ -308,7 +308,7 @@
       --enter-step: 90ms;
       --enter-initial: 0ms;
 
-      animation: oceanus-fade-up 1s both 1;
+      animation: nova-fade-up 1s both 1;
       animation-delay: calc(var(--enter-initial) + var(--enter-stage) * var(--enter-step));
     }
 

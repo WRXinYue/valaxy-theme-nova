@@ -29,7 +29,7 @@ export function useHomeSectionReveal(sectionRef: Ref<HTMLElement | null>) {
 
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         isRevealed.value = true
-        el.classList.add('oceanus-home-below-hero--in-view')
+        el.classList.add('nova-home-below-hero--in-view')
         return
       }
 
@@ -39,7 +39,7 @@ export function useHomeSectionReveal(sectionRef: Ref<HTMLElement | null>) {
 
         const tl = gsap.timeline({
           onComplete: () => {
-            el.classList.add('oceanus-home-below-hero--in-view')
+            el.classList.add('nova-home-below-hero--in-view')
             isRevealed.value = true
             gsap.set(animated, { clearProps: 'transform,opacity' })
           },
@@ -92,7 +92,7 @@ export function useHomeSectionReveal(sectionRef: Ref<HTMLElement | null>) {
           }, 2)
           const copy = el.querySelector('.description p') ?? el.querySelector('.text p')
           fromTo(copy, { opacity: 0, y: '2em' }, 3)
-          fromTo(el.querySelector('.oceanus-home-below-hero__block'), { opacity: 0, y: '2em' }, 4)
+          fromTo(el.querySelector('.nova-home-below-hero__block'), { opacity: 0, y: '2em' }, 4)
         }
 
         void nextTick(() => {

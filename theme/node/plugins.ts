@@ -16,7 +16,7 @@ export function themePlugin(themeConfig: ThemeConfig): PluginOption {
   const safe = isHex6(primary) ? primary : DEFAULT_PRIMARY
 
   return {
-    name: 'valaxy-theme-oceanus',
+    name: 'valaxy-theme-nova',
     enforce: 'pre',
     config() {
       return {
