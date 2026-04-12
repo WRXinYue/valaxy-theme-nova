@@ -29,7 +29,7 @@ const { back } = useBack()
 .not-found {
   font-size: 10rem;
   text-shadow:
-    0 5px 10px rgba(0, 0, 0, 0.25),
-    0 20px 20px rgba(0, 0, 0, 0.15);
+    0 5px 10px hsla(0, 0%, 0%, 0.25),
+    0 20px 20px hsla(0, 0%, 0%, 0.15);
 }
 </style>

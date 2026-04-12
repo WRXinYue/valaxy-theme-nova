@@ -29,14 +29,14 @@ defineProps<{
   align-items: center;
   height: 501px;
   text-decoration: none;
-  color: black;
-  background-color: #fff;
+  color: hsla(0, 0%, 0%, 1);
+  background-color: hsla(0, 0%, 100%, 1);
   transition: background-color 400ms cubic-bezier(0.4, 0, 0.25, 1);
   // margin: 1em 0;
   overflow: hidden;
 
   &:hover {
-    background: #f5f5f5;
+    background: hsla(0, 0%, 96%, 1);
   }
 
   .article-card-title {
@@ -77,11 +77,11 @@ defineProps<{
   }
 
   &.dark-mode {
-    color: #fff;
-    background-color: #000;
+    color: hsla(0, 0%, 100%, 1);
+    background-color: hsla(0, 0%, 0%, 1);
 
     &:hover {
-      background: #201f1e;
+      background: hsla(20, 5%, 12%, 1);
     }
   }
 }

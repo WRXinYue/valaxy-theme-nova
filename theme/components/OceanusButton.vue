@@ -25,7 +25,7 @@ defineProps<{
   display: flex;
   align-items: center;
   padding: 12px 29px;
-  background: #f1f1f1;
+  background: hsla(0, 0%, 95%, 1);
   border-radius: 21px;
   transition: opacity 0.15s ease-out;
   overflow: hidden;
@@ -51,11 +51,11 @@ defineProps<{
       transform: translateY(-100%);
 
       &:first-child {
-        color: #242424;
+        color: hsla(0, 0%, 14%, 1);
       }
 
       &:last-child {
-        color: #fff;
+        color: hsla(0, 0%, 100%, 1);
       }
     }
   }
@@ -64,11 +64,11 @@ defineProps<{
     margin-left: 8px;
     position: relative;
     z-index: 1;
-    color: #fff;
+    color: hsla(0, 0%, 100%, 1);
 
     .button-circle {
       transform: translate(-50%, -50%) scale(0);
-      background: #242424;
+      background: hsla(0, 0%, 14%, 1);
       background: var(--va-c-primary);
       display: block;
       width: 5px;

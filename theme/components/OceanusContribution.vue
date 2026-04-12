@@ -70,16 +70,16 @@ export type Contributors = Partial<{
   }
 
   .contribution-container {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.04);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     z-index: 1;
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(var(--oceanus-c-card-bg-rgb, 255, 255, 255), 0.08);
+    border: 1px solid hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 0.08);
     border-radius: 24px;
 
     &:hover {
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 16px 32px hsla(0, 0%, 0%, 0.06);
       transform: translateY(-3px);
     }
 
@@ -94,7 +94,7 @@ export type Contributors = Partial<{
 
     &:hover .title {
       color: var(--oceanus-c-brand);
-      text-shadow: 0 0 1px rgba(var(--oceanus-c-brand-rgb, 74, 123, 255), 0.15);
+      text-shadow: 0 0 1px hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.15);
     }
   }
 
@@ -116,7 +116,7 @@ export type Contributors = Partial<{
     line-height: 1.1;
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    color: var(--oceanus-c-text-deep, #000);
+    color: var(--oceanus-c-text-deep, hsla(0, 0%, 0%, 1));
 
     @media screen and (max-width: 640px) {
       margin-top: 12px;
@@ -179,15 +179,15 @@ export type Contributors = Partial<{
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
     img {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.08);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       object-fit: cover;
       border: 2px solid transparent;
       border-radius: 14px;
 
       &:hover {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        border-color: var(--oceanus-c-brand, #4a7bff);
+        box-shadow: 0 8px 20px hsla(0, 0%, 0%, 0.12);
+        border-color: var(--oceanus-c-brand, hsla(221, 100%, 65%, 1));
       }
     }
   }

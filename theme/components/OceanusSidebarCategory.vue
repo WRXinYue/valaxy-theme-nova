@@ -90,6 +90,6 @@ function getTitle(post: Post | any) {
 }
 
 .oceanus-list-symbol {
-  color: #666;
+  color: hsla(0, 0%, 40%, 1);
 }
 </style>

@@ -73,8 +73,8 @@ const heroImg = computed(() => {
   }
 
   &.has-img .hero-content {
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    color: hsla(0, 0%, 100%, 1);
+    text-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.15);
   }
 
   .hero-title {

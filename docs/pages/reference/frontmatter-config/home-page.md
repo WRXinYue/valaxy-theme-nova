@@ -12,6 +12,7 @@ end: true
 ---
 layout: home
 ---
+
 ```
 
 ## Hero 部分
@@ -43,6 +44,7 @@ featuredArticles:
       tags: ["高级", "功能"]
       excerpt: 深入了解 Oceanus 主题的高级功能，如多语言支持、搜索优化、性能调优等。
 ---
+
 ```
 
 类型定义：
@@ -78,12 +80,11 @@ features:
     - title: 简单
       details: 无需复杂配置，开箱即用，适合快速构建文档网站
       icon: i-carbon-cube
-      num: "01"
     - title: 关联式导航
       details: 每个一级导航可绑定对应的二级导航，一级导航和二级导航支持绑定相应的侧边栏，形成清晰的导航结构
       icon: i-carbon-menu
-      num: "02"
 ---
+
 ```
 
 类型定义：
@@ -95,7 +96,6 @@ export type Features = Partial<{
   text: string // 描述文本
 
   cards: Partial<{
-    num: string // 编号（如 "01"）
     title: string // 特性标题
     icon: string // 图标类名（使用 UnoCSS 图标，如 i-carbon-cube）
     details: string // 特性详细描述
@@ -118,6 +118,7 @@ contributors:
   title: 感谢所有贡献者
   text: 已获得 MIT 许可，并且将始终免费且开源。感谢 GitHub上的所有贡献者！
 ---
+
 ```
 
 类型定义：
@@ -151,14 +152,15 @@ getStarted:
   cards:
     - img: https://vite.dev/logo.svg
       alt: Vite Logo
-      color: '#9499ff'
+      color: 'hsla(231, 100%, 79%, 0.55)'
     - img: /favicon.svg
       alt: Vite Logo
-      color: '#17ead9'
+      color: 'hsla(174, 80%, 51%, 0.55)'
     - img: https://valaxy.site/valaxy-logo.png
       alt: Valaxy Logo
-      color: '#9333EA'
+      color: 'hsla(271, 76%, 53%, 0.55)'
 ---
+
 ```
 
 类型定义：
@@ -199,7 +201,6 @@ features:
     - title: 简单
       details: 无需复杂配置，开箱即用，适合快速构建文档网站
       icon: i-carbon-cube
-      num: "01"
     # 更多特性卡片...
 
 featuredArticles:
@@ -230,7 +231,8 @@ getStarted:
   cards:
     - img: https://vite.dev/logo.svg
       alt: Vite Logo
-      color: '#9499ff'
+      color: 'hsla(231, 100%, 79%, 0.55)'
     # 更多技术卡片...
 ---
+
 ```

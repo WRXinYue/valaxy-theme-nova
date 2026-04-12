@@ -11,8 +11,8 @@
   height: auto;
   width: 100%;
   min-height: 24px;
-  color: #fff;
-  background-color: #000;
+  color: hsla(0, 0%, 100%, 1);
+  background-color: hsla(0, 0%, 0%, 1);
   z-index: 5;
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,7 @@
   a {
     font-size: 12px;
     font-weight: 500;
-    color: #fff;
+    color: hsla(0, 0%, 100%, 1);
   }
 
   &-select-lang {
@@ -33,14 +33,14 @@
 }
 
 .p-select-overlay {
-  --p-select-overlay-background: #fff;
+  --p-select-overlay-background: hsla(0, 0%, 100%, 1);
   --p-select-overlay-border-radius: 20px;
 }
 
 .p-select-list-container {
   border-radius: 20px;
   padding: 4px 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.2);
 }
 
 .p-select-option-label {

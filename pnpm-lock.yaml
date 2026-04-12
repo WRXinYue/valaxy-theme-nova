@@ -42,6 +42,9 @@ catalogs:
     eslint-plugin-format:
       specifier: ^2.0.1
       version: 2.0.1
+    gsap:
+      specifier: ^3.13.0
+      version: 3.14.2
     markdown-it-github-alerts:
       specifier: ^1.0.1
       version: 1.0.1
@@ -138,6 +141,9 @@ importers:
       '@rollup/plugin-virtual':
         specifier: 'catalog:'
         version: 3.0.2(rollup@4.40.0)
+      gsap:
+        specifier: 'catalog:'
+        version: 3.14.2
       markdown-it-github-alerts:
         specifier: 'catalog:'
         version: 1.0.1(markdown-it@14.1.1)
@@ -3342,6 +3348,9 @@ packages:
   gray-matter@4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
+
+  gsap@3.14.2:
+    resolution: {integrity: sha512-P8/mMxVLU7o4+55+1TCnQrPmgjPKnwkzkXOK1asnR9Jg2lna4tEY5qBJjMmAaOBDDZWtlRjBXjLa0w53G/uBLA==}
 
   gzip-size@6.0.0:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
@@ -8495,6 +8504,8 @@ snapshots:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
+
+  gsap@3.14.2: {}
 
   gzip-size@6.0.0:
     dependencies:

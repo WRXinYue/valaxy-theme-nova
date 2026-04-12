@@ -9,7 +9,6 @@ export type Features = Partial<{
   text: string
 
   cards: Partial<{
-    num: string
     title: string
     icon: string
     details: string
@@ -20,39 +19,36 @@ export type Features = Partial<{
 <template>
   <section v-if="fm?.features" class="oceanus-section oceanus-features" p="b-120px">
     <div class="oceanus-home-container">
-      <div p="t-60px" flex="~ justify-between">
-        <div class="features-header">
-          <h3 class="subtitle">
-            {{ fm.features?.subtitle }}
-          </h3>
-          <h2 class="title">
-            <span>{{ fm.features?.title }}</span>
-          </h2>
-          <div class="text">
-            <p>
-              {{ fm.features?.text }}
-            </p>
-          </div>
+      <header class="features-header" p="t-60px">
+        <h3 class="subtitle">
+          {{ fm.features?.subtitle }}
+        </h3>
+        <h2 class="title">
+          <span>{{ fm.features?.title }}</span>
+        </h2>
+        <div class="text">
+          <p>
+            {{ fm.features?.text }}
+          </p>
         </div>
-      </div>
+      </header>
 
-      <div m="t-80px">
+      <div class="features-grid-wrap">
         <ul class="features-grid">
           <li v-for="(card, i) in fm.features?.cards" :key="i" class="feature-item">
             <div class="feature-item-inner">
               <div class="feature-card-wrapper">
                 <div class="feature-card">
-                  <div v-if="card?.icon || card?.num" class="feature-card-header">
-                    <span class="feature-icon" :class="card?.icon" />
-                    <span class="feature-num">
-                      {{ card?.num }}
+                  <div v-if="card?.icon || card?.title" class="feature-card-top">
+                    <span v-if="card?.icon" class="feature-icon-well">
+                      <span class="feature-icon" :class="card.icon" />
                     </span>
+                    <h3 v-if="card?.title" class="feature-title">
+                      {{ card.title }}
+                    </h3>
                   </div>
-                  <h3 class="feature-title">
-                    {{ card?.title }}
-                  </h3>
-                  <p class="feature-details">
-                    {{ card?.details }}
+                  <p v-if="card?.details" class="feature-details">
+                    {{ card.details }}
                   </p>
                 </div>
               </div>
@@ -67,7 +63,7 @@ export type Features = Partial<{
 <style lang="scss" scoped>
 .oceanus-features {
   .features-header {
-    max-width: 650px;
+    max-width: 42rem;
 
     .subtitle {
       font-size: 1.125rem;
@@ -90,35 +86,39 @@ export type Features = Partial<{
     }
 
     .text {
-      margin-top: 24px;
+      margin-top: 1.25rem;
       font-size: 1.125rem;
-      line-height: 1.5;
+      line-height: 1.55;
       color: var(--oceanus-c-text-muted);
       font-weight: 400;
       letter-spacing: -0.01em;
     }
   }
 
+  .features-grid-wrap {
+    margin-top: clamp(3rem, 6vw, 4.5rem);
+  }
+
   .features-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 32px;
+    grid-template-columns: 1fr;
+    gap: clamp(1.25rem, 3vw, 2rem);
+    align-items: stretch;
 
     @media (min-width: 640px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     @media (min-width: 960px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
   .feature-item {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
-    &:hover {
-      transform: translateY(-3px);
-    }
+    min-width: 0;
   }
 
   .feature-item-inner {
@@ -130,93 +130,102 @@ export type Features = Partial<{
 
   .feature-card-wrapper {
     height: 100%;
-    overflow: hidden;
-    transition: padding 0.3s;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-
-    @media (max-width: 768px) {
-      &:hover {
-        cursor: pointer;
-        padding: 6px;
-      }
-    }
+    min-width: 0;
   }
 
   .feature-card {
     height: 100%;
     width: 100%;
-    padding: 40px;
-    margin: 8px;
-    border-radius: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.5rem, 3.5vw, 2.25rem);
+    margin: 0;
+    border-radius: 22px;
     background-color: var(--oceanus-c-card-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(var(--oceanus-c-card-bg-rgb, 255, 255, 255), 0.05);
-
-    @media (min-width: 768px) {
-      margin: 12px;
-    }
+    box-shadow:
+      0 1px 0 hsla(0, 0%, 0%, 0.04),
+      0 8px 24px hsla(0, 0%, 0%, 0.04);
+    transition:
+      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.35s ease;
+    backdrop-filter: blur(8px);
+    border: 1px solid hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 0.06);
 
     &:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-      transform: scale(1.01);
+      box-shadow:
+        0 1px 0 hsla(0, 0%, 0%, 0.05),
+        0 14px 40px hsla(0, 0%, 0%, 0.07);
+      transform: translateY(-4px);
+      border-color: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.18);
     }
   }
 
-  .feature-card-header {
+  .feature-card-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 60px;
-    transition: margin 0.3s;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+    min-width: 0;
+  }
 
-    @media (min-width: 768px) {
-      margin-bottom: 55px;
+  .feature-icon-well {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.1);
+    color: var(--oceanus-c-brand);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .feature-card:hover & {
+      transform: scale(1.04);
     }
   }
 
   .feature-icon {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    opacity: 0.9;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
-    .feature-card:hover & {
-      transform: scale(1.05);
-    }
-  }
-
-  .feature-num {
-    font-size: 1.1rem;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    color: var(--oceanus-c-text-muted);
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    opacity: 0.95;
   }
 
   .feature-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
     color: var(--oceanus-c-text-deep);
 
     @media (max-width: 768px) {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
     }
   }
 
   .feature-details {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 400;
-    line-height: 1.5;
-    margin-top: 16px;
+    line-height: 1.55;
+    margin-top: 0;
+    padding-top: 0;
     color: var(--oceanus-c-text-muted);
     letter-spacing: -0.01em;
+    flex-grow: 1;
+    margin-bottom: 0;
   }
 }
 </style>

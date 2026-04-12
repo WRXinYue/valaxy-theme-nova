@@ -9,10 +9,6 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": [
-      "vite/client",
-      "vite-plugin-vue-layouts/client"
-    ],
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,

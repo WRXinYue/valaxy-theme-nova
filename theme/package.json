@@ -22,6 +22,7 @@
     "@iconify-json/ri": "catalog:",
     "@iconify-json/tabler": "catalog:",
     "@rollup/plugin-virtual": "catalog:",
+    "gsap": "catalog:",
     "markdown-it-github-alerts": "catalog:",
     "markdown-it-link-attributes": "catalog:",
     "valaxy-addon-git-log": "catalog:"

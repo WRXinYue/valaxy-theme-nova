@@ -5,7 +5,7 @@ const siteConfig = useSiteConfig()
 </script>
 
 <template>
-  <div class="flex items-center justify-between overflow-hidden border-1 border-black rounded-xl" style="box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);">
+  <div class="flex items-center justify-between overflow-hidden border-1 border-black rounded-xl" style="box-shadow: 0px 5px 5px hsla(0, 0%, 0%, 0.3);">
     <span class="px-2">
       WRXinYue
     </span>

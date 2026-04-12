@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:string';
 
 $common: (
   'nav-height': 55px,
@@ -10,56 +11,65 @@ $common: (
 ) !default;
 $common: map.merge((), $common);
 
+// Card / brand HSL channels (use with hsla(var(--oceanus-c-*-h), var(--oceanus-c-*-s), var(--oceanus-c-*-l), α) in components)
 $light: (
   // --------------- Text ---------------
-  'c-text': #1d1d1f,
-  'c-text-muted': #86868b,
-  'c-text-deep': #2e2f30,
-  'c-text-deeper': #000,
+  'c-text': hsla(240, 2%, 12%, 1),
+  'c-text-muted': hsla(216, 1%, 54%, 1),
+  'c-text-deep': hsla(200, 3%, 18%, 1),
+  'c-text-deeper': hsla(0, 0%, 0%, 1),
+  'c-brand-h': '221',
+  'c-brand-s': '100%',
+  'c-brand-l': '65%',
+  'c-brand': string.unquote('hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 1)'),
   'c-link': var(--oceanus-c-brand),
-  // 'c-bg-design': #fbfbfd,
-  'c-bg-design': #fff,
+  'c-bg-design': hsla(0, 0%, 100%, 1),
   'c-nav-bg': hsla(0, 0%, 100%, 0.7),
   'c-sub-nav-bg': var(--oceanus-c-nav-bg),
-  'c-border': #d2d2d7,
-  // 'c-border-line': hsla(0, 0%, 71.4%, 0.5),
-  'c-border-line': rgba(0, 0, 0, 0.1),
-  'c-divider': rgba(0, 0, 0, 0.04),
-  'c-active-bg': #e8e8ed,
-  'c-list-active-bg': #e8e8ed,
+  'c-border': hsla(240, 4%, 83%, 1),
+  'c-border-line': hsla(0, 0%, 0%, 0.1),
+  'c-divider': hsla(0, 0%, 0%, 0.04),
+  'c-active-bg': hsla(240, 7%, 92%, 1),
+  'c-list-active-bg': hsla(240, 7%, 92%, 1),
   'c-list-hover-bg': var(--oceanus-c-list-active-bg),
-  'c-list-active-font': #000,
-  // --------------- Card ---------------
-  'c-card-bg': '#fcf8ff',
+  'c-list-active-font': hsla(0, 0%, 0%, 1),
+  // --------------- Card (HSL + solid bg) ---------------
+  'c-card-bg-h': '275',
+  'c-card-bg-s': '100%',
+  'c-card-bg-l': '99%',
+  'c-card-bg': string.unquote('hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 1)'),
   // --------------- Footer ---------------
-  'c-footer-bg': #f5f5f7,
-  'c-footer-border': rgba(0, 0, 0, 0.08)
+  'c-footer-bg': hsla(240, 5%, 96%, 1),
+  'c-footer-border': hsla(0, 0%, 0%, 0.08),
 ) !default;
 $light: map.merge((), $light);
 
 $dark: (
-  // --------------- Text ---------------
-  'c-text': #f5f5f7,
-  'c-text-muted': #a1a1a6,
-  'c-text-deep': rgba(255, 255, 245, 0.86),
-  'c-text-deeper': #fff,
+  'c-text': hsla(240, 4%, 96%, 1),
+  'c-text-muted': hsla(240, 2%, 65%, 1),
+  'c-text-deep': hsla(60, 100%, 98%, 0.86),
+  'c-text-deeper': hsla(0, 0%, 100%, 1),
+  'c-brand-h': '221',
+  'c-brand-s': '100%',
+  'c-brand-l': '65%',
+  'c-brand': string.unquote('hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 1)'),
   'c-link': var(--oceanus-c-brand),
-  // 'c-bg-design': #101010,
-  'c-bg-design': #000,
-  'c-nav-bg': hsla(240, 2.33%, 8.43%, 0.72),
+  'c-bg-design': hsla(0, 0%, 0%, 1),
+  'c-nav-bg': hsla(240, 2%, 8%, 0.72),
   'c-sub-nav-bg': var(--oceanus-c-nav-bg),
-  'c-border': #262626,
-  'c-border-line': rgba(255, 255, 255, 0.24),
-  'c-divider': #2e2e32,
-  'c-active-bg': #322744,
-  'c-list-active-bg': #333336,
+  'c-border': hsla(0, 0%, 15%, 1),
+  'c-border-line': hsla(0, 0%, 100%, 0.24),
+  'c-divider': hsla(240, 4%, 18%, 1),
+  'c-active-bg': hsla(262, 16%, 19%, 1),
+  'c-list-active-bg': hsla(240, 2%, 20%, 1),
   'c-list-hover-bg': var(--oceanus-c-list-active-bg),
-  'c-list-active-font': #000,
-  // --------------- Card ---------------
-  'c-card-bg': '#141414',
-  // --------------- Footer ---------------
-  'c-footer-bg': #1d1d1f,
-  'c-footer-border': rgba(255, 255, 255, 0.1)
+  'c-list-active-font': hsla(0, 0%, 0%, 1),
+  'c-card-bg-h': '0',
+  'c-card-bg-s': '0%',
+  'c-card-bg-l': '8%',
+  'c-card-bg': string.unquote('hsla(var(--oceanus-c-card-bg-h), var(--oceanus-c-card-bg-s), var(--oceanus-c-card-bg-l), 1)'),
+  'c-footer-bg': hsla(240, 2%, 12%, 1),
+  'c-footer-border': hsla(0, 0%, 100%, 0.1),
 ) !default;
 $dark: map.merge((), $dark);
 

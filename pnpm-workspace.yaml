@@ -23,6 +23,7 @@ catalog:
   bumpp: ^11.0.1
   eslint: ^10.2.0
   eslint-plugin-format: ^2.0.1
+  gsap: ^3.13.0
   markdown-it-github-alerts: ^1.0.1
   markdown-it-link-attributes: ^4.0.1
   nodemon: ^3.1.9

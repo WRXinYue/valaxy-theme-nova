@@ -68,11 +68,11 @@ const { t } = useI18n()
 }
 
 .group[aria-expanded='true'] .button {
-  color: rgba(60, 60, 60, 0.7);
+  color: hsla(0, 0%, 24%, 0.7);
   transition: color 0.25s;
 
   .dark & {
-    color: rgba(235, 235, 235, 0.6);
+    color: hsla(0, 0%, 92%, 0.6);
   }
 }
 
@@ -90,14 +90,14 @@ const { t } = useI18n()
   transform: translateX(-50%) translateY(calc(var(--pr-nav-height) / 2));
   border-radius: 12px;
   padding: 12px;
-  border: 1px solid rgba(60, 60, 60, 0.12);
-  background-color: #fff;
+  border: 1px solid hsla(0, 0%, 24%, 0.12);
+  background-color: hsla(0, 0%, 100%, 1);
   box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.1),
-    0 2px 6px rgba(0, 0, 0, 0.08);
+    0 12px 32px hsla(0, 0%, 0%, 0.1),
+    0 2px 6px hsla(0, 0%, 0%, 0.08);
 
   .dark & {
-    background-color: #242424;
+    background-color: hsla(0, 0%, 14%, 1);
   }
 
   &-item {
@@ -114,11 +114,11 @@ const { t } = useI18n()
       color 0.25s;
 
     &:hover {
-      background-color: #f1f1f1;
+      background-color: hsla(0, 0%, 95%, 1);
       color: var(--va-c-brand);
 
       .dark & {
-        background-color: #2f2f2f;
+        background-color: hsla(0, 0%, 18%, 1);
       }
     }
   }

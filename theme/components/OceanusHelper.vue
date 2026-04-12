@@ -42,7 +42,7 @@ const strokeOffset = computed(() => {
   z-index: var(--yun-z-go-up-btn);
   opacity: 0;
   pointer-events: none;
-  color: #000;
+  color: hsla(0, 0%, 0%, 1);
   // transform: translateX(0) rotate(270deg);
 
   // override yun-icon-btn transition
@@ -89,11 +89,11 @@ const strokeOffset = computed(() => {
   }
 
   &:hover {
-    background-color: rgba(var(--va-c-primary-rgb), 0.08);
+    background-color: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.08);
   }
 
   &:active {
-    background-color: rgba(var(--va-c-primary-rgb), 0.16);
+    background-color: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.16);
   }
 }
 </style>

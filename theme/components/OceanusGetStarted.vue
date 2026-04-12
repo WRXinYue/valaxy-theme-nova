@@ -62,11 +62,11 @@ export type GetStarted = Partial<{
   }
 
   .vite-chip {
-    filter: drop-shadow(0px 16px 30px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0px 16px 30px hsla(0, 0%, 0%, 0.4));
 
     .chip-logo {
       opacity: 0.85;
-      filter: drop-shadow(0 0 0.5rem color-mix(in srgb, #ffffad 45%, transparent));
+      filter: drop-shadow(0 0 0.5rem hsla(60, 100%, 84%, 0.45));
     }
   }
 
@@ -74,26 +74,26 @@ export type GetStarted = Partial<{
     width: 96px;
     height: 96px;
     border-radius: 16px;
-    background: #fbfbfd;
-    border: 1px solid rgba(217, 217, 217, 0.6);
+    background: hsla(240, 33%, 99%, 1);
+    border: 1px solid hsla(0, 0%, 85%, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 24px;
-    --glow-color: rgba(0, 0, 0, 0);
+    --glow-color: hsla(0, 0%, 0%, 0);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     -webkit-user-select: none;
     user-select: none;
     backdrop-filter: blur(5px);
 
     @at-root html.dark & {
-      border: 1px solid rgba(38, 38, 38, 0.6);
-      background: rgba(24, 24, 24, 0.95);
+      border: 1px solid hsla(0, 0%, 15%, 0.6);
+      background: hsla(0, 0%, 9%, 0.95);
     }
 
     img {
       user-select: none;
-      filter: drop-shadow(0 0 0.7rem color-mix(in srgb, var(--glow-color) 35%, transparent));
+      filter: drop-shadow(0 0 0.7rem var(--glow-color));
       transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -128,7 +128,7 @@ export type GetStarted = Partial<{
 
       &:hover {
         transform: translateY(-2px);
-        border-color: rgba(var(--oceanus-c-brand-rgb, 74, 123, 255), 0.2);
+        border-color: hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.2);
 
         img {
           transform: scale(1.08);

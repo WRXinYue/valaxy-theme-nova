@@ -37,7 +37,7 @@ defineProps<{
         transform 1s cubic-bezier(0.86, 0, 0.07, 1),
         transform-origin 1s cubic-bezier(0.86, 0, 0.07, 1);
 
-      background: #000;
+      background: hsla(0, 0%, 0%, 1);
 
       border-radius: 0 0.5px 0.5px 0;
     }

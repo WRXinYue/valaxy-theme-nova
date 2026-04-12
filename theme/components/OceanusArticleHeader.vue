@@ -18,7 +18,7 @@ function getTitle(post: Partial<PostFrontMatter>) {
     class="header-container relative justify-center" flex="~" :class="frontmatter.cover && 'has-cover'"
     :style="`background-image: url(${frontmatter.cover});`"
   >
-    <!-- <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(137, 129, 247, .16), rgba(137, 129, 247, .04) 100%);" /> -->
+    <!-- <div class="absolute inset-0" style="background: linear-gradient(180deg, hsla(246, 88%, 74%, 0.16), hsla(246, 88%, 74%, 0.04) 100%);" /> -->
     <!-- <div class="absolute inset-0 from-black/40 to-black/10 bg-gradient-to-b" /> -->
     <!-- <div class="article-header-hero-bg absolute inset-0" /> -->
 
@@ -87,8 +87,8 @@ function getTitle(post: Partial<PostFrontMatter>) {
 
   &:is(.has-cover) {
     /* &::before {
-      --accent-color: #06c;
-      --color-figure-gray-secondary: #6e6e73;
+      --accent-color: hsla(211, 100%, 40%, 1);
+      --color-figure-gray-secondary: hsla(240, 2%, 44%, 1);
 
       background: linear-gradient(
         var(--standard-accent-color, var(--accent-color, var(--color-figure-gray-secondary))),
@@ -115,16 +115,9 @@ function getTitle(post: Partial<PostFrontMatter>) {
 
   &:not(.has-cover) {
     &::before {
-      --accent-color: var(--va-c-primary);
-      --color-figure-gray-secondary: #6e6e73;
-
       background: linear-gradient(
-        var(--standard-accent-color, var(--accent-color, var(--color-figure-gray-secondary))),
-        color-mix(
-          in srgb,
-          var(--standard-accent-color, var(--accent-color, var(--color-figure-gray-secondary))),
-          transparent 70%
-        )
+        hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.45),
+        hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0)
       );
 
       content: '';

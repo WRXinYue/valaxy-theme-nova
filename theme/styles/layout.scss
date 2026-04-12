@@ -1,11 +1,17 @@
 @use 'valaxy/client/styles/mixins/index.scss' as *;
 
+body.oceanus-preload-active {
+  overflow: hidden !important;
+}
+
 .link {
   color: var(--oceanus-c-brand);
 }
 
 html {
   color: var(--oceanus-c-text);
+  /* Avoid width jump when overflow toggles (e.g. preloader unlocks body scroll). */
+  scrollbar-gutter: stable;
 }
 
 body {

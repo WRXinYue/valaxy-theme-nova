@@ -81,7 +81,7 @@ const [isOpen, toggle] = useToggle(false)
   }
 
   .nav-content {
-    // box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.135);
+    // box-shadow: 0px 5px 10px hsla(0, 0%, 0%, 0.135);
     border-bottom: 1px solid var(--oceanus-c-border-line);
     background: var(--oceanus-c-nav-bg);
     backdrop-filter: saturate(180%) blur(20px);
@@ -100,7 +100,7 @@ const [isOpen, toggle] = useToggle(false)
     // height: 48px;
     height: var(--oceanus-nav-height);
     // max-height: 44px;
-    // background: rgba(45, 45, 45, 0.98);
+    // background: hsla(0, 0%, 18%, 0.98);
     font-size: 17px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -146,14 +146,14 @@ const [isOpen, toggle] = useToggle(false)
       content: '';
       display: block;
       height: 1px;
-      background: #424245;
+      background: hsla(240, 2%, 27%, 1);
       position: absolute;
       z-index: 2;
       right: 0;
       bottom: 0;
       left: 0;
       // opacity: 0;
-      background-color: #d7d7d7;
+      background-color: hsla(0, 0%, 84%, 1);
       transition:
         opacity 0.31s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.03s,
         transform 0.34s cubic-bezier(0.32, 0.08, 0.24, 1) 0.02s;
@@ -180,7 +180,7 @@ const [isOpen, toggle] = useToggle(false)
     .search-from {
       position: relative;
       display: flex;
-      background-color: #d7d7d7;
+      background-color: hsla(0, 0%, 84%, 1);
       // opacity: 0.8;
       border-radius: 8px;
       height: 2.11765em;
@@ -198,12 +198,12 @@ const [isOpen, toggle] = useToggle(false)
       text-overflow: ellipsis;
       font: 400 17px / 1.2 var(--oceanus-font);
       background: transparent;
-      // color: #fff;
+      // color: hsla(0, 0%, 100%, 1);
       outline: none;
       appearance: none;
       // height: 44px;
       width: 100%;
-      color: #333;
+      color: hsla(0, 0%, 20%, 1);
     }
   }
 
@@ -245,7 +245,7 @@ const [isOpen, toggle] = useToggle(false)
       display: block;
       width: 100%;
       height: 1px;
-      background-color: #d7d7d7;
+      background-color: hsla(0, 0%, 84%, 1);
     }
 
     .nav-menu-item {

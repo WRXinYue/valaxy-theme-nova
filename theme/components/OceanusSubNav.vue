@@ -135,7 +135,7 @@ const [isOpen, toggle] = useToggle()
       display: block;
       width: 100%;
       height: 1px;
-      background-color: #d7d7d7;
+      background-color: hsla(0, 0%, 84%, 1);
     }
 
     .sub-nav-menu-item {

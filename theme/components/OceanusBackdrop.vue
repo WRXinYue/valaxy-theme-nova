@@ -15,7 +15,7 @@ defineProps<{
   position: fixed;
   inset: 0;
   z-index: var(--oceanus-z-backdrop);
-  background: rgba(0, 0, 0, 0.6);
+  background: hsla(0, 0%, 0%, 0.6);
   transition: opacity 0.5s;
 
   .fade-enter-from,

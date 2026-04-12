@@ -52,14 +52,14 @@ export type FeaturedArticles = Partial<{
               <img h="full" w="full" class="card-image absolute inset-0 object-cover object-center-bottom" :src="article.cover">
             </div>
             <div h="full" z="3" p="32px <lg:24px" class="card-content relative" flex="~ col justify-between">
-              <h2 class="card-title" :class="[{ 'text-#fff dark:text-#1d1d1f': article?.cover, 'text-#1d1d1f dark:text-#fff': !article?.cover }]">
+              <h2 class="card-title" :class="[{ 'text-[hsla(0,0%,100%,1)] dark:text-[hsla(240,2%,12%,1)]': article?.cover, 'text-[hsla(240,2%,12%,1)] dark:text-[hsla(0,0%,100%,1)]': !article?.cover }]">
                 {{ article?.title }}
               </h2>
               <p m="t-150px b-28px" class="card-excerpt max-w-93% whitespace-pre-wrap" :class="[{ 'text-[hsla(0,0%,100%,0.92)] dark:text-[hsla(0,0%,0%,0.92)]': article?.cover, 'text-[hsla(0,0%,0%,0.92)] dark:text-[hsla(0,0%,100%,0.92)]': !article?.cover }]">
                 {{ article?.excerpt }}
               </p>
-              <ul v-if="article?.tags" p="t-20px" m="x--2px" class="card-tags border-t" :class="[{ 'border-[rgba(255,255,255,0.15)] dark:border-[rgba(0,0,0,0.15)]': article?.cover, 'border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]': !article?.cover }]" flex="~ wrap">
-                <li v-for="(tag, i) in article.tags" :key="i" p="[3px_16px_4px]" class="rounded-full" :class="[{ 'bg-[hsla(0,0%,100%,0.2)] text-#fff dark:bg-[hsla(0,0%,0%,0.2)] dark:text-#f5f5f7': article?.cover, 'bg-[hsla(0,0%,0%,0.05)] text-#1d1d1f dark:bg-[hsla(0,0%,100%,0.1)] dark:text-#f5f5f7': !article?.cover }]" m="2px">
+              <ul v-if="article?.tags" p="t-20px" m="x--2px" class="card-tags border-t" :class="[{ 'border-[hsla(0,0%,100%,0.15)] dark:border-[hsla(0,0%,0%,0.15)]': article?.cover, 'border-[hsla(0,0%,0%,0.08)] dark:border-[hsla(0,0%,100%,0.08)]': !article?.cover }]" flex="~ wrap">
+                <li v-for="(tag, i) in article.tags" :key="i" p="[3px_16px_4px]" class="rounded-full" :class="[{ 'bg-[hsla(0,0%,100%,0.2)] text-[hsla(0,0%,100%,1)] dark:bg-[hsla(0,0%,0%,0.2)] dark:text-[hsla(240,4%,96%,1)]': article?.cover, 'bg-[hsla(0,0%,0%,0.05)] text-[hsla(240,2%,12%,1)] dark:bg-[hsla(0,0%,100%,0.1)] dark:text-[hsla(240,4%,96%,1)]': !article?.cover }]" m="2px">
                   {{ tag }}
                 </li>
               </ul>
@@ -122,7 +122,7 @@ export type FeaturedArticles = Partial<{
   }
 
   .section-list-item-card {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.06);
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 
     &.no-cover {
@@ -140,9 +140,9 @@ export type FeaturedArticles = Partial<{
         height: 200%;
         background: linear-gradient(
           to bottom right,
-          rgba(var(--oceanus-c-brand-rgb), 0.02),
-          rgba(var(--oceanus-c-brand-rgb), 0.05),
-          rgba(var(--oceanus-c-brand-rgb), 0.02)
+          hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.02),
+          hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.05),
+          hsla(var(--oceanus-c-brand-h), var(--oceanus-c-brand-s), var(--oceanus-c-brand-l), 0.02)
         );
         transform: rotate(30deg);
         z-index: 1;
@@ -155,7 +155,7 @@ export type FeaturedArticles = Partial<{
     }
 
     &:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.08);
 
       .card-image {
         transform: scale(1.03);
@@ -177,7 +177,7 @@ export type FeaturedArticles = Partial<{
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.5));
+      background: linear-gradient(to bottom, hsla(0, 0%, 0%, 0.05), hsla(0, 0%, 0%, 0.5));
       z-index: 2;
     }
   }
