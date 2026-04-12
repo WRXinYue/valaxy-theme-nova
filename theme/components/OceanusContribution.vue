@@ -39,7 +39,7 @@ export type Contributors = Partial<{
             <div v-for="(contributor, i) in contributors" :key="i" class="contributor-item relative flex pt-[100%]">
               <a class="absolute inset-0 flex transition-all" :title="contributor.email" :href="contributor?.github || ''" :class="contributor?.github ? 'cursor-pointer' : 'cursor-default'">
                 <div class="contributor-avatar relative w-full inline-flex">
-                  <img width="80" height="80" class="h-full w-full rounded-xl transition lg:hover:scale-125" :src="contributor.avatar">
+                  <img width="80" height="80" class="h-full w-full rounded-xl transition" :src="contributor.avatar">
                 </div>
               </a>
             </div>
@@ -167,10 +167,9 @@ export type Contributors = Partial<{
   }
 
   .contributor-item {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
-      transform: scale(1.01);
       z-index: 2;
     }
   }

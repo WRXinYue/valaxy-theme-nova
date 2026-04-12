@@ -2,9 +2,13 @@
 import gsap from 'gsap'
 import { useAppStore } from 'valaxy'
 import { nextTick, onMounted, onUnmounted, ref } from 'vue'
+import { SITE_LOADER_SEEN_KEY } from '../composables/siteLoader'
+
+const LOADER_REPEAT_TIME_SCALE = 2.8
 
 const appStore = useAppStore()
 const rootRef = ref<HTMLElement | null>(null)
+const accelerated = ref(false)
 
 const PATH_INITIAL = 'M0,1005S175,995,500,995s500,5,500,5V0H0Z'
 const PATH_CURVE = 'M0 502S175 272 500 272s500 230 500 230V0H0Z'
@@ -12,13 +16,27 @@ const PATH_FLAT = 'M0 2S175 1 500 1s500 1 500 1V0H0Z'
 
 const BODY_CLASS = 'oceanus-preload-active'
 
+function markLoaderSeen() {
+  try {
+    sessionStorage.setItem(SITE_LOADER_SEEN_KEY, '1')
+  }
+  catch {
+    /* ignore */
+  }
+}
+
 onMounted(async () => {
+  const isRepeatVisit
+    = typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SITE_LOADER_SEEN_KEY) === '1'
+  accelerated.value = isRepeatVisit
+
   document.body.classList.add(BODY_CLASS)
   await nextTick()
 
   const svgPath = document.querySelector<SVGPathElement>('#oceanus-site-loader-path')
   const wrap = rootRef.value
   if (!svgPath || !wrap) {
+    markLoaderSeen()
     appStore.showLoading = false
     document.body.classList.remove(BODY_CLASS)
     return
@@ -28,10 +46,14 @@ onMounted(async () => {
 
   const tl = gsap.timeline({
     defaults: { ease: 'none' },
+    paused: true,
     onComplete: () => {
+      markLoaderSeen()
       appStore.showLoading = false
     },
   })
+
+  tl.timeScale(isRepeatVisit ? LOADER_REPEAT_TIME_SCALE : 1)
 
   tl.to('.oceanus-site-loader .load-text', {
     delay: 0.5,
@@ -63,6 +85,8 @@ onMounted(async () => {
     zIndex: -1,
     display: 'none',
   })
+
+  tl.play()
 })
 
 onUnmounted(() => {
@@ -71,7 +95,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="rootRef" class="oceanus-site-loader" aria-busy="true" aria-live="polite">
+  <div
+    ref="rootRef"
+    class="oceanus-site-loader"
+    :class="{ 'oceanus-site-loader--dark': appStore.isDark }"
+    aria-busy="true"
+    aria-live="polite"
+  >
     <svg class="oceanus-site-loader__svg" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
       <path id="oceanus-site-loader-path" :d="PATH_INITIAL" />
     </svg>
@@ -102,7 +132,7 @@ onUnmounted(() => {
     left: 0;
     width: 100vw;
     height: 110vh;
-    fill: hsla(0, 0%, 5%, 1);
+    fill: hsla(0, 0%, 98%, 1);
   }
 
   &__heading {
@@ -119,7 +149,7 @@ onUnmounted(() => {
     font-weight: 300;
     letter-spacing: 0.55em;
     text-transform: uppercase;
-    color: hsla(0, 0%, 100%, 1);
+    color: hsla(240, 2%, 12%, 1);
     text-indent: 0.55em;
 
     span {
@@ -148,6 +178,18 @@ onUnmounted(() => {
     span:nth-child(7) {
       animation-delay: 0.6s;
     }
+  }
+
+  .load-text--accelerated span {
+    animation-duration: 0.35s;
+  }
+
+  &--dark &__svg {
+    fill: hsla(0, 0%, 5%, 1);
+  }
+
+  &--dark .load-text {
+    color: hsla(0, 0%, 100%, 1);
   }
 }
 
