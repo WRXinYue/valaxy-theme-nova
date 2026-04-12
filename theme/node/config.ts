@@ -18,7 +18,7 @@ export const defaultThemeConfig: ThemeConfig = {
   nav: [],
   navTitle: pkg.name,
   navTools: [
-    ['togglTheme', 'toggleLocale'],
+    ['toggleTheme', 'toggleLocale'],
     ['search'],
   ],
 

@@ -10,7 +10,7 @@ defineProps<{
   <div v-for="(tools, i) in navTools" :key="i" flex="~ center">
     <template v-for="(tool, j) in tools" :key="j">
       <OceanusToggleLocale v-if="tool === 'toggleLocale'" />
-      <OceanusToggleTheme v-if="tool === 'togglTheme'" />
+      <OceanusToggleTheme v-if="tool === 'toggleTheme'" />
       <div v-if="tool === 'search'" class="text-icon cursor-not-allowed">
         <!-- TODO: -->
         <div i-tabler-search items-center />

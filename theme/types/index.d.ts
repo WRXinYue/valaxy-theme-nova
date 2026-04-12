@@ -36,7 +36,7 @@ export interface ThemeConfig extends DefaultTheme.Config {
   gitLog: GitLogOptions | boolean
 }
 
-export type NavTools = ('toggleLocale' | 'togglTheme' | 'search' | { icon: string, link?: string })[][]
+export type NavTools = ('toggleLocale' | 'toggleTheme' | 'search' | { icon: string, link?: string })[][]
 
 export type Logo = string | boolean | {
   light: string

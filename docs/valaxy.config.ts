@@ -81,7 +81,7 @@ export default defineConfig<ThemeConfig>({
     ],
 
     navTools: [
-      ['togglTheme', 'toggleLocale'],
+      ['toggleTheme', 'toggleLocale'],
       [{
         icon: 'i-ri-github-fill',
         link: pkg.repository.url,
