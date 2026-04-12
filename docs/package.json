@@ -9,11 +9,11 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@iconify-json/carbon": "^1.2.8",
-    "valaxy": "^0.23.0",
+    "@iconify-json/carbon": "catalog:",
+    "valaxy": "catalog:",
     "valaxy-theme-oceanus": "workspace:*"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "catalog:"
   }
 }

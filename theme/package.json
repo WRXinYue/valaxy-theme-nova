@@ -18,18 +18,18 @@
   "main": "client/index.ts",
   "types": "types/index.d.ts",
   "dependencies": {
-    "@iconify-json/f7": "^1.2.2",
-    "@iconify-json/ri": "^1.2.5",
-    "@iconify-json/tabler": "^1.2.13",
-    "@rollup/plugin-virtual": "^3.0.2",
-    "markdown-it-github-alerts": "^0.3.0",
-    "markdown-it-link-attributes": "^4.0.1",
-    "valaxy-addon-git-log": "^0.3.0"
+    "@iconify-json/f7": "catalog:",
+    "@iconify-json/ri": "catalog:",
+    "@iconify-json/tabler": "catalog:",
+    "@rollup/plugin-virtual": "catalog:",
+    "markdown-it-github-alerts": "catalog:",
+    "markdown-it-link-attributes": "catalog:",
+    "valaxy-addon-git-log": "catalog:"
   },
   "devDependencies": {
-    "@types/gravatar": "^1.8.6",
-    "@types/md5": "^2.3.5",
-    "valaxy": "^0.23.0",
-    "valaxy-addon-algolia": "^0.1.0"
+    "@types/gravatar": "catalog:",
+    "@types/md5": "catalog:",
+    "valaxy": "catalog:",
+    "valaxy-addon-algolia": "catalog:"
   }
 }
