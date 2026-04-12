@@ -1,0 +1,29 @@
+/**
+ * Oceanus theme — code group tabs (Valaxy `components/code-group.scss` base is loaded in `main.scss`).
+ */
+
+:root {
+  --va-code-tab-bg: color-mix(in srgb, var(--oceanus-c-text-muted) 8%, var(--oceanus-c-bg-design));
+  --va-code-tab-divider: var(--oceanus-c-border-line);
+  --va-code-tab-text-color: var(--oceanus-c-text-muted);
+  --va-code-tab-hover-text-color: var(--oceanus-c-text-deep);
+  --va-code-tab-active-text-color: var(--oceanus-c-text-deeper);
+  --va-code-tab-active-bar-color: var(--va-c-primary);
+}
+
+html.dark {
+  --va-code-tab-bg: color-mix(in srgb, var(--oceanus-c-text-muted) 10%, var(--oceanus-c-bg-design));
+  --va-code-tab-divider: color-mix(in srgb, var(--oceanus-c-text-muted) 18%, transparent);
+}
+
+.markdown-body .prose .vp-code-group .tabs {
+  @media (width >= 640px) {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.markdown-body .prose .vp-code-group .blocks > div[class*='language-'].active,
+.markdown-body .prose .vp-code-group .blocks > .vp-block.active {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

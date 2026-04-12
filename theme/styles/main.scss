@@ -1,7 +1,11 @@
 @use './layout' as *;
+@use 'valaxy/client/styles/components/code.scss' as *;
+@use 'valaxy/client/styles/components/code-group.scss' as *;
+@use 'valaxy/client/styles/components/custom-block.scss' as *;
 @use './markdown' as *;
-
-@use 'valaxy/client/styles/common/index.scss' as *;
+@use './custom-block' as *;
+@use './code' as *;
+@use './code-group' as *;
 
 @use 'markdown-it-github-alerts/styles/github-colors-light.css' as *;
 @use 'markdown-it-github-alerts/styles/github-colors-dark-media.css' as *;

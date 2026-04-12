@@ -1,0 +1,8 @@
+/**
+ * Oceanus theme — Shiki / code blocks (Valaxy `components/code.scss` base is loaded in `main.scss`).
+ */
+
+.markdown-body .prose pre.vp-code.shiki {
+  border-radius: 10px;
+  overflow: hidden;
+}
