@@ -90,11 +90,7 @@ const isThisYear = computed(() => {
       height: 120px;
       max-height: 100%;
       pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--va-c-primary) 6%, transparent) 0%,
-        transparent 100%
-      );
+      background: linear-gradient(180deg, color-mix(in srgb, var(--va-c-primary) 6%, transparent) 0%, transparent 100%);
       opacity: 0.45;
     }
   }

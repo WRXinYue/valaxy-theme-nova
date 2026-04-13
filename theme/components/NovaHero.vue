@@ -145,11 +145,7 @@ const heroClass = computed(() => ({
   &.has-prism {
     background-attachment: scroll;
     background-color: hsla(230, 45%, 5%, 1);
-    background-image: linear-gradient(
-      0deg,
-      hsla(200, 60%, 92%, 0.06),
-      hsla(210, 70%, 78%, 0.06)
-    );
+    background-image: linear-gradient(0deg, hsla(200, 60%, 92%, 0.06), hsla(210, 70%, 78%, 0.06));
   }
 
   &::before {
@@ -197,17 +193,12 @@ const heroClass = computed(() => ({
       transparent 12%,
       var(--stripe-color) 16%
     );
-    --nova-rainbow: repeating-linear-gradient(
-      100deg,
-      #60a5fa 10%,
-      #e879f9 15%,
-      #60a5fa 20%,
-      #5eead4 25%,
-      #60a5fa 30%
-    );
+    --nova-rainbow: repeating-linear-gradient(100deg, #60a5fa 10%, #e879f9 15%, #60a5fa 20%, #5eead4 25%, #60a5fa 30%);
     background-image: var(--nova-stripes), var(--nova-rainbow);
     background-size: 300%, 200%;
-    background-position: 50% 50%, 50% 50%;
+    background-position:
+      50% 50%,
+      50% 50%;
     filter: blur(10px) invert(100%);
     mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
   }
@@ -415,16 +406,15 @@ const heroClass = computed(() => ({
     margin: 0;
     width: 100%;
     text-align: center;
-    background:
-      radial-gradient(
-        2em 2em at 50% 50%,
-        transparent calc(var(--nova-hero-p) - 2em),
-        transparent calc(var(--nova-hero-p) - 1em),
-        hsla(0, 0%, 100%, 1) calc(var(--nova-hero-p) - 1em),
-        hsla(0, 0%, 100%, 1) calc(var(--nova-hero-p) - 0.4em),
-        transparent calc(var(--nova-hero-p) - 0.4em),
-        transparent calc(var(--nova-hero-p))
-      );
+    background: radial-gradient(
+      2em 2em at 50% 50%,
+      transparent calc(var(--nova-hero-p) - 2em),
+      transparent calc(var(--nova-hero-p) - 1em),
+      hsla(0, 0%, 100%, 1) calc(var(--nova-hero-p) - 1em),
+      hsla(0, 0%, 100%, 1) calc(var(--nova-hero-p) - 0.4em),
+      transparent calc(var(--nova-hero-p) - 0.4em),
+      transparent calc(var(--nova-hero-p))
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -474,7 +464,9 @@ const heroClass = computed(() => ({
     -webkit-text-fill-color: transparent;
     background-color: hsla(0, 0%, 100%, 1);
     -webkit-mask: linear-gradient(#000 0 0) luminance;
-    mask: linear-gradient(#000 0 0) luminance, alpha;
+    mask:
+      linear-gradient(#000 0 0) luminance,
+      alpha;
     backdrop-filter: blur(19px) brightness(12.5);
     -webkit-text-stroke: 1px hsla(0, 0%, 100%, 1);
     display: flex;
@@ -601,10 +593,14 @@ const heroClass = computed(() => ({
 
   @keyframes nova-smooth-bg {
     from {
-      background-position: 50% 50%, 50% 50%;
+      background-position:
+        50% 50%,
+        50% 50%;
     }
     to {
-      background-position: 350% 50%, 350% 50%;
+      background-position:
+        350% 50%,
+        350% 50%;
     }
   }
 }

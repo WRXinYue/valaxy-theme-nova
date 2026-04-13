@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useFrontmatter } from 'valaxy'
+import { ref } from 'vue'
 import { useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ getStarted: GetStarted }>()
@@ -206,11 +206,7 @@ export type GetStarted = Partial<{
   letter-spacing: 0.08em;
   text-decoration: none;
   color: hsla(240, 8%, 12%, 1);
-  background: linear-gradient(
-    135deg,
-    hsla(0, 0%, 100%, 0.55) 0%,
-    hsla(0, 0%, 100%, 0.2) 100%
-  );
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.55) 0%, hsla(0, 0%, 100%, 0.2) 100%);
   border: 1.5px solid transparent;
   border-radius: 40px;
   backdrop-filter: blur(24px);
@@ -263,11 +259,7 @@ export type GetStarted = Partial<{
     inset: 0;
     z-index: 2;
     border-radius: 40px;
-    background: radial-gradient(
-      circle at var(--x) var(--y),
-      hsla(0, 0%, 100%, 0.35) 0%,
-      transparent 50%
-    );
+    background: radial-gradient(circle at var(--x) var(--y), hsla(0, 0%, 100%, 0.35) 0%, transparent 50%);
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
@@ -275,11 +267,7 @@ export type GetStarted = Partial<{
 
   &:hover {
     color: hsla(240, 8%, 10%, 1);
-    background: linear-gradient(
-      135deg,
-      hsla(0, 0%, 100%, 0.85) 0%,
-      hsla(0, 0%, 100%, 0.35) 100%
-    );
+    background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.85) 0%, hsla(0, 0%, 100%, 0.35) 100%);
     box-shadow:
       0 12px 48px hsla(271, 60%, 50%, 0.18),
       0 0 56px hsla(195, 100%, 45%, 0.12),
@@ -308,11 +296,7 @@ export type GetStarted = Partial<{
 html.dark .nova-glass-cta {
   color: hsla(0, 0%, 100%, 1);
 
-  background: linear-gradient(
-    135deg,
-    hsla(0, 0%, 100%, 0.1) 0%,
-    hsla(0, 0%, 100%, 0.03) 100%
-  );
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0.03) 100%);
   box-shadow:
     0 8px 32px hsla(0, 0%, 0%, 0.35),
     inset 0 1px 0 hsla(0, 0%, 100%, 0.18),
@@ -321,11 +305,7 @@ html.dark .nova-glass-cta {
   &:hover {
     color: hsla(0, 0%, 100%, 1);
     transform: translateY(-3px) scale(1.02);
-    background: linear-gradient(
-      135deg,
-      hsla(0, 0%, 100%, 0.18) 0%,
-      hsla(0, 0%, 100%, 0.06) 100%
-    );
+    background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.18) 0%, hsla(0, 0%, 100%, 0.06) 100%);
     box-shadow:
       0 12px 48px hsla(271, 60%, 45%, 0.35),
       0 0 80px hsla(195, 100%, 50%, 0.2),
@@ -334,11 +314,7 @@ html.dark .nova-glass-cta {
   }
 
   &::after {
-    background: radial-gradient(
-      circle at var(--x) var(--y),
-      hsla(0, 0%, 100%, 0.22) 0%,
-      transparent 52%
-    );
+    background: radial-gradient(circle at var(--x) var(--y), hsla(0, 0%, 100%, 0.22) 0%, transparent 52%);
   }
 }
 

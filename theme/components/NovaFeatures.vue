@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useFrontmatter } from 'valaxy'
+import { ref } from 'vue'
 import { useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ features: Features }>()

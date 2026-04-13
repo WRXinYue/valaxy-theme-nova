@@ -54,6 +54,7 @@ Valaxy 带有内置的 Markdown 扩展。
 [bar - three](../bar/three) <!-- 可以省略扩展名 -->
 [bar - three](../bar/three.md) <!-- 可以添加 .md -->
 [bar - four](../bar/four.html) <!-- 或者可以添加 .html -->
+
 ```
 
 ### 页面后缀 {#page-suffix}
@@ -158,6 +159,7 @@ This is a dangerous warning.
 ::: details
 This is a details block.
 :::
+
 ```
 
 **输出**
@@ -200,6 +202,7 @@ console.log('Hello, valaxy!')
 ```
 
 :::
+
 ````
 
 **输出**
@@ -235,6 +238,7 @@ valaxy 同样支持以标注的方式渲染 [GitHub 风格的警报](https://doc
 
 > [!CAUTION]
 > 行为可能带来的负面影响。
+
 ```
 
 > [!NOTE]
@@ -290,6 +294,7 @@ export default {
 <ul>
   <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
 </ul>
+
 ```
 
 在 Shiki 的代码仓库中，可以找到[合法的编程语言列表](https://shiki.style/languages)。
@@ -344,6 +349,7 @@ const line3 = 'This is line 3'
 const line3 = 'This is line 3'
 const line4 = 'This is line 4'
 ```
+
 ````
 
 **输出**
@@ -568,6 +574,7 @@ const line3 = 'This is line 3'
 const line3 = 'This is line 3'
 const line4 = 'This is line 4'
 ```
+
 ````
 
 **输出**
@@ -655,6 +662,7 @@ const line4 = 'This is line 4'
 <!-- 带行号: -->
 
 <<< @/snippets/snippet.cs{1,2,4-6 c#:line-numbers}
+
 ```
 
 如果无法从文件扩展名推测出源语言，这将会很有帮助
@@ -690,6 +698,7 @@ export default config
 ```
 
 :::
+
 ````
 
 **输出**
@@ -735,6 +744,7 @@ export default config
 <<< @/snippets/snippet-with-region.js#snippet{1,2 ts:line-numbers} [snippet with region]
 
 :::
+
 ```
 
 **输出**
@@ -765,6 +775,7 @@ export default config
 ## Basics
 
 <!--@include: ./parts/basics.md-->
+
 ```
 
 **Part file** (`parts/basics.md`)
@@ -775,6 +786,7 @@ Some getting started stuff.
 ### Configuration
 
 Can be created using `.foorc.json`.
+
 ```
 
 **等价代码**
@@ -789,6 +801,7 @@ Some getting started stuff.
 ### Configuration
 
 Can be created using `.foorc.json`.
+
 ```
 
 它还支持选择行范围：
@@ -801,6 +814,7 @@ Can be created using `.foorc.json`.
 ## Basics
 
 <!--@include: ./parts/basics.md{3,}-->
+
 ```
 
 **Part file** (`parts/basics.md`)
@@ -811,6 +825,7 @@ Some getting started stuff.
 ### Configuration
 
 Can be created using `.foorc.json`.
+
 ```
 
 **等价代码**
@@ -823,6 +838,7 @@ Can be created using `.foorc.json`.
 ### Configuration
 
 Can be created using `.foorc.json`.
+
 ```
 
 所选行范围的格式可以是： `{3,}`、 `{,10}`、`{1,10}`
@@ -846,6 +862,7 @@ $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 | $\nabla \cdot \vec{\mathbf{B}}  = 0$                                                                                                                                      | divergence of $\vec{\mathbf{B}}$ is zero                                               |
 | $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$                                                          | curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$ |
 | $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_                                                                                 |
+
 ```
 
 **输出**
@@ -951,6 +968,7 @@ Freedom to control your layout!
     ![image](https://cdn.yunyoujun.cn/img/bg/astronaut.webp)
   </div>
 </div>
+
 ```
 
 ## Mermaid
@@ -996,6 +1014,7 @@ More examples see: [Mermaid](https://valaxy.site/examples/mermaid)
 正确缩进的脚注段落会被自动附加。
 
 使用 `^[content]` 可以创建方便的内联脚注^[比如这个！]。
+
 ```
 
 这是一个脚注[^1-zh]。
@@ -1026,6 +1045,7 @@ This is a paragraph of footnote[^2-en].
 Footnote paragraphs with correct indentation will be automatically attached.
 
 Use `^[content]` to create convenient inline footnotes^[like this!].
+
 ```
 
 This is a footnote[^1-en].
@@ -1081,4 +1101,5 @@ You can add `markdownClass` in the frontmatter of the markdown file to customize
 ---
 markdownClass: 'markdown-body custom-markdown-class'
 ---
+
 ```

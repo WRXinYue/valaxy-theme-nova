@@ -215,8 +215,7 @@ onUnmounted(() => {
   background:
     radial-gradient(120% 80% at 50% 100%, hsla(271, 60%, 22%, 0.9) 0%, transparent 55%),
     radial-gradient(90% 60% at 10% 20%, hsla(195, 70%, 18%, 0.85) 0%, transparent 50%),
-    radial-gradient(70% 50% at 90% 30%, hsla(300, 45%, 20%, 0.75) 0%, transparent 45%),
-    hsla(240, 35%, 6%, 1);
+    radial-gradient(70% 50% at 90% 30%, hsla(300, 45%, 20%, 0.75) 0%, transparent 45%), hsla(240, 35%, 6%, 1);
 }
 
 .nova-hero-prism__canvas {

@@ -1,14 +1,15 @@
+import type { ComputedRef, Ref } from 'vue'
 import type { SidebarItem } from '../types'
+
 import { isClient } from '@vueuse/core'
 
 import { removeItemFromCategory } from 'valaxy'
-
 import {
   computed,
-  type ComputedRef,
+
   onMounted,
   onUnmounted,
-  type Ref,
+
   ref,
   watch,
   watchEffect,

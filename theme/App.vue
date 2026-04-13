@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import { useAppStore } from 'valaxy'
-import { useLocale } from './composables'
 import NovaSiteLoader from './components/NovaSiteLoader.vue'
+import { useLocale } from './composables'
 
 const { lang } = useLocale()
 const appStore = useAppStore()

@@ -12,7 +12,8 @@ const frontmatter = useFrontmatter()
 const { t } = useI18n()
 const route = useRoute()
 
-const isIndex = computed(() => route.path.replace(/index.html$/, '') === '/')
+const INDEX_HTML_RE = /index.html$/
+const isIndex = computed(() => route.path.replace(INDEX_HTML_RE, '') === '/')
 </script>
 
 <template>

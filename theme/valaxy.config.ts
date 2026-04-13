@@ -7,6 +7,8 @@ import { defineTheme } from 'valaxy'
 import { addonGitLog } from 'valaxy-addon-git-log'
 import { defaultThemeConfig, generateSafelist, themePlugin } from './node'
 
+const EXTERNAL_LINK_RE = /^https?:\/\//
+
 export default defineTheme<ThemeConfig>((options) => {
   const { theme, config } = options
   const { themeConfig, siteConfig } = config
@@ -46,7 +48,7 @@ export default defineTheme<ThemeConfig>((options) => {
     markdown: {
       config: (md) => {
         md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
+          matcher: (link: string) => EXTERNAL_LINK_RE.test(link),
           attrs: {
             target: '_blank',
             rel: 'noopener',

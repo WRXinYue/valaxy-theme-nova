@@ -13,6 +13,7 @@ Valaxy 支持在所有 Markdown 文件中使用 YAML frontmatter，并使用 [gr
 title: Docs with Valaxy
 editLink: true
 ---
+
 ```
 
 许多站点或默认主题配置选项在 frontmatter 中都有相应的选项。可以使用 frontmatter 来覆盖当前页面的特定行为。详细信息请参见 [frontmatter 配置](/reference/frontmatter-config)。
@@ -34,6 +35,7 @@ editLink: true
 # {{ $frontmatter.title }}
 
 Guide content
+
 ```
 
 ## 其他 frontmatter 格式 {#alternative-frontmatter-formats}
