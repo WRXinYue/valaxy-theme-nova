@@ -22,12 +22,14 @@
     "@iconify-json/ri": "catalog:",
     "@iconify-json/tabler": "catalog:",
     "@rollup/plugin-virtual": "catalog:",
+    "d3": "catalog:",
     "gsap": "catalog:",
     "markdown-it-github-alerts": "catalog:",
     "markdown-it-link-attributes": "catalog:",
     "valaxy-addon-git-log": "catalog:"
   },
   "devDependencies": {
+    "@types/d3": "catalog:",
     "@types/gravatar": "catalog:",
     "@types/md5": "catalog:",
     "valaxy": "catalog:",

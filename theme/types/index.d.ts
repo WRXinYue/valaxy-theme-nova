@@ -39,6 +39,18 @@ export interface ThemeConfig extends DefaultTheme.Config {
 
   sidebar: SidebarMulti
 
+  /**
+   * Relationship graph (D3) above the article TOC. `false` or `{ enabled: false }` disables it.
+   * Default: shown when there is at least one page in the graph.
+   */
+  networkGraph?: boolean | {
+    enabled?: boolean
+    width?: number
+    height?: number
+    /** Include edges from Markdown internal links (build-time cache). Default `true`. */
+    includeMarkdownLinks?: boolean
+  }
+
   footer: Partial<Footer>
 
   gitLog: GitLogOptions | boolean

@@ -2,8 +2,6 @@
 title:
   en: Installation
   zh-CN: 安装
-categories:
-  - getting-started
 end: true
 top: 100
 ---

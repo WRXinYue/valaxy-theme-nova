@@ -1,4 +1,6 @@
 valaxy_theme_nova: Valaxy Theme Nova
 nova:
+  networkGraph:
+    title: Graph
   article:
     updated: 'Last updated:'

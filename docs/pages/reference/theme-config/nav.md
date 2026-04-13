@@ -2,8 +2,6 @@
 title:
   en: Nav
   zh-CN: 导航栏
-categories:
-  - themeConfig
 end: true
 ---
 

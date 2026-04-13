@@ -1,4 +1,6 @@
 valaxy_theme_nova: Valaxy 主题 Nova
 nova:
+  networkGraph:
+    title: 关系图谱
   article:
     updated: 更新时间：

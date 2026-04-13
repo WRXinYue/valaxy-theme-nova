@@ -1,51 +1,45 @@
 <script lang="ts" setup>
+import type { Post } from 'valaxy'
 import type { SidebarMulti } from '../types'
-import { removeItemFromCategory, useSidebar } from 'valaxy'
+import { usePageList, useSidebar } from 'valaxy'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useCategories, usePostList, useSplitPathSegments } from '../composables'
+import { useSplitPathSegments } from '../composables'
 
 defineProps<{
   sidebar?: SidebarMulti
 }>()
 
 const route = useRoute()
-
 const routerPath = computed(() => route.path)
-
 const pathSegments = useSplitPathSegments(routerPath)
-
 const currentPath = computed(() => pathSegments.value[0])
-// const currentPath = computed(() => pathSegments.value[1] || pathSegments.value[0])
-
-const post = usePostList({ path: currentPath })
-const cs = useCategories('', post)
 const { hasSidebar } = useSidebar()
 
-const categories = computed(() => {
-  const cList = cs.value
-  removeItemFromCategory(cList, 'Uncategorized')
+const allPages = usePageList()
 
-  // const sidebar = themeConfig.value.sidebar
-  // if (sidebar) {
-  //   cList.children.forEach((item) => {
-  //     if (!themeConfig.value.sidebar.includes(item.name))
-  //       removeItemFromCategory(cList, item.name)
-  //   })
-  // }
-
-  return cList
-})
+function getPagesInGroup(group: string): Post[] {
+  const base = currentPath.value
+  if (!base)
+    return []
+  const prefix = `${base}/${group}/`
+  return allPages.value
+    .filter(p => p.path?.startsWith(prefix))
+    .sort((a, b) => (b.top || 0) - (a.top || 0))
+}
 </script>
 
 <template>
   <aside v-if="hasSidebar" class="nova-aside" @click.stop>
-    <ol v-for="(item, i) in sidebar" :key="i" text="left">
-      <template v-if="typeof item === 'string'">
-        <NovaSidebarCategoryByName :categories :item />
-      </template>
+    <template v-for="(item, i) in sidebar" :key="i">
+      <NovaSidebarCategory
+        v-if="typeof item === 'string'"
+        :name="item"
+        :pages="getPagesInGroup(item)"
+        :level="0"
+      />
       <NovaSidebarItem v-else :item :depth="0" />
-    </ol>
+    </template>
   </aside>
 </template>
 

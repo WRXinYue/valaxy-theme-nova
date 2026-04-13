@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { PostFrontMatter } from 'valaxy/types'
+import { isLocaleKey, stripLocalePrefix, tObject } from 'valaxy'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { usePostList, useSplitPathSegments } from '../composables'
 
 const route = useRoute()
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 
 const routerPath = computed(() => route.path)
 
@@ -24,9 +25,10 @@ const prevPost = computed(() => posts.value[findCurrentIndex() + 1])
 const nextPost = computed(() => posts.value[findCurrentIndex() - 1])
 
 function getTitle(post: Partial<PostFrontMatter>) {
-  const lang = locale.value
-  const localeTitle = post[`title_${lang}`] || post[`title_${lang.split('-')[0]}`]
-  return localeTitle || post.title
+  let resolved = tObject(post.title ?? '', locale.value)
+  if (typeof resolved === 'string' && isLocaleKey(resolved))
+    resolved = t(stripLocalePrefix(resolved))
+  return typeof resolved === 'string' ? resolved : String(resolved)
 }
 </script>
 

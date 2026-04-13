@@ -2,8 +2,6 @@
 title:
   en: Overview
   zh-CN: 概览
-categories:
-  - frontmatter-config
 end: true
 top: 1000
 ---

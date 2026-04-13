@@ -2,8 +2,6 @@
 title:
   en: Update
   zh-CN: 更新
-categories:
-  - getting-started
 end: true
 top: 99
 ---

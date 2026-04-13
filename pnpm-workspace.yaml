@@ -21,7 +21,9 @@ catalog:
   '@types/gravatar': ^1.8.6
   '@types/md5': ^2.3.5
   '@unocss/eslint-plugin': ^66.6.8
+  '@types/d3': ^7.4.3
   bumpp: ^11.0.1
+  d3: ^7.9.0
   eslint: ^10.2.0
   eslint-plugin-format: ^2.0.1
   gsap: ^3.13.0

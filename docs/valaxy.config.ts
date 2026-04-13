@@ -20,7 +20,7 @@ export default defineConfig<ThemeConfig>({
       {
         locale: 'nova.nav.guide',
         link: '/guide',
-        sidebar: ['getting-started', 'writing'],
+        sidebar: ['getting-started', 'writing', 'config'],
         subNav: [
           {
             locale: 'nova.navSub.installation',
@@ -51,12 +51,12 @@ export default defineConfig<ThemeConfig>({
       {
         locale: 'nova.nav.reference',
         link: '/reference',
-        sidebar: ['reference', 'themeConfig'],
+        sidebar: ['frontmatter-config', 'theme-config'],
         subNav: [
           {
             locale: 'nova.navSub.siteConfig',
             link: '/reference/site-config',
-            sidebar: ['siteConfig'],
+            sidebar: [],
           },
           {
             locale: 'nova.navSub.frontmatterConfig',
@@ -66,7 +66,7 @@ export default defineConfig<ThemeConfig>({
           {
             locale: 'nova.navSub.themeConfig',
             link: '/reference/theme-config',
-            sidebar: ['themeConfig'],
+            sidebar: ['theme-config'],
           },
         ],
       },

@@ -1,59 +1,70 @@
 <script lang="ts" setup>
-import type { Category, Post } from 'valaxy'
-import { isCategoryList } from 'valaxy'
+import type { Post } from 'valaxy'
+import { isLocaleKey, stripLocalePrefix, tObject } from 'valaxy'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = withDefaults(defineProps<{
-  // to eliminate the warning
-  category: Category
+  name: string
+  pages: Post[]
   level?: number
-  displayCategory?: (category: string) => void
-
-  /**
-   * collapse children
-   */
-  collapsable?: boolean
 }>(), {
-  collapsable: true,
+  level: 0,
 })
 
-const collapsable = ref(props.collapsable)
+const collapsed = ref(false)
 const { t, locale } = useI18n()
 
 function getTitle(post: Post | any) {
-  const lang = locale.value
-  const localeTitle = post[`title_${lang}`] || post[`title_${lang.split('-')[0]}`]
-  return localeTitle || post.title
+  let resolved = tObject(post.title ?? '', locale.value)
+  if (typeof resolved === 'string' && isLocaleKey(resolved))
+    resolved = t(stripLocalePrefix(resolved))
+  return typeof resolved === 'string' ? resolved : String(resolved)
+}
+
+function formatGroupName(name: string): string {
+  const key = `nova.sidebar.${name}`
+  const translated = t(key)
+  if (translated !== key)
+    return translated
+  return name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 }
 </script>
 
 <template>
-  <li v-if="category.total" w="full" p="x-4px" class="nova-sidebar-category inline-flex items-center justify-between" tabindex="0">
-    <span font="bold" m="l-1" @click="displayCategory ? displayCategory(category.name) : null">
-      {{ category.name === 'Uncategorized' ? t('category.uncategorized') : t(`category.${category.name}`) }}
-    </span>
-    <button
-      tabindex="0" role="button" aria-label="toggle section"
-      class="folder-action caret inline-flex cursor-pointer"
-      @click="collapsable = !collapsable"
+  <ol v-if="pages.length" class="nova-sidebar-group">
+    <li
+      w="full" p="x-4px" tabindex="0"
+      class="nova-sidebar-category inline-flex items-center justify-between"
+      :class="level === 0 ? 'nova-sidebar-category--top' : ''"
     >
-      <div class="i-tabler-chevron-down h-5 w-5" :class="collapsable ? 'angle-down' : 'angle-right'" />
-    </button>
-  </li>
-
-  <ul v-show="!collapsable" class="nova-sidebar-section">
-    <li v-for="categoryItem, i in category.children.values()" :key="i" class="nova-sidebar-item">
-      <template v-if="!isCategoryList(categoryItem)">
-        <RouterLink v-if="categoryItem.title" :to="categoryItem.path || ''" class="nova-text nova-sidebar-item-link" active-class="active" :title="getTitle(categoryItem)">
-          <span i-tabler-file-description class="nova-list-symbol mr-2 inline-block" />
-          <span class="truncate">{{ getTitle(categoryItem) }}</span>
-        </RouterLink>
-      </template>
-
-      <NovaSidebarCategory v-else :category="categoryItem" :display-category="displayCategory" :collapsable="collapsable" />
+      <span m="l-1">
+        {{ formatGroupName(name) }}
+      </span>
+      <button
+        tabindex="0" role="button" aria-label="toggle section"
+        class="folder-action caret inline-flex cursor-pointer"
+        @click="collapsed = !collapsed"
+      >
+        <div class="i-tabler-chevron-down h-5 w-5" :class="collapsed ? 'angle-right' : 'angle-down'" />
+      </button>
     </li>
-  </ul>
+
+    <ul v-show="!collapsed" class="nova-sidebar-section">
+      <li v-for="page in pages" :key="page.path" class="nova-sidebar-item">
+        <RouterLink
+          v-if="page.title"
+          :to="page.path || ''"
+          class="nova-text nova-sidebar-item-link"
+          active-class="active"
+          :title="getTitle(page)"
+        >
+          <span i-tabler-file-description class="nova-list-symbol mr-2 inline-block" />
+          <span class="truncate">{{ getTitle(page) }}</span>
+        </RouterLink>
+      </li>
+    </ul>
+  </ol>
 </template>
 
 <style lang="scss">
@@ -86,6 +97,22 @@ function getTitle(post: Post | any) {
     &.router-link-exact-active {
       background: var(--nova-c-list-active-bg);
     }
+  }
+}
+
+.nova-sidebar-category--top {
+  margin-top: 1.25rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  > span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--nova-c-text-muted);
   }
 }
 

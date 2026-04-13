@@ -2,8 +2,6 @@
 title:
   en: Deploy
   zh-CN: 部署
-categories:
-  - getting-started
 end: true
 ---
 

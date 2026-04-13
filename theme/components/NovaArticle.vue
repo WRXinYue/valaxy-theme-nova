@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useMatchingNavItems, useThemeConfig } from '../composables'
 import { useNovaAppStore } from '../stores'
+import NovaNetworkGraph from './NovaNetworkGraph.vue'
 
 const themeConfig = useThemeConfig()
 const novaApp = useNovaAppStore()
@@ -13,6 +14,15 @@ const matchingNavItems = useMatchingNavItems(routerPath)
 const firstNavItems = computed(() => matchingNavItems.value.firstNavItems)
 const secondNavItems = computed(() => matchingNavItems.value.secondNavItems)
 const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.value?.sidebar || themeConfig.value.sidebar)
+
+const showNetworkGraph = computed(() => {
+  const g = themeConfig.value.networkGraph
+  if (g === false)
+    return false
+  if (typeof g === 'object' && g.enabled === false)
+    return false
+  return true
+})
 </script>
 
 <template>
@@ -32,7 +42,10 @@ const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.va
         <slot />
 
         <slot name="toc">
-          <div class="toc border-l-1px border-$nova-c-border-line">
+          <div class="toc nova-toc border-l-1px border-$nova-c-border-line min-w-0">
+            <ClientOnly v-if="showNetworkGraph">
+              <NovaNetworkGraph />
+            </ClientOnly>
             <NovaToc />
           </div>
         </slot>
@@ -91,6 +104,9 @@ const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.va
       visibility 0s linear 1s;
 
     @include screen('xl') {
+      position: sticky;
+      top: var(--nova-nav-height);
+      max-height: calc(100vh - var(--nova-nav-height));
       overflow-y: auto;
       visibility: visible;
       width: var(--nova-aside-width);

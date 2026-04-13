@@ -18,7 +18,7 @@ const isIndex = computed(() => route.path.replace(INDEX_HTML_RE, '') === '/')
 
 <template>
   <!-- Note: The outer div ensures that sticky positioning works -->
-  <div v-if="isIndex ? frontmatter.toc === true : frontmatter.toc !== false" class="nova-toc">
+  <div v-if="isIndex ? frontmatter.toc === true : frontmatter.toc !== false" class="nova-toc-inner">
     <div class="toc-container">
       <h2 font="black">
         {{ t('sidebar.toc') }}
@@ -39,11 +39,7 @@ const isIndex = computed(() => route.path.replace(INDEX_HTML_RE, '') === '/')
   z-index: var(--yun-z-toc-btn);
 }
 
-.nova-toc {
-  position: sticky;
-  top: var(--nova-nav-height);
-  // height: 100%;
-
+.nova-toc-inner {
   .toc-container {
     padding-left: 16px;
     padding-top: var(--nova-aside-pt);

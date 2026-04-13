@@ -2,8 +2,6 @@
 title:
   en: Asset Handling
   zh-CN: 资源处理
-categories:
-  - writing
 end: true
 ---
 

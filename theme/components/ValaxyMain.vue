@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import type { PageData, Post } from 'valaxy'
-import { useSiteConfig } from 'valaxy'
+import { scrollTo, useSiteConfig } from 'valaxy'
+import { onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { setupNovaMarkdownLinks } from '../utils/nova-markdown-links'
 
 defineProps<{
   frontmatter: Post
@@ -8,6 +11,20 @@ defineProps<{
 }>()
 
 const siteConfig = useSiteConfig()
+const route = useRoute()
+const router = useRouter()
+
+onMounted(() => {
+  setupNovaMarkdownLinks(router)
+  if (route.hash) {
+    setTimeout(() => {
+      scrollTo(document.body, route.hash, {
+        smooth: true,
+        targetPadding: -64,
+      })
+    }, 0)
+  }
+})
 </script>
 
 <template>

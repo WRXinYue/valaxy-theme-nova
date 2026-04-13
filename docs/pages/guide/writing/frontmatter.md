@@ -2,8 +2,6 @@
 title:
   en: Frontmatter
   zh-CN: Frontmatter
-categories:
-  - writing
 end: true
 ---
 
