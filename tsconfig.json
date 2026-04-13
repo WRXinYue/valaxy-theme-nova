@@ -3,14 +3,14 @@
     "target": "ESNext",
     "jsx": "preserve",
     "lib": ["DOM", "ESNext"],
-    "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "types": [
       "vitest",
+      "valaxy/client",
       "vite/client",
-      "vite-plugin-vue-layouts/client"
+      "vite-plugin-vue-layouts-next/client"
     ],
     "allowJs": true,
     "strict": true,

@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
+    "@types/fs-extra": "catalog:",
     "@unocss/eslint-plugin": "catalog:",
     "bumpp": "catalog:",
     "eslint": "catalog:",
