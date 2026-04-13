@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import { nextTick, onUnmounted, ref, watch } from 'vue'
 
 if (typeof window !== 'undefined')

@@ -29,6 +29,9 @@ export function themePlugin(themeConfig: ThemeConfig): PluginOption {
             },
           },
         },
+        optimizeDeps: {
+          include: ['gsap', 'gsap/ScrollTrigger'],
+        },
         valaxy: {},
       }
     },
