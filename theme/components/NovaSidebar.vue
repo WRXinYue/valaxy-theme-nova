@@ -1,14 +1,10 @@
 <script lang="ts" setup>
 import type { Post } from 'valaxy'
-import type { SidebarMulti } from '../types'
 import { usePageList, useSidebar } from 'valaxy'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useSplitPathSegments } from '../composables'
-
-defineProps<{
-  sidebar?: SidebarMulti
-}>()
+import { AUTO_SIDEBAR_FLAT, useAutoSidebarGroups } from '../composables/sidebar'
 
 const route = useRoute()
 const routerPath = computed(() => route.path)
@@ -17,11 +13,25 @@ const currentPath = computed(() => pathSegments.value[0])
 const { hasSidebar } = useSidebar()
 
 const allPages = usePageList()
+const sidebarGroups = useAutoSidebarGroups()
 
 function getPagesInGroup(group: string): Post[] {
   const base = currentPath.value
   if (!base)
     return []
+
+  if (group === AUTO_SIDEBAR_FLAT) {
+    const prefix = `${base}/`
+    return allPages.value
+      .filter((p) => {
+        if (!p.path?.startsWith(prefix))
+          return false
+        const rel = p.path.slice(prefix.length)
+        return rel.length > 0 && !rel.includes('/')
+      })
+      .sort((a, b) => (b.top || 0) - (a.top || 0))
+  }
+
   const prefix = `${base}/${group}/`
   return allPages.value
     .filter(p => p.path?.startsWith(prefix))
@@ -31,14 +41,12 @@ function getPagesInGroup(group: string): Post[] {
 
 <template>
   <aside v-if="hasSidebar" class="nova-aside" @click.stop>
-    <template v-for="(item, i) in sidebar" :key="i">
+    <template v-for="(name, i) in sidebarGroups" :key="i">
       <NovaSidebarCategory
-        v-if="typeof item === 'string'"
-        :name="item"
-        :pages="getPagesInGroup(item)"
+        :name
+        :pages="getPagesInGroup(name)"
         :level="0"
       />
-      <NovaSidebarItem v-else :item :depth="0" />
     </template>
   </aside>
 </template>

@@ -17,11 +17,11 @@ catalog:
   '@iconify-json/ri': ^1.2.5
   '@iconify-json/tabler': ^1.2.13
   '@rollup/plugin-virtual': ^3.0.2
+  '@types/d3': ^7.4.3
   '@types/fs-extra': ^11.0.4
   '@types/gravatar': ^1.8.6
   '@types/md5': ^2.3.5
   '@unocss/eslint-plugin': ^66.6.8
-  '@types/d3': ^7.4.3
   bumpp: ^11.0.1
   d3: ^7.9.0
   eslint: ^10.2.0

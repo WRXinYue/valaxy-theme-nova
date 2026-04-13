@@ -3,7 +3,7 @@ import type { Post } from 'valaxy'
 import { isLocaleKey, stripLocalePrefix, tObject } from 'valaxy'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useSidebarSectionIndicator } from '../composables/sidebar'
+import { AUTO_SIDEBAR_FLAT, useSidebarSectionIndicator } from '../composables/sidebar'
 
 withDefaults(defineProps<{
   name: string
@@ -26,6 +26,8 @@ function getTitle(post: Post | any) {
 }
 
 function formatGroupName(name: string): string {
+  if (name === AUTO_SIDEBAR_FLAT)
+    return ''
   const key = `nova.sidebar.${name}`
   const translated = t(key)
   if (translated !== key)
@@ -37,6 +39,7 @@ function formatGroupName(name: string): string {
 <template>
   <ol v-if="pages.length" class="nova-sidebar-group">
     <li
+      v-if="name !== AUTO_SIDEBAR_FLAT"
       w="full" p="x-4px" tabindex="0"
       class="nova-sidebar-category inline-flex items-center justify-between"
       :class="level === 0 ? 'nova-sidebar-category--top' : ''"
@@ -54,7 +57,7 @@ function formatGroupName(name: string): string {
     </li>
 
     <ul
-      v-show="!collapsed"
+      v-show="name === AUTO_SIDEBAR_FLAT || !collapsed"
       ref="sectionRef"
       class="nova-sidebar-section"
       :style="sectionStyle"

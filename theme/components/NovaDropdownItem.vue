@@ -18,6 +18,21 @@ defineProps<{
 const open = ref(false)
 
 const { t } = useI18n()
+
+function closeMenu() {
+  open.value = false
+}
+
+function activateItem(item: DropdownItem) {
+  item.onClick?.()
+  closeMenu()
+}
+
+function onRowClick(item: DropdownItem) {
+  if (item.link)
+    return
+  activateItem(item)
+}
 </script>
 
 <template>
@@ -48,8 +63,18 @@ const { t } = useI18n()
     </button>
 
     <div class="menu grow" flex="~ col" items="start">
-      <div v-for="(item, index) in items" :key="index" class="menu-item" p="x-3" @click="item?.onClick">
-        <a v-if="item.link" :href="item.link">
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="menu-item"
+        p="x-3"
+        role="button"
+        tabindex="0"
+        @click="onRowClick(item)"
+        @keydown.enter.prevent="onRowClick(item)"
+        @keydown.space.prevent="onRowClick(item)"
+      >
+        <a v-if="item.link" :href="item.link" @click.stop="closeMenu">
           {{ item.label.includes('.') ? t(item.label) : item.label }}
         </a>
         <span v-else>
@@ -81,6 +106,8 @@ const { t } = useI18n()
   top: 100%;
   right: 0;
   min-width: 128px;
+  max-height: min(70vh, 22rem);
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transition:
@@ -103,6 +130,7 @@ const { t } = useI18n()
   &-item {
     display: flex;
     width: 100%;
+    cursor: pointer;
     border-radius: 6px;
     color: var(--pr-nav-text);
     line-height: 32px;

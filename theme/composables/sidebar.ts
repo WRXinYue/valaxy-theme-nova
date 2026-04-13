@@ -3,7 +3,7 @@ import type { SidebarItem } from '../types'
 
 import { isClient, useResizeObserver } from '@vueuse/core'
 
-import { removeItemFromCategory } from 'valaxy'
+import { removeItemFromCategory, usePageList } from 'valaxy'
 import {
   computed,
 
@@ -19,7 +19,7 @@ import {
 } from 'vue'
 
 import { useRoute } from 'vue-router'
-import { useCategories, useMatchingNavItems, usePostList, useSplitPathSegments, useThemeConfig } from '../composables'
+import { useCategories, usePostList, useSplitPathSegments } from '../composables'
 
 export interface SidebarControl {
   collapsed: Ref<boolean>
@@ -188,32 +188,58 @@ export function useSidebarItems() {
     const cList = cs.value
     removeItemFromCategory(cList, 'Uncategorized')
 
-    // const sidebar = themeConfig.value.sidebar
-    // if (sidebar) {
-    //   cList.children.forEach((item) => {
-    //     if (!themeConfig.value.sidebar.includes(item.name))
-    //       removeItemFromCategory(cList, item.name)
-    //   })
-    // }
-
     return cList
   })
 
   return categories
 }
 
-export function useSidebar() {
-  const themeConfig = useThemeConfig()
+/** Pages directly under `/{section}/` (no subfolder) are grouped under this key; no category heading is shown. */
+export const AUTO_SIDEBAR_FLAT = '__flat__'
+
+/**
+ * Sidebar sections under the current route’s first path segment, inferred from `pages/`:
+ * each subfolder becomes a group; single-segment paths (e.g. `/reference/site-config`) use {@link AUTO_SIDEBAR_FLAT}.
+ */
+export function useAutoSidebarGroups() {
   const route = useRoute()
-
+  const allPages = usePageList()
   const routerPath = computed(() => route.path)
+  const pathSegments = useSplitPathSegments(routerPath)
+  const base = computed(() => pathSegments.value[0] ?? '/')
 
-  const matchingNavItems = useMatchingNavItems(routerPath)
-  const firstNavItems = computed(() => matchingNavItems.value.firstNavItems)
-  const secondNavItems = computed(() => matchingNavItems.value.secondNavItems)
-  const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.value?.sidebar || themeConfig.value.sidebar)
+  return computed(() => {
+    const b = base.value
+    if (!b || b === '/')
+      return []
 
-  return sidebar
+    const prefix = `${b}/`
+    const groups = new Set<string>()
+
+    for (const p of allPages.value) {
+      const path = p.path
+      if (!path || path === b || !path.startsWith(prefix))
+        continue
+      const rel = path.slice(prefix.length)
+      const parts = rel.split('/').filter(Boolean)
+      if (parts.length === 0)
+        continue
+      if (parts.length === 1)
+        groups.add(AUTO_SIDEBAR_FLAT)
+      else
+        groups.add(parts[0])
+    }
+
+    const arr = [...groups]
+    arr.sort((a, b) => {
+      if (a === AUTO_SIDEBAR_FLAT)
+        return -1
+      if (b === AUTO_SIDEBAR_FLAT)
+        return 1
+      return a.localeCompare(b)
+    })
+    return arr
+  })
 }
 
 /**

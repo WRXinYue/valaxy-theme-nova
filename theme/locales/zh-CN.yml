@@ -1,5 +1,7 @@
 valaxy_theme_nova: Valaxy 主题 Nova
 nova:
+  locale:
+    selectLanguage: 语言
   networkGraph:
     title: 关系图谱
   article:

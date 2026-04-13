@@ -38,8 +38,6 @@ export interface ThemeConfig extends DefaultTheme.Config {
     prismBackground?: boolean
   }>
 
-  sidebar: SidebarMulti
-
   /**
    * Relationship graph (D3) above the article TOC. `false` or `{ enabled: false }` disables it.
    * Default: shown when there is at least one page in the graph.
@@ -66,7 +64,6 @@ export interface BaseNavItem {
   locale?: string | number
   link: string
   icon?: string
-  sidebar?: string[]
 }
 
 export interface NavItem extends BaseNavItem {

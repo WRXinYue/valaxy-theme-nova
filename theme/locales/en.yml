@@ -1,5 +1,7 @@
 valaxy_theme_nova: Valaxy Theme Nova
 nova:
+  locale:
+    selectLanguage: Language
   networkGraph:
     title: Graph
   article:

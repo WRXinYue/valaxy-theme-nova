@@ -1,13 +1,3 @@
-category:
-  getting-started: Getting Started
-  writing: Writing
-  components: Components
-  reference: Reference
-  theme: Theme
-  themeConfig: ThemeConfig
-  siteConfig: SiteConfig
-  frontmatter-config: Frontmatter
-
 nova:
   article:
     updated: 'Last updated:'

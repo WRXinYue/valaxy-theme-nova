@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FmLocaleString } from '../types'
+import { useMediaQuery } from '@vueuse/core'
 import { useAppStore } from 'valaxy'
 import { computed } from 'vue'
 import { useFmLocaleString, useThemeConfig } from '../composables'
@@ -45,6 +46,9 @@ const heroClass = computed(() => ({
   'has-prism': showPrismDark.value,
   'has-lightstripes': showLightStripes.value,
 }))
+
+const isMobileHero = useMediaQuery('(max-width: 767px)', { ssrWidth: 1024 })
+const showHeroHeavyLayers = computed(() => !isMobileHero.value)
 </script>
 
 <template>
@@ -76,12 +80,12 @@ const heroClass = computed(() => ({
           </div>
         </div>
       </div>
-      <div class="nova-hero-prism-wrap">
+      <div v-if="showHeroHeavyLayers" class="nova-hero-prism-wrap">
         <ClientOnly>
           <NovaHeroPrismCanvas />
         </ClientOnly>
       </div>
-      <ClientOnly>
+      <ClientOnly v-if="showHeroHeavyLayers">
         <NovaHeroParticles />
       </ClientOnly>
     </template>
@@ -214,12 +218,6 @@ const heroClass = computed(() => ({
     animation: nova-smooth-bg 60s linear infinite;
     background-attachment: fixed;
     mix-blend-mode: difference;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .nova-hero-stripes__bg::after {
-      animation: none;
-    }
   }
 
   .nova-hero-ambient {
@@ -511,6 +509,48 @@ const heroClass = computed(() => ({
     display: flex;
     justify-content: center;
     gap: 1.2rem;
+  }
+
+  @media (max-width: 767px), (prefers-reduced-motion: reduce) {
+    background-attachment: scroll !important;
+
+    &::before,
+    &:hover::before {
+      backdrop-filter: none !important;
+    }
+
+    .nova-hero-stripes__bg {
+      filter: blur(6px) invert(100%);
+    }
+
+    .nova-hero-stripes__bg::after {
+      animation: none;
+      background-attachment: scroll;
+    }
+
+    .nova-hero-ambient {
+      display: none;
+    }
+
+    .hero-content {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    &.has-prism .hero-title--echo {
+      display: none;
+    }
+
+    &.has-prism .hero-title--main {
+      animation: none;
+      --nova-hero-p: 260%;
+    }
+
+    html:not(.dark) &:not(.has-img) .hero-title--lightglass::before {
+      backdrop-filter: none;
+      -webkit-text-stroke: 0;
+    }
   }
 
   @keyframes fade-in {

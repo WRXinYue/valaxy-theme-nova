@@ -2,7 +2,8 @@
 import { useFrontmatter, useOutline, useSidebar } from 'valaxy'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useMatchingNavItems, useThemeConfig } from '../composables'
+import { useThemeConfig } from '../composables'
+import { useAutoSidebarGroups } from '../composables/sidebar'
 import { useNovaAppStore } from '../stores'
 import NovaNetworkGraph from './NovaNetworkGraph.vue'
 
@@ -20,15 +21,11 @@ const tocNavEnabled = computed(() =>
 )
 const hasTocOutline = computed(() => tocNavEnabled.value && headers.value.length > 0)
 
-const routerPath = computed(() => route.path)
-const matchingNavItems = useMatchingNavItems(routerPath)
-const firstNavItems = computed(() => matchingNavItems.value.firstNavItems)
-const secondNavItems = computed(() => matchingNavItems.value.secondNavItems)
-const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.value?.sidebar || themeConfig.value.sidebar)
+const sidebarGroups = useAutoSidebarGroups()
 
-/** Open left aside only when user wants it, page allows sidebar, and nav actually defines items (empty = collapsed). */
+/** Open left aside when there are pages under this section; frontmatter `sidebar: false` hides it. */
 const showLeftAside = computed(
-  () => novaApp.isSideOpen && hasSidebar.value && (sidebar.value?.length ?? 0) > 0,
+  () => novaApp.isSideOpen && hasSidebar.value && sidebarGroups.value.length > 0 && frontmatter.value.sidebar !== false,
 )
 
 const showNetworkGraph = computed(() => {
@@ -49,7 +46,7 @@ const showRightAsideWide = computed(() => showNetworkGraph.value || hasTocOutlin
     <aside class="article-left-aside" :class="[showLeftAside && 'is-open', showLeftAside && 'has-aside']">
       <div class="overflow-clip">
         <slot name="sidebar">
-          <NovaSidebar :sidebar />
+          <NovaSidebar />
         </slot>
       </div>
     </aside>

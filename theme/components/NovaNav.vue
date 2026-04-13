@@ -55,13 +55,24 @@ const [isOpen, toggle] = useToggle(false)
         </form>
       </div>
 
-      <ul class="nav-screen-menu">
-        <li v-for="(item, i) in nav" :key="i" class="nav-menu-item">
-          <AppLink id="ac-gn-firstfocus" class="nav-menu-link" :to="item.link">
-            {{ navLabel(item) }}
-          </AppLink>
-        </li>
-      </ul>
+      <div class="nav-screen-menu">
+        <ul class="nav-screen-menu__links">
+          <li v-for="(item, i) in nav" :key="i" class="nav-menu-item">
+            <AppLink
+              :id="i === 0 ? 'ac-gn-firstfocus' : undefined"
+              class="nav-menu-link"
+              :to="item.link"
+            >
+              {{ navLabel(item) }}
+            </AppLink>
+          </li>
+        </ul>
+        <div class="nav-screen-menu__toolbar">
+          <slot name="toolbar-screen">
+            <NovaNavTools hide-search variant="screen" :nav-tools="themeConfig.navTools" />
+          </slot>
+        </div>
+      </div>
     </div>
 
     <div class="nav-placeholder" />
@@ -235,7 +246,8 @@ const [isOpen, toggle] = useToggle(false)
     user-select: none;
 
     @media only screen and (max-width: 767px) {
-      display: block;
+      display: flex;
+      flex-direction: column;
       position: absolute;
       z-index: 1;
       top: calc(var(--nova-nav-height) + 3.52941em);
@@ -247,8 +259,7 @@ const [isOpen, toggle] = useToggle(false)
       padding-inline: 40px;
       height: auto;
       box-sizing: border-box;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
       visibility: hidden;
       transition: visibility 0s linear 1s;
     }
@@ -258,12 +269,33 @@ const [isOpen, toggle] = useToggle(false)
       transition-delay: 0s;
     }
 
-    > *:not(:first-child)::before {
-      content: '';
-      display: block;
+    &__links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+
+      > li:not(:first-child)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: hsla(0, 0%, 84%, 1);
+      }
+    }
+
+    &__toolbar {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      height: 1px;
-      background-color: hsla(0, 0%, 84%, 1);
+      padding: 14px 8px calc(14px + env(safe-area-inset-bottom, 0));
+      border-top: 1px solid var(--nova-c-border-line);
+      box-sizing: border-box;
     }
 
     .nav-menu-item {
@@ -281,7 +313,7 @@ const [isOpen, toggle] = useToggle(false)
 
     .nav-screen-menu {
       @for $i from 1 through 20 {
-        > *:nth-child(#{$i}) {
+        .nav-screen-menu__links > li:nth-child(#{$i}) {
           transition:
             opacity calc(0.3091s + ($i - 1) * 0.02034s) cubic-bezier(0.32, 0.08, 0.24, 1) calc($i * 0.03s + 0.02s),
             transform calc(0.3455s + ($i - 1) * 0.02034s) cubic-bezier(0.32, 0.08, 0.24, 1) calc($i * 0.02s + 0.02s);
@@ -312,14 +344,20 @@ const [isOpen, toggle] = useToggle(false)
   }
 
   &:not(.screen-open) .nav-screen-menu {
-    .nav-menu-item {
+    .nav-screen-menu__links .nav-menu-item {
       opacity: 0;
       pointer-events: none;
       transform: translate3d(0, -25px, 0);
     }
 
+    .nav-screen-menu__toolbar {
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(0, 12px, 0);
+    }
+
     @for $i from 1 through 20 {
-      > *:nth-child(#{$i}) {
+      .nav-screen-menu__links > li:nth-child(#{$i}) {
         transition:
           opacity calc(($i * -0.015s) + 0.3345s) cubic-bezier(0.52, 0.16, 0.52, 0.84) calc(($i * -0.01714s) + 0.15s),
           transform
@@ -331,11 +369,19 @@ const [isOpen, toggle] = useToggle(false)
   }
 
   &:has(.screen-open) .nav-screen-menu {
-    .nav-menu-item {
-      // opacity: 1;
+    .nav-screen-menu__links .nav-menu-item {
       opacity: 0.88;
       pointer-events: auto;
       transform: translate3d(0, 0, 0);
+    }
+
+    .nav-screen-menu__toolbar {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0);
+      transition:
+        opacity 0.32s cubic-bezier(0.32, 0.08, 0.24, 1) 0.12s,
+        transform 0.34s cubic-bezier(0.32, 0.08, 0.24, 1) 0.1s;
     }
   }
 }
