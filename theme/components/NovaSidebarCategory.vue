@@ -3,8 +3,9 @@ import type { Post } from 'valaxy'
 import { isLocaleKey, stripLocalePrefix, tObject } from 'valaxy'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useSidebarSectionIndicator } from '../composables/sidebar'
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   name: string
   pages: Post[]
   level?: number
@@ -13,6 +14,8 @@ const props = withDefaults(defineProps<{
 })
 
 const collapsed = ref(false)
+const sectionRef = ref<HTMLElement | null>(null)
+const { sectionStyle } = useSidebarSectionIndicator(sectionRef, collapsed)
 const { t, locale } = useI18n()
 
 function getTitle(post: Post | any) {
@@ -50,13 +53,17 @@ function formatGroupName(name: string): string {
       </button>
     </li>
 
-    <ul v-show="!collapsed" class="nova-sidebar-section">
+    <ul
+      v-show="!collapsed"
+      ref="sectionRef"
+      class="nova-sidebar-section"
+      :style="sectionStyle"
+    >
       <li v-for="page in pages" :key="page.path" class="nova-sidebar-item">
         <RouterLink
           v-if="page.title"
           :to="page.path || ''"
           class="nova-text nova-sidebar-item-link"
-          active-class="active"
           :title="getTitle(page)"
         >
           <span i-tabler-file-description class="nova-list-symbol mr-2 inline-block" />
@@ -83,21 +90,6 @@ function formatGroupName(name: string): string {
 
 .nova-sidebar-item {
   font-size: 0.875rem;
-
-  &-link {
-    padding-left: var(--nova-list-link-buffer);
-    display: inline-flex;
-    align-items: center;
-    width: 100%;
-
-    &:hover {
-      background-color: var(--nova-c-list-hover-bg);
-    }
-
-    &.router-link-exact-active {
-      background: var(--nova-c-list-active-bg);
-    }
-  }
 }
 
 .nova-sidebar-category--top {

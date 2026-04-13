@@ -1,3 +1,4 @@
+/// <reference path="./nova-virtual.d.ts" />
 import type { DefaultTheme } from 'valaxy'
 import type { GitLogOptions } from 'valaxy-addon-git-log'
 

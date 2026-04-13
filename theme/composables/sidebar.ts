@@ -1,13 +1,15 @@
 import type { ComputedRef, Ref } from 'vue'
 import type { SidebarItem } from '../types'
 
-import { isClient } from '@vueuse/core'
+import { isClient, useResizeObserver } from '@vueuse/core'
 
 import { removeItemFromCategory } from 'valaxy'
 import {
   computed,
 
+  nextTick,
   onMounted,
+
   onUnmounted,
 
   ref,
@@ -212,4 +214,67 @@ export function useSidebar() {
   const sidebar = computed(() => secondNavItems.value?.sidebar || firstNavItems.value?.sidebar || themeConfig.value.sidebar)
 
   return sidebar
+}
+
+/**
+ * Sliding background pill for the active link in a sidebar list (animated top/height).
+ */
+export function useSidebarSectionIndicator(
+  sectionRef: Ref<HTMLElement | null>,
+  collapsed?: Ref<boolean>,
+) {
+  const route = useRoute()
+  const top = ref(0)
+  const height = ref(0)
+  const visible = ref(false)
+
+  function measure() {
+    if (!isClient)
+      return
+    const root = sectionRef.value
+    if (!root) {
+      visible.value = false
+      return
+    }
+    const cs = window.getComputedStyle(root)
+    if (cs.display === 'none') {
+      visible.value = false
+      return
+    }
+    const active = root.querySelector(
+      'a.router-link-exact-active',
+    ) ?? root.querySelector('a.router-link-active')
+    if (!active) {
+      visible.value = false
+      return
+    }
+    const anchor = active as HTMLElement
+    const rootRect = root.getBoundingClientRect()
+    const elRect = anchor.getBoundingClientRect()
+    top.value = elRect.top - rootRect.top + root.scrollTop
+    height.value = elRect.height
+    visible.value = true
+  }
+
+  function measureSoon() {
+    nextTick(() => {
+      requestAnimationFrame(() => measure())
+    })
+  }
+
+  const sectionStyle = computed(() => ({
+    '--indicator-top': `${top.value}px`,
+    '--indicator-height': `${height.value}px`,
+    '--indicator-opacity': visible.value ? 1 : 0,
+  }))
+
+  useResizeObserver(sectionRef, () => measureSoon())
+
+  watch(() => route.fullPath, () => measureSoon())
+  if (collapsed)
+    watch(collapsed, () => measureSoon())
+
+  onMounted(() => measureSoon())
+
+  return { sectionStyle, measure: measureSoon }
 }

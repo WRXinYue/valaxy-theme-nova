@@ -3,7 +3,7 @@ import type { PageData, Post } from 'valaxy'
 import { scrollTo, useSiteConfig } from 'valaxy'
 import { onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { setupNovaMarkdownLinks } from '../utils/nova-markdown-links'
+import { setupNovaMarkdownLinks } from '../utils/markdown-links'
 
 defineProps<{
   frontmatter: Post

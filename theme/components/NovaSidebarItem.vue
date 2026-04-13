@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { SidebarItem } from '../types'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useSidebarControl } from '../composables/sidebar'
+import { useSidebarControl, useSidebarSectionIndicator } from '../composables/sidebar'
 
 const props = defineProps<{
   item: SidebarItem
@@ -10,6 +10,8 @@ const props = defineProps<{
 }>()
 
 const { collapsed, toggle } = useSidebarControl(computed(() => props.item))
+const sectionRef = ref<HTMLElement | null>(null)
+const { sectionStyle } = useSidebarSectionIndicator(sectionRef, collapsed)
 
 const { t } = useI18n()
 </script>
@@ -29,9 +31,19 @@ const { t } = useI18n()
     </button>
   </li>
 
-  <ul v-if="item.items" v-show="!collapsed" class="nova-sidebar-section">
+  <ul
+    v-if="item.items"
+    v-show="!collapsed"
+    ref="sectionRef"
+    class="nova-sidebar-section"
+    :style="sectionStyle"
+  >
     <li v-for="sidebarItem in item.items" :key="sidebarItem.text" class="nova-sidebar-item">
-      <RouterLink v-if="sidebarItem.text" :to="sidebarItem.link || ''" class="nova-sidebar-item-link inline-flex items-center" active-class="active">
+      <RouterLink
+        v-if="sidebarItem.text"
+        :to="sidebarItem.link || ''"
+        class="nova-sidebar-item-link w-full inline-flex items-center"
+      >
         <span m="l-1" text="sm">{{ t(sidebarItem.text) }}</span>
       </RouterLink>
 

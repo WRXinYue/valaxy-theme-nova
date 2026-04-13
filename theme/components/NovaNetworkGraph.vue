@@ -8,7 +8,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useThemeConfig } from '../composables'
-import { normalizeRoute } from '../node/link-route'
+import { normalizeRoute } from '../utils/normalize-route'
 
 const props = withDefaults(defineProps<{
   type?: string

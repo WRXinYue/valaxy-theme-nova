@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join, relative } from 'node:path'
-import { normalizeRoute } from './link-route'
+import { cwd } from 'node:process'
+import { normalizeRoute } from '../utils/normalize-route'
 
 const WIN_SLASH_RE = /\\/g
 const MD_EXT_RE = /\.md$/
@@ -71,9 +72,20 @@ function resolveInternalTarget(fromRoute: string, href: string): string | null {
   }
 }
 
+function resolvePagesRoot(projectRoot: string): string | null {
+  const fromConfig = join(projectRoot, 'pages')
+  if (existsSync(fromConfig))
+    return fromConfig
+  /** Valaxy dev: vite `config.root` may differ from cwd; fallback matches `pages/` next to valaxy.config */
+  const fromCwd = join(cwd(), 'pages')
+  if (existsSync(fromCwd))
+    return fromCwd
+  return null
+}
+
 export function generateNovaLinkCache(root: string): NovaLinkCache {
-  const pagesRoot = join(root, 'pages')
-  if (!existsSync(pagesRoot))
+  const pagesRoot = resolvePagesRoot(root)
+  if (!pagesRoot)
     return { links: [] }
 
   const seen = new Set<string>()

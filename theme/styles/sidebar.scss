@@ -1,0 +1,40 @@
+/** Sliding active indicator + link layering (shared by category & nav config sidebar). */
+.nova-sidebar-section {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &::before {
+    position: absolute;
+    top: var(--indicator-top, 0);
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: var(--indicator-height, 0);
+    pointer-events: none;
+    content: '';
+    background: var(--nova-c-list-active-bg);
+    border-radius: 6px;
+    opacity: var(--indicator-opacity, 0);
+    transition:
+      top 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+      height 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 0.18s ease;
+  }
+
+  .nova-sidebar-item-link {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    padding-left: var(--nova-list-link-buffer);
+    position: relative;
+    z-index: 1;
+    background: transparent !important;
+
+    &.router-link-active,
+    &.router-link-exact-active {
+      background: transparent !important;
+    }
+  }
+}
