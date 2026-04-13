@@ -1,6 +1,7 @@
 ---
-title: Markdown
-title_zh-CN: Markdown
+title:
+  en: Markdown
+  zh-CN: Markdown
 categories:
   - writing
 end: true

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { NavItem } from '../types'
 import { useToggle } from '@vueuse/core'
-import { useThemeConfig } from '../composables'
+import { useNavItemLabel, useThemeConfig } from '../composables'
 
 defineProps<{
   nav: NavItem[]
@@ -10,6 +10,7 @@ defineProps<{
 }>()
 
 const themeConfig = useThemeConfig()
+const navLabel = useNavItemLabel()
 
 const [isOpen, toggle] = useToggle(false)
 </script>
@@ -32,7 +33,7 @@ const [isOpen, toggle] = useToggle(false)
               rel="noopener"
               class="nova-link-text"
             >
-              {{ item.text }}
+              {{ navLabel(item) }}
             </AppLink>
             <span v-if="i !== nav.length - 1" class="mx-4" />
           </template>
@@ -57,7 +58,7 @@ const [isOpen, toggle] = useToggle(false)
       <ul class="nav-screen-menu">
         <li v-for="(item, i) in nav" :key="i" class="nav-menu-item">
           <AppLink id="ac-gn-firstfocus" class="nav-menu-link" :to="item.link">
-            {{ item.text }}
+            {{ navLabel(item) }}
           </AppLink>
         </li>
       </ul>

@@ -1,6 +1,7 @@
 ---
-title: HomePage
-title_zh-CN: 主页
+title:
+  en: HomePage
+  zh-CN: 主页
 categories:
   - themeConfig
 end: true

@@ -1,6 +1,7 @@
 ---
-title: Footer
-title_zh-CN: 页脚
+title:
+  en: Footer
+  zh-CN: 页脚
 categories:
   - themeConfig
 end: true

@@ -6,6 +6,14 @@ export namespace StarterTheme {
   export type Sidebar = any
 }
 
+/** Plain string, per-locale map, or `$locale:` keys — resolved by `useFmLocaleString` / `fmT` */
+export type FmLocaleString = string | Record<string, string>
+
+export type Logo = string | boolean | {
+  light: string
+  dark: string
+}
+
 export interface ThemeConfig extends DefaultTheme.Config {
   colors?: Partial<{
     primary: string
@@ -13,14 +21,15 @@ export interface ThemeConfig extends DefaultTheme.Config {
 
   logo: Logo
   nav: NavItem[]
-  navTitle: string | boolean
+  /** Plain / `$locale:` / per-locale map; `false` hides the title */
+  navTitle: FmLocaleString | boolean
   /** Reserve space under fixed nav (`nav-placeholder`). Default `true`. Set `false` to disable. */
   navPlaceholder?: boolean
   navTools: NavTools
 
   hero: Partial<{
-    title: string
-    motto: string
+    title: FmLocaleString
+    motto: FmLocaleString
     img: string | {
       light: string
       dark: string
@@ -37,13 +46,11 @@ export interface ThemeConfig extends DefaultTheme.Config {
 
 export type NavTools = ('toggleLocale' | 'toggleTheme' | 'search' | { icon: string, link?: string })[][]
 
-export type Logo = string | boolean | {
-  light: string
-  dark: string
-}
-
 export interface BaseNavItem {
-  text: string
+  /** Label when `locale` is not set; omit when using `locale` only */
+  text?: FmLocaleString
+  /** vue-i18n message key; when set, resolved via `fmT` as `$locale:…` (number kept for `t()` plural edge cases) */
+  locale?: string | number
   link: string
   icon?: string
   sidebar?: string[]

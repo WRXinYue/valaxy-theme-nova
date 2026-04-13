@@ -1,6 +1,7 @@
 ---
-title: Overview
-title_zh-CN: 概览
+title:
+  en: Overview
+  zh-CN: 概览
 categories:
   - frontmatter-config
 end: true

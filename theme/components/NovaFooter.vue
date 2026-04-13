@@ -2,9 +2,10 @@
 import { useSiteConfig, useValaxyConfig } from 'valaxy'
 import pkg from 'valaxy/package.json'
 import { computed } from 'vue'
-import { useThemeConfig } from '../composables'
+import { useNavItemLabel, useThemeConfig } from '../composables'
 
 const config = useValaxyConfig()
+const navLabel = useNavItemLabel()
 const siteConfig = useSiteConfig()
 const themeConfig = useThemeConfig()
 
@@ -22,12 +23,12 @@ const isThisYear = computed(() => {
         <template v-for="(nav, index) in themeConfig.nav">
           <div v-if="nav.subNav?.length" :key="index" class="footer-column">
             <h4 class="footer-nav-title">
-              {{ nav.text }}
+              {{ navLabel(nav) }}
             </h4>
             <ul>
-              <li v-for="subNav in nav.subNav" :key="subNav.text" class="footer-list-item">
+              <li v-for="subNav in nav.subNav" :key="subNav.link" class="footer-list-item">
                 <AppLink :to="subNav.link">
-                  {{ subNav.text }}
+                  {{ navLabel(subNav) }}
                 </AppLink>
               </li>
             </ul>

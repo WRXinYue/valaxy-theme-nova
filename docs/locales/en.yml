@@ -7,3 +7,83 @@ category:
   themeConfig: ThemeConfig
   siteConfig: SiteConfig
   frontmatter-config: Frontmatter
+
+nova:
+  article:
+    updated: 'Last updated:'
+  nav:
+    brand: valaxy-theme-nova
+    home: Home
+    guide: Guide
+    reference: Reference
+    about: About
+  navSub:
+    installation: Installation
+    update: Updates
+    assetHandling: Asset handling
+    frontmatter: Frontmatter
+    i18n: Internationalization
+    markdown: Markdown
+    siteConfig: Site config
+    frontmatterConfig: Frontmatter config
+    themeConfig: Theme config
+  hero:
+    title: VALAXY THEME NOVA
+    motto: A minimal, elegant Valaxy documentation theme
+  home:
+    pageTitle: Home
+    features:
+      subtitle: Features
+      title: Powerful capabilities
+      text: Nova ships with rich features for documentation sites and blogs.
+      cards:
+        simple:
+          title: Simple
+          details: Sensible defaults with little configuration—ideal for shipping docs quickly.
+        nav:
+          title: Linked navigation
+          details: Top-level items can pair with sub-nav and sidebars for a clear information hierarchy.
+        git:
+          title: Version control & history
+          details: Integrates valaxy-addon-git-log for contributors, release history, and content evolution.
+        minimal:
+          title: Clean & modern
+          details: Minimal chrome, strong readability, generous whitespace to foreground your content.
+        flexible:
+          title: Flexible
+          details: Customize components and configuration to match your workflow.
+        motion:
+          title: Micro-interactions
+          details: Subtle hover states and transitions that feel smooth without stealing focus.
+    featured:
+      subtitle: Featured
+      title: Explore popular content
+      description: These picks highlight Nova’s flexibility and help you get productive quickly.
+      articles:
+        start:
+          title: Getting started
+          tag1: Guide
+          tag2: Intro
+          excerpt: Install and configure Nova to build your docs or blog.
+        md:
+          title: Writing in Markdown
+          tag1: Writing
+          tag2: Syntax
+          excerpt: Use Markdown and extensions to write rich, readable pages.
+        navCfg:
+          title: Navigation
+          tag1: Config
+          tag2: Nav
+          excerpt: Structure nav and sidebars so readers can browse with confidence.
+    contributors:
+      subtitle: Contributors
+      title: Thanks to all contributors
+      text: Licensed under MIT and always free & open source. Thanks to everyone on GitHub!
+    getStarted:
+      title: Start using Nova
+      text: A dev environment that keeps up with you—build polished docs and blogs efficiently.
+      action: Get started
+    cardsAlt:
+      vite: Vite logo
+      favicon: Site favicon
+      valaxy: Valaxy logo

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { FmLocaleString } from '../composables'
 import { useFrontmatter } from 'valaxy'
 import { ref } from 'vue'
-import { useHomeSectionReveal } from '../composables'
+import { useFmLocaleString, useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ getStarted: GetStarted }>()
+const { fmT } = useFmLocaleString()
 const sectionRef = ref<HTMLElement | null>(null)
 const { isRevealed } = useHomeSectionReveal(sectionRef)
 
@@ -17,17 +19,17 @@ function onGlassCtaMove(e: MouseEvent) {
 }
 
 export type GetStarted = Partial<{
-  title: string
-  text: string
+  title: FmLocaleString
+  text: FmLocaleString
   actions: {
     theme?: 'brand'
-    text?: string
+    text?: FmLocaleString
     link?: string
   }[]
 
   cards: {
     img: string
-    alt: string
+    alt: FmLocaleString
     color?: string
   }[]
 }>
@@ -54,17 +56,17 @@ export type GetStarted = Partial<{
           class="framework-card nova-home-card-hover nova-home-card-surface"
           :style="card?.color && `--glow-color: ${card?.color}`"
         >
-          <img :src="card?.img" :alt="card?.alt || ''" class="chip-logo">
+          <img :src="card?.img" :alt="fmT(card?.alt)" class="chip-logo">
         </div>
       </div>
     </div>
 
     <div class="text-center" flex="~ col center">
       <h2 class="heading text-center <2xl:font-size-36px <md:font-size-24px <xl:font-size-30px" m="t-75px <2xl:t-60px" max-w="26.8em">
-        <span>{{ fm.getStarted?.title }}</span>
+        <span>{{ fmT(fm.getStarted?.title) }}</span>
       </h2>
       <h3 class="subheading text-$nova-c-text-muted <2xl:font-size-18px <md:font-size-15px <xl:font-size-16px" m="t-32px" max-w="80%">
-        <span>{{ fm.getStarted?.text }}</span>
+        <span>{{ fmT(fm.getStarted?.text) }}</span>
       </h3>
       <div v-if="fm.getStarted?.actions" class="actions mt-40px" flex="~ wrap justify-center gap-24px">
         <AppLink
@@ -76,7 +78,7 @@ export type GetStarted = Partial<{
           @mousemove="onGlassCtaMove"
         >
           <span class="nova-glass-cta__shimmer" aria-hidden="true" />
-          <span class="nova-glass-cta__label">{{ action.text }}</span>
+          <span class="nova-glass-cta__label">{{ fmT(action.text) }}</span>
         </AppLink>
       </div>
     </div>

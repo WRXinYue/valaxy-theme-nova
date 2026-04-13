@@ -1,5 +1,6 @@
 export * from './categories'
 export * from './config'
+export * from './fmLocale'
 export * from './homeSectionReveal'
 export * from './locale'
 export * from './nav'

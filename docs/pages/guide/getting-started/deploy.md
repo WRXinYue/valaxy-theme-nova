@@ -1,6 +1,7 @@
 ---
-title: Deploy
-title_zh-CN: 部署
+title:
+  en: Deploy
+  zh-CN: 部署
 categories:
   - getting-started
 end: true

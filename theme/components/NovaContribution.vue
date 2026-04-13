@@ -1,23 +1,25 @@
 <script setup lang="ts">
+import type { FmLocaleString } from '../composables'
 import { isEmptyAddon, useFrontmatter } from 'valaxy'
 import * as addonGitLogVirtual from 'valaxy-addon-git-log'
 // import { useAddonGitLog } from 'valaxy-addon-git-log'
 import contributors from 'virtual:git-log/contributors'
 import { ref } from 'vue'
-import { useHomeSectionReveal } from '../composables'
+import { useFmLocaleString, useHomeSectionReveal } from '../composables'
 
 if (isEmptyAddon(addonGitLogVirtual))
   console.warn('valaxy-addon-git-log is not installed. For more details, see: https://github.com/valaxyjs/valaxy-addon-git-log')
 
 // const contributors = addonGitLogVirtual.useAddonGitLogAllContributor()
 const fm = useFrontmatter<{ contributors: Contributors }>()
+const { fmT } = useFmLocaleString()
 const sectionRef = ref<HTMLElement | null>(null)
 const { isRevealed } = useHomeSectionReveal(sectionRef)
 
 export type Contributors = Partial<{
-  title: string
-  subtitle: string
-  text: string
+  title: FmLocaleString
+  subtitle: FmLocaleString
+  text: FmLocaleString
 }>
 </script>
 
@@ -37,14 +39,14 @@ export type Contributors = Partial<{
       >
         <div class="contribution-content flex-shrink-0">
           <h3 class="subtitle">
-            {{ fm.contributors?.subtitle }}
+            {{ fmT(fm.contributors?.subtitle) }}
           </h3>
           <h2 class="title">
-            <span>{{ fm.contributors?.title }}</span>
+            <span>{{ fmT(fm.contributors?.title) }}</span>
           </h2>
           <div class="text">
             <p>
-              {{ fm.contributors?.text }}
+              {{ fmT(fm.contributors?.text) }}
             </p>
           </div>
         </div>

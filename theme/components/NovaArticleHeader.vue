@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import type { PostFrontMatter } from 'valaxy/types'
-import { useFrontmatter } from 'valaxy'
+import { useFrontmatter, useLocaleTitle } from 'valaxy'
 import { useI18n } from 'vue-i18n'
 
 const frontmatter = useFrontmatter()
-const { locale, t } = useI18n()
-
-function getTitle(post: Partial<PostFrontMatter>) {
-  const lang = locale.value
-  const localeTitle = post[`title_${lang}`] || post[`title_${lang.split('-')[0]}`]
-  return localeTitle || post.title
-}
+const title = useLocaleTitle(frontmatter)
+const { t } = useI18n()
 </script>
 
 <template>
@@ -27,12 +21,11 @@ function getTitle(post: Partial<PostFrontMatter>) {
         {{ t(`category.${frontmatter.categories[0]}`) }}
       </div>
       <h1 class="header-title">
-        {{ getTitle(frontmatter) }}
+        {{ title }}
       </h1>
       <p class="header-date">
-        <!-- <span>更新时间:</span> <NovaDate class="inline-block" :date="frontmatter.date" /> -->
-        <!-- <span>Last Updated:</span> <NovaDate class="inline-block" :date="frontmatter.updated" /> -->
-        <span>更新时间:</span> <NovaDate class="inline-block" :date="frontmatter.updated" />
+        <span>{{ t('nova.article.updated') }}</span>
+        <NovaDate class="ml-1 inline-block" :date="frontmatter.updated" />
       </p>
     </div>
     <div style="width: var(--nova-aside-width);" class="<md:hidden" />

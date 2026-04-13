@@ -1,23 +1,25 @@
 <script setup lang="ts">
+import type { FmLocaleString } from '../composables'
 import { useFrontmatter } from 'valaxy'
 import { ref } from 'vue'
-import { useHomeSectionReveal } from '../composables'
+import { useFmLocaleString, useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ featuredArticles: FeaturedArticles }>()
+const { fmT } = useFmLocaleString()
 const sectionRef = ref<HTMLElement | null>(null)
 const { isRevealed } = useHomeSectionReveal(sectionRef)
 
 export type FeaturedArticles = Partial<{
-  title: string
-  subtitle: string
-  description: string
-  text: string
+  title: FmLocaleString
+  subtitle: FmLocaleString
+  description: FmLocaleString
+  text: FmLocaleString
 
   articles: Partial<{
-    title: string
+    title: FmLocaleString
     cover: string
-    tags: string[]
-    excerpt: string
+    tags: FmLocaleString[]
+    excerpt: FmLocaleString
     path: string
   }[]>
 }>
@@ -34,16 +36,16 @@ export type FeaturedArticles = Partial<{
   >
     <div class="nova-home-container">
       <h3 class="subtitle">
-        {{ fm.featuredArticles?.subtitle }}
+        {{ fmT(fm.featuredArticles?.subtitle) }}
       </h3>
 
       <h2 class="title">
-        <span>{{ fm.featuredArticles?.title }}</span>
+        <span>{{ fmT(fm.featuredArticles?.title) }}</span>
       </h2>
 
       <div class="description">
         <p>
-          {{ fm.featuredArticles?.description }}
+          {{ fmT(fm.featuredArticles?.description) }}
         </p>
       </div>
 
@@ -80,7 +82,7 @@ export type FeaturedArticles = Partial<{
               flex="~ col flex-1 gap-4"
             >
               <h2 class="card-title shrink-0" :class="[{ 'text-[hsla(0,0%,100%,1)] dark:text-[hsla(240,2%,12%,1)]': article?.cover, 'text-[hsla(240,2%,12%,1)] dark:text-[hsla(0,0%,100%,1)]': !article?.cover }]">
-                {{ article?.title }}
+                {{ fmT(article?.title) }}
               </h2>
               <p
                 m="b-28px"
@@ -89,11 +91,11 @@ export type FeaturedArticles = Partial<{
                   { 'text-[hsla(0,0%,100%,0.92)] dark:text-[hsla(0,0%,0%,0.92)]': article?.cover, 'text-[hsla(0,0%,0%,0.92)] dark:text-[hsla(0,0%,100%,0.92)]': !article?.cover },
                 ]"
               >
-                {{ article?.excerpt }}
+                {{ fmT(article?.excerpt) }}
               </p>
               <ul v-if="article?.tags" p="t-20px" m="x--2px mt-auto" class="card-tags shrink-0 border-t" :class="[{ 'border-[hsla(0,0%,100%,0.15)] dark:border-[hsla(0,0%,0%,0.15)]': article?.cover, 'border-[hsla(0,0%,0%,0.08)] dark:border-[hsla(0,0%,100%,0.08)]': !article?.cover }]" flex="~ wrap">
                 <li v-for="(tag, i) in article.tags" :key="i" p="[3px_16px_4px]" class="rounded-full" :class="[{ 'bg-[hsla(0,0%,100%,0.2)] text-[hsla(0,0%,100%,1)] dark:bg-[hsla(0,0%,0%,0.2)] dark:text-[hsla(240,4%,96%,1)]': article?.cover, 'bg-[hsla(0,0%,0%,0.05)] text-[hsla(240,2%,12%,1)] dark:bg-[hsla(0,0%,100%,0.1)] dark:text-[hsla(240,4%,96%,1)]': !article?.cover }]" m="2px">
-                  {{ tag }}
+                  {{ fmT(tag) }}
                 </li>
               </ul>
             </div>

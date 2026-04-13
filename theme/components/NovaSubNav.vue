@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 import type { SubNavItem } from '../types'
 import { useToggle } from '@vueuse/core'
+import { useNavItemLabel } from '../composables'
 
 defineProps<{
   title: string
   subNav: SubNavItem[]
 }>()
 
+const navLabel = useNavItemLabel()
 const [isOpen, toggle] = useToggle()
 </script>
 
@@ -25,7 +27,7 @@ const [isOpen, toggle] = useToggle()
         <div class="items-center leading-5 <md:hidden">
           <template v-for="(item, i) in subNav" :key="i">
             <AppLink :to="item.link" rel="noopener" class="nova-link-text">
-              {{ item.text }}
+              {{ navLabel(item) }}
             </AppLink>
             <span v-if="i !== subNav.length - 1" class="mx-4" />
           </template>
@@ -38,7 +40,7 @@ const [isOpen, toggle] = useToggle()
       <ul class="nav-screen-menu">
         <li v-for="(item, i) in subNav" :key="i" class="sub-nav-menu-item">
           <AppLink class="sub-nav-menu-link" :to="item.link">
-            {{ item.text }}
+            {{ navLabel(item) }}
           </AppLink>
         </li>
       </ul>

@@ -1,7 +1,26 @@
 import type { MaybeRefOrGetter } from 'vue'
-import type { NavItem, SubNavItem } from '../types'
+import type { BaseNavItem, NavItem, SubNavItem } from '../types'
 import { computed, toValue } from 'vue'
-import { useThemeConfig } from '../composables'
+import { useI18n } from 'vue-i18n'
+import { useThemeConfig } from './config'
+import { useFmLocaleString } from './fmLocale'
+
+/** Resolve nav / sub-nav label — reuses `fmT` (same as frontmatter + `$locale:` keys). */
+export function useNavItemLabel() {
+  const { fmT } = useFmLocaleString()
+  const { t } = useI18n()
+
+  return function navLabel(item: BaseNavItem | undefined): string {
+    if (!item)
+      return ''
+    if (item.locale != null && item.locale !== '') {
+      if (typeof item.locale === 'number')
+        return t(item.locale)
+      return fmT(`$locale:${item.locale}`)
+    }
+    return fmT(item.text)
+  }
+}
 
 // export function splitPathSegments(path: string) {
 //   const pathSegments = path.split('/').filter(Boolean)

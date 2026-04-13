@@ -1,1 +1,4 @@
 valaxy_theme_nova: Valaxy 主题 Nova
+nova:
+  article:
+    updated: 更新时间：

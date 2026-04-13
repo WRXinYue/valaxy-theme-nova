@@ -1,1 +1,4 @@
 valaxy_theme_nova: Valaxy Theme Nova
+nova:
+  article:
+    updated: 'Last updated:'

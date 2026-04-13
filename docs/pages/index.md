@@ -1,69 +1,77 @@
 ---
-title: 主页
+title:
+  zh-CN: 主页
+  en: Home
 
 features:
-  subtitle: 特性
-  title: 强大的功能
-  text: Nova 主题提供了丰富的功能，满足各种文档和博客需求
+  subtitle: $locale:nova.home.features.subtitle
+  title: $locale:nova.home.features.title
+  text: $locale:nova.home.features.text
 
   cards:
-    - title: 简单
-      details: 无需复杂配置，开箱即用，适合快速构建文档网站
+    - title: $locale:nova.home.features.cards.simple.title
+      details: $locale:nova.home.features.cards.simple.details
       icon: i-carbon-chart-area-smooth
-    - title: 关联式导航
-      details: 每个一级导航可绑定对应的二级导航，一级导航和二级导航支持绑定相应的侧边栏，形成清晰的导航结构
+    - title: $locale:nova.home.features.cards.nav.title
+      details: $locale:nova.home.features.cards.nav.details
       icon: i-carbon-menu
-    - title: 版本控制与历史记录
-      details: 集成 `valaxy-addon-git-log`，支持显示贡献者信息，查看不同版本的更改记录以及历史内容，便于追踪内容演变
+    - title: $locale:nova.home.features.cards.git.title
+      details: $locale:nova.home.features.cards.git.details
       icon: i-carbon-version
-    - title: 简洁和现代
-      details: 页面设计极其简约，强调内容和信息的可读性，去除多余装饰，采用大量留白以突出主要内容
+    - title: $locale:nova.home.features.cards.minimal.title
+      details: $locale:nova.home.features.cards.minimal.details
       icon: i-carbon-clean
-    - title: 灵活
-      details: 用户可以根据需求定制组件，并进行自由配置，满足个性化使用场景
+    - title: $locale:nova.home.features.cards.flexible.title
+      details: $locale:nova.home.features.cards.flexible.details
       icon: i-carbon-settings
-    - title: 微动画
-      details: 使用 subtle 的悬停动画和交互反馈，动画过渡流畅而不分散注意力
+    - title: $locale:nova.home.features.cards.motion.title
+      details: $locale:nova.home.features.cards.motion.details
       icon: i-carbon-movement
 
 featuredArticles:
-  subtitle: 精选文章
-  title: 探索我们的热门内容
-  description: 这些精选文章展示了 Nova 主题的强大功能和灵活性，帮助您快速了解如何充分利用这个主题。
+  subtitle: $locale:nova.home.featured.subtitle
+  title: $locale:nova.home.featured.title
+  description: $locale:nova.home.featured.description
 
   articles:
-    - title: 快速开始
-      tags: ["指南", "入门"]
+    - title: $locale:nova.home.featured.articles.start.title
+      tags:
+        - $locale:nova.home.featured.articles.start.tag1
+        - $locale:nova.home.featured.articles.start.tag2
       path: /guide/getting-started/installation
-      excerpt: 了解如何快速设置和配置 Nova 主题，开始构建您的文档或博客网站。
-    - title: Markdown 写作
-      tags: ["写作", "语法"]
+      excerpt: $locale:nova.home.featured.articles.start.excerpt
+    - title: $locale:nova.home.featured.articles.md.title
+      tags:
+        - $locale:nova.home.featured.articles.md.tag1
+        - $locale:nova.home.featured.articles.md.tag2
       path: /guide/writing/markdown
-      excerpt: 掌握 Markdown 语法和扩展功能，轻松创建格式丰富的内容，提升文档的可读性和美观度。
-    - title: 导航配置
-      tags: ["配置", "导航"]
+      excerpt: $locale:nova.home.featured.articles.md.excerpt
+    - title: $locale:nova.home.featured.articles.navCfg.title
+      tags:
+        - $locale:nova.home.featured.articles.navCfg.tag1
+        - $locale:nova.home.featured.articles.navCfg.tag2
       path: /reference/theme-config/nav
-      excerpt: 学习如何配置网站的导航结构，创建清晰的信息层次，帮助用户轻松浏览您的内容。
+      excerpt: $locale:nova.home.featured.articles.navCfg.excerpt
 
 contributors:
-  subtitle: 贡献者
-  title: 感谢所有贡献者
-  text: 已获得 MIT 许可，并且将始终免费且开源。感谢 GitHub上的所有贡献者！
+  subtitle: $locale:nova.home.contributors.subtitle
+  title: $locale:nova.home.contributors.title
+  text: $locale:nova.home.contributors.text
 
 getStarted:
-  title: 开始使用 Nova 主题
-  text: 准备好体验一个能够跟上您思维速度的开发环境，打造美观、高效的文档和博客网站。
+  title: $locale:nova.home.getStarted.title
+  text: $locale:nova.home.getStarted.text
   actions:
-    - text: 开始使用
+    - text: $locale:nova.home.getStarted.action
       link: /guide/getting-started/installation
   cards:
     - img: https://vite.dev/logo.svg
-      alt: Vite Logo
+      alt: $locale:nova.home.cardsAlt.vite
       color: 'hsla(231, 100%, 79%, 0.55)'
     - img: /favicon.svg
-      alt: Vite Logo
+      alt: $locale:nova.home.cardsAlt.favicon
       color: 'hsla(174, 80%, 51%, 0.55)'
     - img: https://valaxy.site/valaxy-logo.png
-      alt: Valaxy Logo
+      alt: $locale:nova.home.cardsAlt.valaxy
       color: 'hsla(271, 76%, 53%, 0.55)'
 ---

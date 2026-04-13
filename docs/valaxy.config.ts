@@ -10,61 +10,61 @@ export default defineConfig<ThemeConfig>({
   themeConfig: {
 
     logo: false,
-    navTitle: pkg.name,
+    navTitle: '$locale:nova.nav.brand',
 
     nav: [
       {
-        text: '主页',
+        locale: 'nova.nav.home',
         link: '/',
       },
       {
-        text: '指南',
+        locale: 'nova.nav.guide',
         link: '/guide',
         sidebar: ['getting-started', 'writing'],
         subNav: [
           {
-            text: '安装',
+            locale: 'nova.navSub.installation',
             link: '/guide/getting-started/installation',
           },
           {
-            text: '更新',
+            locale: 'nova.navSub.update',
             link: '/guide/getting-started/update',
           },
           {
-            text: '资源处理',
+            locale: 'nova.navSub.assetHandling',
             link: '/guide/writing/asset-handling',
           },
           {
-            text: 'Frontmatter',
+            locale: 'nova.navSub.frontmatter',
             link: '/guide/writing/frontmatter',
           },
           {
-            text: '国际化',
+            locale: 'nova.navSub.i18n',
             link: '/guide/writing/i18n',
           },
           {
-            text: 'Markdown',
+            locale: 'nova.navSub.markdown',
             link: '/guide/writing/markdown',
           },
         ],
       },
       {
-        text: '参考',
+        locale: 'nova.nav.reference',
         link: '/reference',
         sidebar: ['reference', 'themeConfig'],
         subNav: [
           {
-            text: '站点配置',
+            locale: 'nova.navSub.siteConfig',
             link: '/reference/site-config',
             sidebar: ['siteConfig'],
           },
           {
-            text: 'frontmatter 配置',
+            locale: 'nova.navSub.frontmatterConfig',
             link: '/reference/frontmatter-config',
             sidebar: ['frontmatter-config'],
           },
           {
-            text: '主题配置',
+            locale: 'nova.navSub.themeConfig',
             link: '/reference/theme-config',
             sidebar: ['themeConfig'],
           },
@@ -75,7 +75,7 @@ export default defineConfig<ThemeConfig>({
         link: 'https://github.com/WRXinYue/valaxy-theme-nova/releases',
       },
       {
-        text: '关于',
+        locale: 'nova.nav.about',
         link: '/about',
       },
     ],
@@ -90,21 +90,9 @@ export default defineConfig<ThemeConfig>({
     ],
 
     hero: {
-      title: 'VALAXY THEME NOVA',
-      motto: '简约、高雅的 Valaxy 文档主题',
+      title: '$locale:nova.hero.title',
+      motto: '$locale:nova.hero.motto',
     },
-
-    // sidebar: [
-    //   'getting-started',
-    //   'guide',
-    //   'config',
-    //   'theme',
-    //   'styles',
-    //   'layouts',
-    //   'examples',
-    //   'releases',
-    //   'dev',
-    // ],
 
     footer: {
       since: 2024,

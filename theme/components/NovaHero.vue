@@ -1,12 +1,17 @@
 <script setup lang="ts">
+import type { FmLocaleString } from '../types'
 import { useAppStore } from 'valaxy'
 import { computed } from 'vue'
-import { useThemeConfig } from '../composables'
+import { useFmLocaleString, useThemeConfig } from '../composables'
 import NovaHeroParticles from './NovaHeroParticles.vue'
 import NovaHeroPrismCanvas from './NovaHeroPrismCanvas.vue'
 
 const appStore = useAppStore()
 const themeConfig = useThemeConfig()
+const { fmT } = useFmLocaleString()
+
+const heroTitle = computed(() => fmT(themeConfig.value.hero?.title as FmLocaleString | undefined))
+const heroMotto = computed(() => fmT(themeConfig.value.hero?.motto as FmLocaleString | undefined))
 
 const heroImg = computed(() => {
   const img = themeConfig.value.hero.img
@@ -29,10 +34,7 @@ const showPrismDark = computed(() => showPrism.value && appStore.isDark)
 
 const showLightStripes = computed(() => !appStore.isDark && !heroImg.value)
 
-const lightHeroTitle = computed(() => {
-  const t = themeConfig.value.hero?.title
-  return typeof t === 'string' ? t : ''
-})
+const lightHeroTitle = computed(() => heroTitle.value)
 
 const heroBgStyle = computed(() =>
   heroImg.value ? { backgroundImage: `url(${heroImg.value})` } : undefined,
@@ -94,7 +96,7 @@ const heroClass = computed(() => ({
           :aria-hidden="i === 1 ? true : undefined"
         >
           <slot name="intro-text">
-            {{ themeConfig.hero.title }}
+            {{ heroTitle }}
           </slot>
         </p>
       </div>
@@ -104,18 +106,18 @@ const heroClass = computed(() => ({
         :data-text="lightHeroTitle"
       >
         <slot name="intro-text">
-          {{ themeConfig.hero.title }}
+          {{ heroTitle }}
         </slot>
       </p>
       <p v-else class="hero-title">
         <slot name="intro-text">
-          {{ themeConfig.hero.title }}
+          {{ heroTitle }}
         </slot>
       </p>
 
       <p class="hero-motto">
         <slot name="muted-text">
-          {{ themeConfig.hero.motto }}
+          {{ heroMotto }}
         </slot>
       </p>
     </div>

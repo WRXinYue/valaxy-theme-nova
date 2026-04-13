@@ -1,6 +1,7 @@
 ---
-title: Frontmatter
-title_zh-CN: Frontmatter
+title:
+  en: Frontmatter
+  zh-CN: Frontmatter
 categories:
   - writing
 end: true

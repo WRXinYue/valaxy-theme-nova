@@ -1,6 +1,7 @@
 ---
-title: Guide
-title_zh-CN: 指南
+title:
+  en: Guide
+  zh-CN: 指南
 end: true
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Reference
-title_zh-CN: 参考
+title:
+  en: Reference
+  zh-CN: 参考
 end: true
 ---

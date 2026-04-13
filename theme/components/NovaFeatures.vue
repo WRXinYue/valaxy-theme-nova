@@ -1,21 +1,23 @@
 <script setup lang="ts">
+import type { FmLocaleString } from '../composables'
 import { useFrontmatter } from 'valaxy'
 import { ref } from 'vue'
-import { useHomeSectionReveal } from '../composables'
+import { useFmLocaleString, useHomeSectionReveal } from '../composables'
 
 const fm = useFrontmatter<{ features: Features }>()
+const { fmT } = useFmLocaleString()
 const sectionRef = ref<HTMLElement | null>(null)
 const { isRevealed } = useHomeSectionReveal(sectionRef)
 
 export type Features = Partial<{
-  title: string
-  subtitle: string
-  text: string
+  title: FmLocaleString
+  subtitle: FmLocaleString
+  text: FmLocaleString
 
   cards: Partial<{
-    title: string
+    title: FmLocaleString
     icon: string
-    details: string
+    details: FmLocaleString
   }[]>
 }>
 </script>
@@ -32,14 +34,14 @@ export type Features = Partial<{
     <div class="nova-home-container">
       <header class="features-header" p="t-60px">
         <h3 class="subtitle">
-          {{ fm.features?.subtitle }}
+          {{ fmT(fm.features?.subtitle) }}
         </h3>
         <h2 class="title">
-          <span>{{ fm.features?.title }}</span>
+          <span>{{ fmT(fm.features?.title) }}</span>
         </h2>
         <div class="text">
           <p>
-            {{ fm.features?.text }}
+            {{ fmT(fm.features?.text) }}
           </p>
         </div>
       </header>
@@ -53,11 +55,11 @@ export type Features = Partial<{
                   <div v-if="card?.icon || card?.title" class="feature-card-top">
                     <span v-if="card?.icon" class="feature-icon" :class="card.icon" />
                     <h3 v-if="card?.title" class="feature-title">
-                      {{ card.title }}
+                      {{ fmT(card.title) }}
                     </h3>
                   </div>
                   <p v-if="card?.details" class="feature-details">
-                    {{ card.details }}
+                    {{ fmT(card.details) }}
                   </p>
                 </div>
               </div>
